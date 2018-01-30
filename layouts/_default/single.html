@@ -3,52 +3,13 @@
 {{ end }}
 
 {{ define "main" }}
-<article class='post post-full'>
+<article class='page'>
     <header>
         <h1 class='title'>{{ .Title }}</h1>
         {{ with .Description }}
         <h2 class='description'>{{ . }}</h2>
         {{ end }}
-        <section class='metadata'>
-            <time class="published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "January 2, 2006" }}</time>
-            {{ .Site.Params.tokenSeperator | markdownify }}
-            {{ .WordCount }} Words
-            {{ .Site.Params.tokenSeperator | markdownify }}
-            {{ .ReadingTime }} minute read
-        </section>
     </header>
     {{ .Content }}
-    <footer>
-        {{ if isset .Params "tags" }}
-        <ul class="metadata">
-            {{ range $tag := .Params.tags }}
-            <li><a href="/tags/{{ $tag | urlize }}" title="View all posts tagged '{{ $tag }}'">{{ $tag }}</a></li>
-            {{ end }}
-        </ul>
-        {{ end }}
-
-        <!-- {{ partial "social/share" . }} -->
-
-        {{ $related := .Site.RegularPages.Related . | first 4 }}
-        {{ with $related }}
-        <nav class="related node">
-            <h2>Related Content</h2>
-            <ul>
-                {{ range . }}
-                <li>
-                    <h3 class="title">
-                        <a class="next" href="{{ .RelPermalink }}">
-                            {{ .Title }}
-                        </a>
-                    </h3>
-                    {{ with .Description }}
-                    <h4 class="description">{{ . }}</h4>
-                    {{ end }}
-                </li>
-                {{ end }}
-            </ul>
-            {{ end }}
-        </nav>
-    </footer>
 </article>
 {{ end }}
