@@ -1,0 +1,13 @@
+{{ define "main" }}
+    {{ $paginator := .Paginate .Data.Pages }}
+    {{ range .Paginator.Pages }}
+    <article class='post'>
+        <header>
+            <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+            {{ with .Description }}
+                <p>{{ . }}</p>
+            {{ end }}
+        </header>
+    </article>
+    {{ end }}
+{{ end }}

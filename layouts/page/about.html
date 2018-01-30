@@ -1,0 +1,28 @@
+{{ define "title" }}
+    About {{ .Site.Params.tokenSeperator | markdownify }} {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<article class='page'>
+    <header>
+        <h1 class='title'>{{ .Title }}</h1>
+        {{ with .Description }}
+        <h2 class='description'>{{ . }}</h2>
+        {{ end }}
+    </header>
+    {{ .Content }}
+
+    <footer>
+        <section class='metadata'>
+            <div class='email'>
+                <a href="https://twitter.com/Disgone">
+                    <svg class="icon" width="24" height="24"><use xlink:href="#twitter"></use></svg>
+                </a>
+            </div>
+        </section>
+    [disgone@gmail.com](mailto:disgone@disgone.com)
+
+    [Github](https://github.com/Disgone)
+    </footer>
+</article>
+{{ end }}

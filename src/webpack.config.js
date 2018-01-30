@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const fontMagician = require('postcss-font-magician');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
@@ -22,7 +21,7 @@ const cleanBuild = new CleanPlugin([
 
 const extractCSS = new ExtractTextPlugin({
     filename: getPath =>
-        getPath('css/[name].[contenthash].css').replace('css', '../css')
+        getPath('css/[name].css').replace('css', '../css')
 });
 
 /* Config */
@@ -51,10 +50,6 @@ const config = {
                         plugins: [
                             autoprefixer({
                                 browsers: ['> 1%', 'last 2 versions']
-                            }),
-                            fontMagician({
-                                foundries: ['google'],
-                                display: 'swap'
                             })
                         ]
                     }
