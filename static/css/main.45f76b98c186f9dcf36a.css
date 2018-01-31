@@ -592,6 +592,9 @@ article figcaption {
 article figcaption :last-child {
   margin-bottom: 0;
 }
+.page > header {
+  margin-bottom: 1rem;
+}
 .page > header > * + * {
   margin-top: 1rem;
 }
