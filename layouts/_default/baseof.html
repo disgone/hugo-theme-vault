@@ -41,8 +41,6 @@
             </div>
         </div>
     </footer>
-    {{ if (isset .Site "googleAnalytics") }}
-        {{ partial "ga_async.html" .Site.googleAnalytics }}
-    {{ end }}
+    {{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
