@@ -7,7 +7,7 @@
         <section class="archive group">
             <h1 class="group-title">Latest Posts</h1>
             {{ $postcount := (default 5 .Site.Params.latestposts) }}
-            {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
+            {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") $postcount }}
             {{ range (first $postcount .Paginator.Pages) }}
             <section class='teaser'>
                 <time class="metadata published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "January 2, 2006" }}</time>

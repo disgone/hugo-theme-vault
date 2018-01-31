@@ -3,6 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
+{{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
 <article class='post page'>
     <header>
         <h1 class='title'>{{ .Title }}</h1>
@@ -10,7 +11,7 @@
         <h2 class='description'>{{ . }}</h2>
         {{ end }}
         <section class='metadata'>
-            <time class="published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "January 2, 2006" }}</time>
+            <time class="published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format $dateFormat }}</time>
             {{ .Site.Params.tokenSeperator | markdownify }}
             {{ .WordCount }} Words
             {{ .Site.Params.tokenSeperator | markdownify }}
@@ -22,30 +23,14 @@
 
     <footer>
         {{ if isset .Params "tags" }}
-        <ul class="metadata">
-            {{ range $tag := .Params.tags }}
-            <li><a href="/tags/{{ $tag | urlize }}" title="View all posts tagged '{{ $tag }}'">{{ $tag }}</a></li>
-            {{ end }}
-        </ul>
+            {{ .Render "tags" }}
         {{ end }}
 
-        <!-- {{ partial "social/share" . }} -->
-
-        {{ $related := .Site.RegularPages.Related . | first 3 }}
-        {{ with $related }}
-        <nav class="related group">
-            <h2 class="group-title">Related Content</h2>
-            {{ range . }}
-            <section class='teaser'>
-                <time class="metadata published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "January 2, 2006" }}</time>
-                <h2 class='title'><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                {{ with .Description }}
-                    <h3 class='description'>{{ . }}</h3>
-                {{ end }}
-            </section>
-            {{ end }}
+        {{ if isset .Params "categories" }}
+            {{ .Render "categories" }}
         {{ end }}
-        </nav>
+
+        {{ .Render "related" }}
     </footer>
 </article>
 {{ end }}

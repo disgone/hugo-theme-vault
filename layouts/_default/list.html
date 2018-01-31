@@ -3,6 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
+    {{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
     <section class="archive">
         <header>
             <h1 class="title">Blog Archive</h1>
@@ -16,13 +17,14 @@
             {{ $paginator := .Paginate .Data.Pages }}
             {{ range .Paginator.Pages }}
             <section class='teaser'>
-                <time class="metadata published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "January 2, 2006" }}</time>
+                <time class="metadata published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format $dateFormat }}</time>
                 <h2 class='title'><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                 {{ with .Description }}
                     <h3 class='description'>{{ . }}</h3>
                 {{ end }}
             </section>
             {{ end }}
+            {{ partial "pagination.html" $paginator }}
         </div>
     </section>
 {{ end }}

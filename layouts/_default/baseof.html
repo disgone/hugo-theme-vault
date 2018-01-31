@@ -35,6 +35,8 @@
     <footer id="site-footer">
         <div class="wrapper">
             <div class="content">
+                {{ block "footer" . }}
+                {{ end }}
                 <p class='copyright'>&copy; {{ .Site.Params.copyright }}</p>
             </div>
         </div>
