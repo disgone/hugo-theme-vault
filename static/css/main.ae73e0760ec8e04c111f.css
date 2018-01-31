@@ -453,21 +453,6 @@ main {
 .content {
   margin: 0 5%;
 }
-#site-footer {
-  background-color: #475c6b;
-  color: #F1EEE4;
-  padding: 2em 0;
-}
-#site-footer::before {
-  background-color: #475c6b;
-  content: "";
-  height: calc(100vh - 2em);
-  left: 0;
-  position: absolute;
-  top: 2em;
-  width: 100%;
-  z-index: -1;
-}
 #site-header {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   text-align: right;
@@ -485,6 +470,30 @@ main {
 }
 #site-header .branding {
   float: left;
+}
+#site-footer {
+  background-color: #475c6b;
+  color: #F1EEE4;
+  padding: 2em 0;
+}
+#site-footer::before {
+  background-color: #475c6b;
+  content: "";
+  height: calc(100vh - 2em);
+  left: 0;
+  position: absolute;
+  top: 2em;
+  width: 100%;
+  z-index: -1;
+}
+#site-footer a:link,
+#site-footer a:visited {
+  border-bottom: 0.15rem solid #7590a3;
+  color: #7590a3;
+}
+#site-footer a:hover,
+#site-footer a:active {
+  color: #FF668C;
 }
 .description {
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
@@ -583,7 +592,7 @@ article figcaption {
 article figcaption :last-child {
   margin-bottom: 0;
 }
-.page article > header > * + * {
+.page > header > * + * {
   margin-top: 1rem;
 }
 .page article strong {
