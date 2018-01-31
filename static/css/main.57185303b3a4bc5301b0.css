@@ -560,14 +560,13 @@ article blockquote {
 }
 article figure {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-}
-article figure.std {
   margin: 1.5rem 0;
 }
-@media only screen and (min-width: 480px) {
-  article figure.std {
+@media only screen and (min-width: 768px) {
+  article figure.small {
     float: right;
     margin: 0 0 1.5rem 1.5rem;
+    max-width: 45%;
   }
 }
 article figure > * {
@@ -577,11 +576,6 @@ article figure > * {
 }
 article figure img {
   width: 100%;
-}
-@media only screen and (min-width: 480px) {
-  article figure img {
-    width: auto;
-  }
 }
 article figcaption {
   background-color: transparent;
