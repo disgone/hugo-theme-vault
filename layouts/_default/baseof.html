@@ -40,7 +40,9 @@
                 <p class='copyright'>&copy; {{ .Site.Params.copyright }}</p>
             </div>
         </div>
-     </div>
     </footer>
+    {{ if (isset .Site "googleAnalytics") }}
+        {{ partial "ga_async.html" .Site.googleAnalytics }}
+    {{ end }}
 </body>
 </html>

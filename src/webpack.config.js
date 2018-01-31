@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin')
 
 const define = new webpack.DefinePlugin({
     'process.env': {
@@ -21,7 +22,22 @@ const cleanBuild = new CleanPlugin([
 
 const extractCSS = new ExtractTextPlugin({
     filename: getPath =>
-        getPath('css/[name].css').replace('css', '../css')
+        getPath('css/[name].[hash].css').replace('css', '../css')
+});
+
+const assetsManifest = new AssetsPlugin({
+    filename: 'assets.json',
+    path: path.join(__dirname, '../data'),
+    fullPath: false,
+    processOutput: assets => {
+        Object.keys(assets).forEach(bundle => {
+            Object.keys(assets[bundle]).forEach(type => {
+                let filename = assets[bundle][type]
+                assets[bundle][type] = filename.slice(filename.indexOf(bundle))
+            })
+        })
+        return JSON.stringify(assets, null, 2)
+    }
 });
 
 /* Config */
@@ -66,7 +82,8 @@ const config = {
     plugins: [
         define,
         cleanBuild,
-        extractCSS
+        extractCSS,
+        assetsManifest
     ]
 }
 
