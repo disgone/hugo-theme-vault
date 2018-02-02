@@ -130,7 +130,7 @@ table {
 }
 .chroma {
   color: #f8f8f2;
-  background-color: #475c6b;
+  background-color: #122D51;
 }
 .chroma .err {
   color: #960050;
@@ -336,8 +336,8 @@ html {
   }
 }
 body {
-  background-color: #FF668C;
-  color: #475c6b;
+  background-color: #CE9F54;
+  color: #122D51;
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
           font-feature-settings: "kern", "liga", "clig", "calt";
@@ -364,8 +364,8 @@ p {
 }
 a:link,
 a:visited {
-  border-bottom: 0.15rem solid #FF668C;
-  color: #475c6b;
+  border-bottom: 0.15rem solid #CE9F54;
+  color: #122D51;
   outline: none;
   text-decoration: none;
   -webkit-transition: 0.2s;
@@ -373,7 +373,7 @@ a:visited {
 }
 a:hover,
 a:active {
-  color: #FF668C;
+  color: #CE9F54;
 }
 a.goog:hover,
 a.goog:active {
@@ -427,7 +427,7 @@ img {
   display: block;
 }
 hr {
-  border-bottom: 1px solid #7590a3;
+  border-bottom: 1px solid #255ba4;
   border-width: 0 0 .1rem 0;
   margin: 1.5rem 0;
 }
@@ -437,9 +437,30 @@ em {
 strong {
   font-weight: 700;
 }
+sup,
+sub {
+  font-size: .75rem;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.5em;
+}
 main {
   padding: 2em 0;
   position: relative;
+}
+::-moz-selection {
+  background: #CE9F54;
+  color: #F5F4F2;
+}
+::selection {
+  background: #CE9F54;
+  color: #F5F4F2;
 }
 .wrapper-outer {
   background-color: #F5F4F2;
@@ -462,7 +483,7 @@ main {
   border-bottom: none;
 }
 #site-header a:hover {
-  border-bottom: 0.15rem solid #FF668C;
+  border-bottom: 0.15rem solid #CE9F54;
 }
 #site-header li {
   display: inline;
@@ -472,12 +493,12 @@ main {
   float: left;
 }
 #site-footer {
-  background-color: #475c6b;
+  background-color: #122D51;
   color: #F1EEE4;
   padding: 2em 0;
 }
 #site-footer::before {
-  background-color: #475c6b;
+  background-color: #122D51;
   content: "";
   height: calc(100vh - 2em);
   left: 0;
@@ -488,12 +509,12 @@ main {
 }
 #site-footer a:link,
 #site-footer a:visited {
-  border-bottom: 0.15rem solid #7590a3;
-  color: #7590a3;
+  border-bottom: 0.15rem solid #255ba4;
+  color: #255ba4;
 }
 #site-footer a:hover,
 #site-footer a:active {
-  color: #FF668C;
+  color: #CE9F54;
 }
 .description {
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
@@ -503,7 +524,7 @@ main {
   line-height: 1.5rem;
 }
 .metadata {
-  color: #7590a3;
+  color: #255ba4;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
 }
@@ -543,7 +564,7 @@ article li > ol {
   margin: 0 0 0 1.5rem;
 }
 article li::before {
-  color: #7590a3;
+  color: #255ba4;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   font-weight: normal;
   left: -5em;
@@ -553,7 +574,7 @@ article li::before {
   width: 5em;
 }
 article blockquote {
-  border-left: 0.1rem solid #7590a3;
+  border-left: 0.1rem solid #255ba4;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   padding-left: 1rem;
   margin-left: -1rem;
@@ -647,11 +668,11 @@ article figcaption :last-child {
 }
 .post footer .metadata li a:link,
 .post footer .metadata li a:visited {
-  color: #7590a3;
+  color: #255ba4;
 }
 .post footer .metadata li a:hover,
 .post footer .metadata li a:active {
-  color: #FF668C;
+  color: #CE9F54;
 }
 @media only screen and (min-width: 992px) {
   .browse {
@@ -663,7 +684,7 @@ article figcaption :last-child {
   }
 }
 .teaser {
-  border-top: 1px solid #7590a3;
+  border-top: 1px solid #255ba4;
   padding: .5rem 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -681,13 +702,13 @@ article figcaption :last-child {
   border-bottom: none;
 }
 .group {
-  border-color: #475c6b;
+  border-color: #122D51;
   border-style: solid;
   border-width: .125rem 0 0;
   margin-top: 2rem;
 }
 .group .group-title {
-  color: #475c6b;
+  color: #122D51;
   font-size: 0.8rem;
   margin: 0;
   padding: .325rem 0;
@@ -709,7 +730,7 @@ article figcaption :last-child {
   }
 }
 .fl-list li > a {
-  border-top: 1px solid #7590a3;
+  border-top: 1px solid #255ba4;
   display: block;
   padding: 5px 5px 5px 0;
   position: relative;
