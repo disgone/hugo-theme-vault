@@ -326,22 +326,22 @@ table {
   box-sizing: border-box;
 }
 html {
-  font-size: 110%;
+  font-size: 112.5%;
 }
 @media only screen and (min-width: 992px) {
   html {
-    font-size: 120%;
+    font-size: 125%;
   }
 }
 body {
-  background-color: #CE9F54;
+  background-color: #03C9F0;
   color: #122D51;
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
           font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-kerning: normal;
           font-kerning: normal;
-  font-size: 100%;
+  font-size: 1em;
   -webkit-font-variant-ligatures: common-ligatures contextual;
           font-variant-ligatures: common-ligatures contextual;
   line-height: 1.5;
@@ -355,14 +355,14 @@ h5,
 h6 {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  margin: 1.5rem 0 0.3rem 0;
+  margin: 1.5rem 0 .345rem 0;
 }
 p {
   margin-bottom: 1.5rem;
 }
 a:link,
 a:visited {
-  border-bottom: 0.15rem solid #CE9F54;
+  border-bottom: 0.15rem solid #03C9F0;
   color: #122D51;
   outline: none;
   text-decoration: none;
@@ -371,7 +371,7 @@ a:visited {
 }
 a:hover,
 a:active {
-  color: #CE9F54;
+  color: #03C9F0;
 }
 a.goog:hover,
 a.goog:active {
@@ -399,7 +399,7 @@ code {
   font-size: .9rem;
 }
 pre {
-  background-color: #614e65;
+  background-color: #122D51;
   margin: 1rem 0;
   overflow-x: scroll;
   padding: 2%;
@@ -453,11 +453,11 @@ main {
   position: relative;
 }
 ::-moz-selection {
-  background: #CE9F54;
+  background: #03C9F0;
   color: #F5F4F2;
 }
 ::selection {
-  background: #CE9F54;
+  background: #03C9F0;
   color: #F5F4F2;
 }
 .wrapper-outer {
@@ -481,7 +481,7 @@ main {
   border-bottom: none;
 }
 #site-header a:hover {
-  border-bottom: 0.15rem solid #CE9F54;
+  border-bottom: 0.15rem solid #03C9F0;
 }
 #site-header li {
   display: inline;
@@ -492,7 +492,7 @@ main {
 }
 #site-footer {
   background-color: #122D51;
-  color: #F1EEE4;
+  color: #9360E4;
   padding: 2em 0;
 }
 #site-footer::before {
@@ -512,7 +512,7 @@ main {
 }
 #site-footer a:hover,
 #site-footer a:active {
-  color: #CE9F54;
+  color: #03C9F0;
 }
 .description {
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
@@ -524,7 +524,7 @@ main {
 .metadata {
   color: #255ba4;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 .icon {
   width: 1rem;
@@ -581,13 +581,6 @@ article figure {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
   margin: 1.5rem 0;
 }
-@media only screen and (min-width: 768px) {
-  article figure.small {
-    float: right;
-    margin: 0 0 1.5rem 1.5rem;
-    max-width: 45%;
-  }
-}
 article figure > * {
   display: block;
   background-color: #FFF;
@@ -598,7 +591,7 @@ article figure img {
 }
 article figcaption {
   background-color: transparent;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-top: .75rem;
   padding: 0;
 }
@@ -635,7 +628,7 @@ article figcaption :last-child {
   margin-bottom: 0;
 }
 .page article figcaption {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-top: 1em;
   padding: 0;
 }
@@ -670,19 +663,35 @@ article figcaption :last-child {
 }
 .post footer .metadata li a:hover,
 .post footer .metadata li a:active {
-  color: #CE9F54;
+  color: #03C9F0;
 }
 @media only screen and (min-width: 992px) {
   .browse {
     display: grid;
     grid-template-columns: 55% auto 40%;
   }
-  .browse .metadata {
+  .browse .taxonomy {
     grid-column: 3;
+  }
+  .dual {
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-columns: 50fr 50fr;
+    grid-auto-flow: column;
+  }
+  .dual figure {
+    margin: 0;
+    max-width: 100%;
+  }
+  .small {
+    float: right;
+    margin: 0 0 1rem 1rem;
+    max-width: 50%;
   }
 }
 .teaser {
   border-top: 1px solid #255ba4;
+  font-size: 1rem;
   padding: .5rem 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -699,6 +708,9 @@ article figcaption :last-child {
 .teaser a {
   border-bottom: none;
 }
+.teaser time {
+  font-size: 0.85rem;
+}
 .group {
   border-color: #122D51;
   border-style: solid;
@@ -707,7 +719,6 @@ article figcaption :last-child {
 }
 .group .group-title {
   color: #122D51;
-  font-size: 0.8rem;
   margin: 0;
   padding: .325rem 0;
   text-transform: uppercase;
@@ -746,7 +757,7 @@ article figcaption :last-child {
 }
 .copyright {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 .social svg {
   height: 1.5rem;

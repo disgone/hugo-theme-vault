@@ -13,7 +13,7 @@ html {
     font-size: @font-size;
 
     .screen-lrg({
-        font-size: @font-size + 10%;
+        font-size: @font-size + 12.5%;
     });
 }
 
@@ -23,7 +23,7 @@ body {
     font-family: @font-family-serif;
     font-feature-settings: "kern", "liga", "clig", "calt";
     font-kerning: normal;
-    font-size: 100%;
+    font-size: 1em;
     font-variant-ligatures: common-ligatures contextual;
     line-height: @line-height;
     text-rendering: optimizeLegibility;
@@ -32,7 +32,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: @font-family-sans;
     font-weight: 700;
-    margin: @margin 0 (@margin/5) 0;
+    margin: 1.5rem 0 .345rem 0;
 }
 
 p {
@@ -90,7 +90,7 @@ code {
 }
 
 pre {
-    background-color: #614e65;
+    background-color: @alt-color;
     margin: 1rem 0;
     overflow-x: scroll;
     padding: 2%;
@@ -315,14 +315,6 @@ article {
         font-family: @font-family-sans;
         margin: 1.5rem 0;
 
-        &.small {
-            .screen-medm({
-                float: right;
-                margin: 0 0 1.5rem 1.5rem;
-                max-width: 45%;
-            });
-        }
-
         & > * {
             display: block;
             background-color: #FFF;
@@ -440,19 +432,38 @@ article {
     }
 }
 
-.browse {
-    .screen-lrg({
+.screen-lrg({
+    .browse {
         display: grid;
         grid-template-columns: 55% auto 40%;
 
-        .metadata {
+        .taxonomy {
             grid-column: 3;
         }
-    })
-}
+    }
+
+    .dual {
+        display: grid;
+        grid-gap: 1rem;
+        grid-auto-columns: 50fr 50fr;
+        grid-auto-flow: column;
+
+        figure {
+            margin: 0;
+            max-width: 100%;
+        }
+    }
+
+    .small {
+        float: right;
+        margin: 0 0 1rem 1rem;
+        max-width: 50%;
+    }
+});
 
 .teaser {
     border-top: 1px solid @alt-light;
+    font-size: 1rem;
     padding: .5rem 0;
 
     .screen-med({
@@ -472,6 +483,10 @@ article {
     a {
         border-bottom: none;
     }
+
+    time {
+        font-size: @font-size-small;
+    }
 }
 
 .group {
@@ -482,7 +497,6 @@ article {
 
     .group-title {
         color: @font-color;
-        font-size: @font-size-small;
         margin: 0;
         padding: .325rem 0;
         text-transform: uppercase;

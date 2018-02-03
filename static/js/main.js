@@ -71,9 +71,7 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__less_site_less__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__less_site_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__less_site_less__);
-throw new Error("Cannot find module \"../less/themes/rustic.less\"");
 /*jshint esversion: 6 */
-
 
 
 /***/ }),
