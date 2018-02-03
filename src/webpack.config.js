@@ -1,9 +1,10 @@
+/*jshint esversion: 6 */
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
-const AssetsPlugin = require('assets-webpack-plugin')
+const AssetsPlugin = require('assets-webpack-plugin');
 
 const define = new webpack.DefinePlugin({
     'process.env': {
@@ -21,8 +22,7 @@ const cleanBuild = new CleanPlugin([
 });
 
 const extractCSS = new ExtractTextPlugin({
-    filename: getPath =>
-        getPath('css/[name].[hash].css').replace('css', '../css')
+    filename: getPath => getPath('css/[name].[contenthash].css').replace('css', '../css')
 });
 
 const assetsManifest = new AssetsPlugin({
@@ -32,11 +32,11 @@ const assetsManifest = new AssetsPlugin({
     processOutput: assets => {
         Object.keys(assets).forEach(bundle => {
             Object.keys(assets[bundle]).forEach(type => {
-                let filename = assets[bundle][type]
-                assets[bundle][type] = filename.slice(filename.indexOf(bundle))
-            })
-        })
-        return JSON.stringify(assets, null, 2)
+                let filename = assets[bundle][type];
+                assets[bundle][type] = filename.slice(filename.indexOf(bundle));
+            });
+        });
+        return JSON.stringify(assets, null, 2);
     }
 });
 
@@ -52,27 +52,24 @@ const config = {
     module: {
         rules: [{
             test: /\.less$/,
-            include: path.resolve(__dirname, 'css'),
-            loader: extractCSS.extract({
+            use: extractCSS.extract({
                 use: [{
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 1
-                    }
+                    loader: "css-loader"
                 },
                 {
-                    loader: 'postcss-loader',
+                    loader: "postcss-loader",
                     options: {
                         plugins: [
                             autoprefixer({
-                                browsers: ['> 1%', 'last 2 versions']
+                                browsers: ["> 1%", "last 2 versions"]
                             })
                         ]
                     }
                 },
                 {
-                    loader: 'less-loader'
-                }]
+                    loader: "less-loader"
+                }],
+                fallback: "style-loader"
             })
         }]
     },
@@ -85,6 +82,6 @@ const config = {
         extractCSS,
         assetsManifest
     ]
-}
+};
 
 module.exports = config;

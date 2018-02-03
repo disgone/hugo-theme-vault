@@ -1,11 +1,11 @@
 name = "Vault"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
+licenselink = "https://github.com/Disgone/hugo-theme-vault"
 description = ""
 homepage = "https://www.disgone.com/"
-tags = []
+tags = ["responsive", "minimal"]
 features = []
-min_version = "0.32.2"
+min_version = "0.35"
 
 [author]
     name = "Shaun Smith"
