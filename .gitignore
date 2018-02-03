@@ -4,8 +4,6 @@
 ### Hugo ###
 hugo.exe
 /public/
-### Less ###
-*.less
 
 ### Node ###
 # Logs

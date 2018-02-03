@@ -22,13 +22,15 @@
     {{ .Content }}
 
     <footer>
-        {{ if isset .Params "tags" }}
-            {{ .Render "tags" }}
-        {{ end }}
+        <nav class="metadata taxonomy">
+            {{ if isset .Params "tags" }}
+                {{ .Render "tags" }}
+            {{ end }}
 
-        {{ if isset .Params "categories" }}
-            {{ .Render "categories" }}
-        {{ end }}
+            {{ if isset .Params "categories" }}
+                {{ .Render "categories" }}
+            {{ end }}
+        </nav>
 
         {{ .Render "related" }}
     </footer>

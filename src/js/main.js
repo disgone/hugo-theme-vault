@@ -1,1 +1,2 @@
-import styles from '../css/main.less';
+/*jshint esversion: 6 */
+import styles from '../less/site.less';
