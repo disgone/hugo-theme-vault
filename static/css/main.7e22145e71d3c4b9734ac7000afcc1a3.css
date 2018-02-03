@@ -393,6 +393,11 @@ a.fb:active {
   border-color: #3b5998;
   color: #3b5998;
 }
+a.stack:hover,
+a.stack:active {
+  border-color: #f48024;
+  color: #f48024;
+}
 pre,
 code {
   font-family: "Fira Mono", "Droid Sans Mono", "Source Code Pro", consolas, monospace;
@@ -507,7 +512,6 @@ main {
 }
 #site-footer a:link,
 #site-footer a:visited {
-  border-bottom: 0.15rem solid #255ba4;
   color: #255ba4;
 }
 #site-footer a:hover,
@@ -524,20 +528,7 @@ main {
 .metadata {
   color: #255ba4;
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
-}
-.icon {
-  width: 1rem;
-  height: 1rem;
-  vertical-align: middle;
-}
-.icon.left {
-  float: left;
-  margin-right: .5rem;
-}
-.icon.right {
-  float: right;
-  margin-left: .5rem;
+  font-size: 0.75rem;
 }
 article ol,
 article ul {
@@ -591,7 +582,7 @@ article figure img {
 }
 article figcaption {
   background-color: transparent;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   margin-top: .75rem;
   padding: 0;
 }
@@ -628,7 +619,7 @@ article figcaption :last-child {
   margin-bottom: 0;
 }
 .page article figcaption {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   margin-top: 1em;
   padding: 0;
 }
@@ -641,28 +632,28 @@ article figcaption :last-child {
 .post footer li::before {
   content: "";
 }
-.post footer .metadata {
+.post footer .taxonomy {
   text-transform: uppercase;
 }
-.post footer .metadata li {
+.post footer .taxonomy li {
   display: inline;
   position: relative;
 }
-.post footer .metadata li::after {
+.post footer .taxonomy li::after {
   content: ",";
 }
-.post footer .metadata li:last-child::after {
+.post footer .taxonomy li:last-child::after {
   content: "";
 }
-.post footer .metadata li a {
+.post footer .taxonomy li a {
   border-bottom: none;
 }
-.post footer .metadata li a:link,
-.post footer .metadata li a:visited {
+.post footer .taxonomy li a:link,
+.post footer .taxonomy li a:visited {
   color: #255ba4;
 }
-.post footer .metadata li a:hover,
-.post footer .metadata li a:active {
+.post footer .taxonomy li a:hover,
+.post footer .taxonomy li a:active {
   color: #03C9F0;
 }
 @media only screen and (min-width: 992px) {
@@ -683,7 +674,7 @@ article figcaption :last-child {
     margin: 0;
     max-width: 100%;
   }
-  .small {
+  figure.small {
     float: right;
     margin: 0 0 1rem 1rem;
     max-width: 50%;
@@ -709,7 +700,7 @@ article figcaption :last-child {
   border-bottom: none;
 }
 .teaser time {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 .group {
   border-color: #122D51;
@@ -757,15 +748,32 @@ article figcaption :last-child {
 }
 .copyright {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  font-size: 0.85rem;
-}
-.social svg {
-  height: 1.5rem;
-  width: 1.5rem;
+  font-size: 0.75rem;
 }
 .social a {
   border: none;
-  margin-right: 1rem;
+  margin-right: .25rem;
+}
+.icon {
+  height: 1rem;
+  width: 1rem;
+  vertical-align: middle;
+}
+.icon.large {
+  height: 2rem;
+  width: 2rem;
+}
+.icon.small {
+  height: .75rem;
+  width: .75rem;
+}
+.icon.left {
+  float: left;
+  margin-right: .25rem;
+}
+.icon.right {
+  float: right;
+  margin-left: .25rem;
 }
 .pagination {
   display: grid;

@@ -81,6 +81,11 @@ a {
         @color: rgba(59, 89, 152, 1);
         .hover(@color);
     }
+
+    &.stack {
+        @color: rgba(244, 128, 36, 1);
+        .hover(@color);
+    }
 }
 
 pre,
@@ -220,7 +225,6 @@ main {
     a {
         &:link,
         &:visited {
-            border-bottom: .15rem solid @alt-light;
             color: @alt-light;
         }
 
@@ -243,22 +247,6 @@ main {
     color: @alt-light;
     font-family: @font-family-sans;
     font-size: @font-size-small;
-}
-
-.icon {
-    width: 1rem;
-    height: 1rem;
-    vertical-align: middle;
-
-    &.left {
-        float: left;
-        margin-right: .5rem;
-    }
-
-    &.right {
-        float: right;
-        margin-left: .5rem;
-    }
 }
 
 article {
@@ -397,14 +385,12 @@ article {
             content: "";
         }
 
-        .metadata {
+        .taxonomy {
             text-transform: uppercase;
 
             li {
                 display: inline;
                 position: relative;
-
-
 
                 &::after {
                     content: ",";
@@ -454,7 +440,7 @@ article {
         }
     }
 
-    .small {
+    figure.small {
         float: right;
         margin: 0 0 1rem 1rem;
         max-width: 50%;
@@ -551,14 +537,35 @@ article {
 }
 
 .social {
-    svg {
-        height: 1.5rem;
-        width: 1.5rem;
-    }
-
     a {
         border: none;
-        margin-right: 1rem;
+        margin-right: .25rem;
+    }
+}
+
+.icon {
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+
+    &.large {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &.small {
+        height: .75rem;
+        width: .75rem;
+    }
+
+    &.left {
+        float: left;
+        margin-right: .25rem;
+    }
+
+    &.right {
+        float: right;
+        margin-left: .25rem;
     }
 }
 
