@@ -1,6 +1,6 @@
 # Vault Hugo Theme
 
-Vault is a response, minimal theme for [Hugo](https://gohugo.io/).  The goals for the theme is to be responsive, performant, accessible and clean.
+Vault is a responsive, minimal theme for [Hugo](https://gohugo.io/).  The goals for the theme is to be responsive, performant, accessible and clean.
 
 <!-- Example  -->
 
