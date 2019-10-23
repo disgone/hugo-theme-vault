@@ -1,7 +1,7 @@
 {
   "name": "vault",
   "description": "Vault theme for Hugo",
-  "version": "1.0.0",
+  "version": "1.19.0",
   "license": "MIT",
   "author": "Shaun Smith",
   "main": "js/main.js",
