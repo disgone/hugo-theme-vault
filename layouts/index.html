@@ -7,7 +7,7 @@
         <section class="archive group">
             <h1 class="group-title">Latest Posts</h1>
             {{ $postcount := (default 5 .Site.Params.latestposts) }}
-            {{ $pages := where .Site.Pages.ByPublishDate.Reverse "Type" "blog" }}
+            {{ $pages := where .Site.Pages.ByPublishDate.Reverse "Type" "post" }}
             {{ $paginator := .Paginate ( where $pages "Params.hidden" "ne" true )}}
             {{ range (first $postcount $paginator.Pages ) }}
             <section class='teaser'>
