@@ -131,8 +131,7 @@ article > * + * {
             animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;
             animation-iteration-count: 1 !important;
-    -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
@@ -373,7 +372,6 @@ a:visited {
   color: #252a34;
   outline: none;
   text-decoration: none;
-  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 a:hover:hover,
