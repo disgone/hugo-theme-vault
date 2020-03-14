@@ -1,5 +1,5 @@
 <figure class="{{ default "normal" (.Get "varient") }}">
-    <img src="{{ .Get "src" }}">
+    <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}">
 	<figcaption>
         <p>{{ .Get "title" | markdownify }}</p>
     </figcaption>
