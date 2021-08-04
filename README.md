@@ -1,6 +1,6 @@
 # Vault Hugo Theme
 
-Vault is a responsive, minimal theme for [Hugo](https://gohugo.io/).  The goals for the theme is to be responsive, performant, accessible and clean.
+Vault is a responsive, minimal theme for [Hugo](https://gohugo.io/).
 
 <!-- Example  -->
 
@@ -12,16 +12,10 @@ Run the following commands in your Hugo site directory:
 ```
 mkdir themes
 cd themes
-git clone xxx
+git clone https://github.com/Disgone/hugo-theme-vault.git
 ```
 
 More details about installing and running themes can be found in the [Hugo documentation](https://gohugo.io/themes/installing-and-using-themes/)
-
-## Configuration
-
-<!-- Configuration details -->
-
-<!-- Using Steps/Config Details -->
 
 ## Customizing Vault
 

@@ -346,8 +346,7 @@ body {
   color: #252a34;
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
   font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-kerning: normal;
-          font-kerning: normal;
+  font-kerning: normal;
   font-size: 1em;
   font-variant-ligatures: common-ligatures contextual;
   line-height: 1.5;
