@@ -486,7 +486,7 @@ article > h4 {
 }
 article ol,
 article ul {
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 1.5rem 1rem;
   list-style: none;
 }
 article ol {
@@ -583,9 +583,14 @@ header h1 {
 }
 .viewport {
   margin: 0 auto;
-  max-width: 1200px;
   padding: 1em;
-  width: 65vw;
+  width: 95vw;
+}
+@media only screen and (min-width: 992px) {
+  .viewport {
+    max-width: 1200px;
+    width: 65vw;
+  }
 }
 .description {
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
@@ -803,7 +808,12 @@ header h1 {
 }
 #site-header li {
   display: inline;
-  margin: 0 0 0 2em;
+  padding: 0 0.25rem;
+}
+@media only screen and (min-width: 768px) {
+  #site-header li {
+    padding: 0 0.5rem;
+  }
 }
 #site-header .branding {
   float: left;
