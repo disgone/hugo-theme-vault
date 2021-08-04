@@ -5,7 +5,7 @@ description = ""
 homepage = "https://www.disgone.com/"
 tags = ["responsive", "minimal"]
 features = []
-min_version = "0.35"
+min_version = "0.80"
 
 [author]
     name = "Shaun Smith"

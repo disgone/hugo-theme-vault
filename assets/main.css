@@ -334,6 +334,7 @@ article > * + * {
   box-sizing: border-box;
 }
 html {
+  background-color: #eaeaea;
   font-size: 106.25%;
 }
 @media only screen and (min-width: 992px) {
@@ -342,7 +343,8 @@ html {
   }
 }
 body {
-  background-color: #ff2e63;
+  background-color: #eaeaea;
+  border-top: 1em solid #ff2e63;
   color: #252a34;
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
   font-feature-settings: "kern", "liga", "clig", "calt";
@@ -457,7 +459,7 @@ sub {
   bottom: -0.5em;
 }
 main {
-  padding: 1em 0 2em;
+  padding: 1em 1em 2em;
   position: relative;
 }
 ::-moz-selection {
@@ -574,16 +576,16 @@ header h1 {
   line-height: 1;
   margin-top: 0;
 }
-.wrapper-outer {
-  background-color: #eaeaea;
-  margin-top: 1em;
+.content-grid {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: calc(100vh - 1em);
 }
-.wrapper {
+.viewport {
   margin: 0 auto;
-  max-width: 60rem;
-}
-.content {
-  margin: 0 5%;
+  max-width: 1200px;
+  padding: 1em;
+  width: 65vw;
 }
 .description {
   font-family: "PT Serif", Georgia, "Times New Roman", Times, serif;
@@ -793,7 +795,6 @@ header h1 {
 }
 #site-header {
   font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
-  padding: 1rem 0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -815,7 +816,6 @@ header h1 {
 #site-footer {
   background-color: #252a34;
   color: #9ea7ba;
-  padding: 2em 0;
 }
 #site-footer::before {
   background-color: #252a34;
