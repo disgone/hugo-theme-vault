@@ -10,6 +10,7 @@
 }
 
 html {
+    background-color: @color-background;
     font-size: @font-size;
 
     .screen-lrg({
@@ -18,7 +19,8 @@ html {
 }
 
 body {
-    background-color: @color-primary;
+    background-color: @color-background;
+    border-top: @layout-border-top-width solid @color-primary;
     color: @font-color;
     font-family: @font-family-serif;
     font-feature-settings: "kern", "liga", "clig", "calt";
@@ -152,7 +154,7 @@ sub {
 }
 
 main {
-    padding: 1em 0 2em;
+    padding: 1em 1em 2em;
     position: relative;
 }
 
@@ -298,20 +300,18 @@ header {
     }
 }
 
-.wrapper-outer {
-    background-color: @color-background;
-    margin-top: 1em;
+.content-grid {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: calc(100vh - @layout-border-top-width);
 }
 
-.wrapper {
+.viewport {
     margin: 0 auto;
-    max-width: 60rem;
+    max-width: 1200px;
+    padding: 1em;
+    width: 65vw;
 }
-
-.content {
-    margin: 0 5%;
-}
-
 
 .description {
     font-family: @font-family-serif;
@@ -326,7 +326,6 @@ header {
     font-family: @font-family-sans;
     font-size: @font-size-small;
 }
-
 
 .page {
     & > header {
@@ -576,7 +575,6 @@ header {
 
 #site-header {
     font-family: @font-family-sans;
-    padding: 1rem 0;
     text-align: center;
     text-transform: uppercase;
 
@@ -603,7 +601,6 @@ header {
 #site-footer {
     background-color: @footer-background-color;
     color: @footer-color;
-    padding: 2em 0;
 
     &::before {
         background-color: @footer-background-color;
