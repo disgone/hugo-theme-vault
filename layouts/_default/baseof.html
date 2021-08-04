@@ -10,26 +10,20 @@
 <body>
     {{ partial "sprites" . }}
     <!-- <svg class="icon" width="24" height="24"><use xlink:href="#twitter"></use></svg> -->
-    <div class="wrapper-outer">
-        <div class="wrapper">
-            {{ partial "header.html" . }}
-            <main>
-                <div class="content">
-                    {{ block "main" . }}
-                    {{ end }}
-                </div>
-            </main>
-        </div>
-    </div>
-    <footer id="site-footer">
-        <div class="wrapper">
-            <div class="content">
+    <div class="content-grid">
+        {{ partial "header.html" . }}
+        <main class="viewport">
+            {{ block "main" . }}
+            {{ end }}
+        </main>
+        <footer id="site-footer">
+            <div class="viewport">
                 {{ block "footer" . }}
                 {{ end }}
                 <p class='copyright'>&copy; {{ .Site.Params.copyright }}</p>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
     {{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>

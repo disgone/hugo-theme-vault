@@ -1,5 +1,6 @@
 <link rel='dns-prefetch' href='https://fonts.googleapis.com'>
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" href="{{ .Site.Params.assets.favicon | default "favicon.ico" | absURL }}">
+<link rel="canonical" href="{{ .Permalink }}">
 {{ if .RSSLink }}
 {{ with .OutputFormats.Get "RSS" }}
 <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">
