@@ -183,8 +183,8 @@ article {
         font-weight: 400;
     }
 
-    ol,ul {
-        margin: 1.5rem 0;
+    ol, ul {
+        margin: 1.5rem 0 1.5rem 1rem;
         list-style: none;
     }
 
@@ -308,10 +308,16 @@ header {
 
 .viewport {
     margin: 0 auto;
-    max-width: 1200px;
     padding: 1em;
-    width: 65vw;
+    width: 95vw;
 }
+
+.screen-lrg({
+    .viewport {
+        max-width: 1200px;
+        width: 65vw;
+    }
+});
 
 .description {
     font-family: @font-family-serif;
@@ -584,8 +590,14 @@ header {
 
     li {
         display: inline;
-        margin: 0 0 0 2em;
+        padding: 0 .25rem;
     }
+
+    .screen-medm({
+        li {
+            padding: 0 .5rem;
+        }
+    });
 
     .branding {
         float: left;
