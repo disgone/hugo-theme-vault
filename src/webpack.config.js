@@ -5,12 +5,6 @@ const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const define = new webpack.DefinePlugin({
-    'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-    }
-});
-
 /* Plugins */
 const cleanBuild = new CleanWebpackPlugin({
     verbose: true,
@@ -45,9 +39,11 @@ const config = {
                 {
                     loader: "postcss-loader",
                     options: {
-                        plugins: [
-                            autoprefixer({})
-                        ]
+                        postcssOptions: {
+                            plugins: [
+                                autoprefixer({})
+                            ]
+                        }
                     }
                 },
                 'less-loader'
@@ -58,7 +54,6 @@ const config = {
         extensions: ['*', '.js', '.less']
     },
     plugins: [
-        define,
         cleanBuild,
         extractCSS
     ]
