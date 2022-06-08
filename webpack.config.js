@@ -2,14 +2,15 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 /* Plugins */
 const cleanBuild = new CleanWebpackPlugin({
     verbose: true,
     cleanOnceBeforeBuildPatterns: [
         '*.css',
-        '*.js'
+        '*.js',
+        '/fonts'
     ]
 });
 
@@ -19,52 +20,53 @@ const extractCSS = new MiniCssExtractPlugin({
 });
 
 /* Config */
-const config = {
-    entry: {
-        main: path.join(__dirname, "./assets/js/main.js")
-    },
-    output: {
-        filename: '[name].js',
-        path: path.join(__dirname, './assets')
-    },
-    module: {
-        rules: [
-            {
-                test: /\.(ttf|eot|woff|woff2|svg)$/,
-                type: 'asset/resource'
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    'css-loader',
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            postcssOptions: {
-                                plugins: [
-                                    autoprefixer({})
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        loader: 'less-loader',
-                        options: {}
-                    }
-                ]
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['*', '.js', '.less']
-    },
-    plugins: [
-        cleanBuild,
-        extractCSS
-    ]
-};
+module.exports = (env) => {
+    const isProduction = env && env.production;
 
-module.exports = config;
+    return {
+        entry: {
+            main: path.join(__dirname, "./assets/js/main.js"),
+            syntax: path.join(__dirname, "./assets/js/syntax.js"),
+        },
+        mode: isProduction ? 'production' : 'development',
+        output: {
+            filename: '[name].js',
+            path: path.join(__dirname, './assets'),
+            assetModuleFilename: 'fonts/[name][ext][query]',
+            publicPath: '/'
+        },
+        devtool: isProduction ? 'source-map' : 'inline-source-map',
+        module: {
+            rules: [
+                {
+                    test: /static\/fonts\/\.(woff2?)$/,
+                    type: 'asset/resource',
+                },
+                {
+                    test: /\.less$/,
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader
+                        },
+                        'css-loader',
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                postcssOptions: {
+                                    plugins: [
+                                        autoprefixer({})
+                                    ]
+                                }
+                            }
+                        },
+                        'less-loader'
+                    ]
+                }
+            ]
+        },
+        plugins: [
+            cleanBuild,
+            extractCSS
+        ]
+    }
+}

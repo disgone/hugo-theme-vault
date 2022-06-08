@@ -1,3 +1,57 @@
+/* pt-serif-regular - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('PT Serif'), url(/fonts/pt-serif-v17-latin-regular.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url(/fonts/pt-serif-v17-latin-regular.woff) format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* pt-serif-italic - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('PT Serif'), url(/fonts/pt-serif-v17-latin-italic.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url(/fonts/pt-serif-v17-latin-italic.woff) format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* pt-serif-700 - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('PT Serif'), url(/fonts/pt-serif-v17-latin-700.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url(/fonts/pt-serif-v17-latin-700.woff) format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* pt-serif-700italic - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: local('PT Serif'), url(/fonts/pt-serif-v17-latin-700italic.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url(/fonts/pt-serif-v17-latin-700italic.woff) format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* fira-mono-regular - latin */
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Fira Mono'), url(/fonts/fira-mono-v14-latin-regular.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url(/fonts/fira-mono-v14-latin-regular.woff) format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-condensed-regular - latin */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto Condensed'), url(/fonts/roboto-condensed-v25-latin-regular.woff2) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url(/fonts/roboto-condensed-v25-latin-regular.woff) format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 *,
 *::before,
 *::after {
@@ -134,199 +188,6 @@ article > * + * {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-.chroma {
-  color: #f8f8f2;
-  background-color: #252a34;
-}
-.chroma .err {
-  color: #960050;
-  background-color: #1e0010;
-}
-.chroma .lntd {
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-.chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: 100%;
-  overflow: auto;
-  display: block;
-}
-.chroma .hl {
-  background-color: #ffffcc;
-  display: block;
-  width: 100%;
-}
-.chroma .lnt {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-  display: block;
-}
-.chroma .ln {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-}
-.chroma .k {
-  color: #66d9ef;
-}
-.chroma .kc {
-  color: #66d9ef;
-}
-.chroma .kd {
-  color: #66d9ef;
-}
-.chroma .kn {
-  color: #f92672;
-}
-.chroma .kp {
-  color: #66d9ef;
-}
-.chroma .kr {
-  color: #66d9ef;
-}
-.chroma .kt {
-  color: #66d9ef;
-}
-.chroma .na {
-  color: #a6e22e;
-}
-.chroma .nc {
-  color: #a6e22e;
-}
-.chroma .no {
-  color: #66d9ef;
-}
-.chroma .nd {
-  color: #a6e22e;
-}
-.chroma .ne {
-  color: #a6e22e;
-}
-.chroma .nf {
-  color: #a6e22e;
-}
-.chroma .nx {
-  color: #a6e22e;
-}
-.chroma .nt {
-  color: #f92672;
-}
-.chroma .l {
-  color: #ae81ff;
-}
-.chroma .ld {
-  color: #e6db74;
-}
-.chroma .s {
-  color: #e6db74;
-}
-.chroma .sa {
-  color: #e6db74;
-}
-.chroma .sb {
-  color: #e6db74;
-}
-.chroma .sc {
-  color: #e6db74;
-}
-.chroma .dl {
-  color: #e6db74;
-}
-.chroma .sd {
-  color: #e6db74;
-}
-.chroma .s2 {
-  color: #e6db74;
-}
-.chroma .se {
-  color: #ae81ff;
-}
-.chroma .sh {
-  color: #e6db74;
-}
-.chroma .si {
-  color: #e6db74;
-}
-.chroma .sx {
-  color: #e6db74;
-}
-.chroma .sr {
-  color: #e6db74;
-}
-.chroma .s1 {
-  color: #e6db74;
-}
-.chroma .ss {
-  color: #e6db74;
-}
-.chroma .m {
-  color: #ae81ff;
-}
-.chroma .mb {
-  color: #ae81ff;
-}
-.chroma .mf {
-  color: #ae81ff;
-}
-.chroma .mh {
-  color: #ae81ff;
-}
-.chroma .mi {
-  color: #ae81ff;
-}
-.chroma .il {
-  color: #ae81ff;
-}
-.chroma .mo {
-  color: #ae81ff;
-}
-.chroma .o {
-  color: #f92672;
-}
-.chroma .ow {
-  color: #f92672;
-}
-.chroma .c {
-  color: #75715e;
-}
-.chroma .ch {
-  color: #75715e;
-}
-.chroma .cm {
-  color: #75715e;
-}
-.chroma .c1 {
-  color: #75715e;
-}
-.chroma .cs {
-  color: #75715e;
-}
-.chroma .cp {
-  color: #75715e;
-}
-.chroma .cpf {
-  color: #75715e;
-}
-.chroma .gd {
-  color: #f92672;
-}
-.chroma .ge {
-  font-style: italic;
-}
-.chroma .gi {
-  color: #a6e22e;
-}
-.chroma .gs {
-  font-weight: bold;
-}
-.chroma .gu {
-  color: #75715e;
 }
 *,
 ::before,
@@ -849,3 +710,5 @@ header h1 {
   margin: 1rem 0;
 }
 
+
+/*# sourceMappingURL=main.css.map*/

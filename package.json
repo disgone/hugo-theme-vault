@@ -6,7 +6,7 @@
   "author": "Shaun Smith",
   "main": "js/main.js",
   "scripts": {
-    "build": "webpack --mode=production --progress",
+    "build": "webpack --env production --progress",
     "builddev": "webpack --progress"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
     "mini-css-extract-plugin": "^2.6.0",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
+    "resolve-url-loader": "^5.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.9.2"

@@ -9,6 +9,5 @@
 {{ $stylesheet := resources.Get "main.css"  }}
 {{ $stylesheet = $stylesheet | fingerprint }}
 {{ with $stylesheet }}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|PT+Serif:400,400i,700|Roboto+Condensed:400,700">
 <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
 {{end}}
