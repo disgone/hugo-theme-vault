@@ -25,5 +25,10 @@
         </footer>
     </div>
     {{ template "_internal/google_analytics_async.html" . }}
+    {{ $stylesheet := resources.Get "syntax.css"  }}
+    {{ $stylesheet = $stylesheet | fingerprint }}
+    {{ with $stylesheet }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" media="screen" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{end}}
 </body>
 </html>
