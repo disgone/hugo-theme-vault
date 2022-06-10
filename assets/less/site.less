@@ -44,7 +44,8 @@ p {
 a {
     .hover(@color) {
         &:hover,
-        &:active {
+        &:active,
+        &:focus {
             border-color: @color;
             color: @color;
         }
@@ -60,7 +61,8 @@ a {
     }
 
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
         .hover(@link-color-hover);
     }
 
@@ -251,6 +253,7 @@ article {
 
         img {
             width: 100%;
+            height: auto;
         }
     }
 
@@ -386,7 +389,8 @@ header {
                     }
 
                     &:hover,
-                    &:active {
+                    &:active,
+                    &:focus {
                         color: @link-color;
                     }
                 }
