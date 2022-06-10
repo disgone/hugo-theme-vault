@@ -238,33 +238,43 @@ a:visited {
 }
 a:hover:hover,
 a:active:hover,
+a:focus:hover,
 a:hover:active,
-a:active:active {
+a:active:active,
+a:focus:active,
+a:hover:focus,
+a:active:focus,
+a:focus:focus {
   border-color: #08d9d6;
   color: #08d9d6;
 }
 a.goog:hover,
-a.goog:active {
+a.goog:active,
+a.goog:focus {
   border-color: #dd4b39;
   color: #dd4b39;
 }
 a.twit:hover,
-a.twit:active {
+a.twit:active,
+a.twit:focus {
   border-color: #00aced;
   color: #00aced;
 }
 a.gh:hover,
-a.gh:active {
+a.gh:active,
+a.gh:focus {
   border-color: #000000;
   color: #000000;
 }
 a.fb:hover,
-a.fb:active {
+a.fb:active,
+a.fb:focus {
   border-color: #3b5998;
   color: #3b5998;
 }
 a.stack:hover,
-a.stack:active {
+a.stack:active,
+a.stack:focus {
   border-color: #f48024;
   color: #f48024;
 }
@@ -400,6 +410,7 @@ article figure > * {
 }
 article figure img {
   width: 100%;
+  height: auto;
 }
 article figcaption {
   background-color: #dddddd;
@@ -507,7 +518,8 @@ header h1 {
   color: #3a4252;
 }
 .post footer .taxonomy li a:hover,
-.post footer .taxonomy li a:active {
+.post footer .taxonomy li a:active,
+.post footer .taxonomy li a:focus {
   color: #ff2e63;
 }
 @media only screen and (min-width: 992px) {
