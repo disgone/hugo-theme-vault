@@ -4,13 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     {{ partial "head/includes" . }}
 </head>
 <body>
-    {{ partial "sprites" . }}
-    <!-- <svg class="icon" width="24" height="24"><use xlink:href="#twitter"></use></svg> -->
     <div class="content-grid">
         {{ partial "header.html" . }}
         <main class="viewport">
@@ -25,7 +23,6 @@
             </div>
         </footer>
     </div>
-    {{ template "_internal/google_analytics_async.html" . }}
     {{ $stylesheet := resources.Get "syntax.css"  }}
     {{ $stylesheet = $stylesheet | fingerprint }}
     {{ with $stylesheet }}
