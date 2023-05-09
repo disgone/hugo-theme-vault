@@ -1,8 +1,8 @@
-<nav role="navigation">
+<nav role="navigation" aria-label="Primary navigation">
     <ul>
         {{ range $.Site.Menus.main }}
         <li>
-            <a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+            <a href="{{ .URL }}" title="{{ .Title | default .Name  }}">{{ .Name }}</a>
         </li>
         {{ end }}
     </ul>
