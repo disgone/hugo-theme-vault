@@ -1,6 +1,6 @@
-<svg class="icon left"><use xlink:href="#folder"></use></svg>
-<ul>
-    {{ range $item := .Params.categories }}
-    <li><a href="/categories/{{ $item | urlize }}" title="View all posts in '{{ $item }}'">{{ $item }}</a></li>
-    {{ end }}
-</ul>
+<span class="categories">
+under
+{{ range $item := .Params.categories }}
+<a href="/categories/{{ $item | urlize }}" title="View all posts in '{{ $item }}'">{{ $item }}</a>
+{{ end }}
+</span>

@@ -339,35 +339,35 @@ header {
         li::before {
             content: "";
         }
+    }
 
-        .taxonomy {
-            text-transform: uppercase;
+    .taxonomy {
+        display: inline;
 
-            li {
-                display: inline;
-                position: relative;
+        li {
+            display: inline;
+            position: relative;
 
-                &::after {
-                    content: ",";
+            &::after {
+                content: ",";
+            }
+
+            &:last-child::after {
+                content: "";
+            }
+
+            a {
+                border-bottom: none;
+
+                &:link,
+                &:visited {
+                    color: @alt-light;
                 }
 
-                &:last-child::after {
-                    content: "";
-                }
-
-                a {
-                    border-bottom: none;
-
-                    &:link,
-                    &:visited {
-                        color: @alt-light;
-                    }
-
-                    &:hover,
-                    &:active,
-                    &:focus {
-                        color: @link-color;
-                    }
+                &:hover,
+                &:active,
+                &:focus {
+                    color: @link-color;
                 }
             }
         }

@@ -16,22 +16,22 @@
             {{ .WordCount }} Words
             {{ .Site.Params.tokenSeperator | markdownify }}
             {{ .ReadingTime }} minute read
+            {{ .Site.Params.tokenSeperator | markdownify }}
+            <nav class="taxonomy" aria-label="Post tags and categories">
+                {{ if isset .Params "tags" }}
+                    {{ .Render "tags" }}
+                {{ end }}
+    
+                {{ if isset .Params "categories" }}
+                    {{ .Render "categories" }}
+                {{ end }}
+            </nav>
         </section>
     </header>
 
     {{ .Content }}
 
     <footer>
-        <nav class="metadata taxonomy">
-            {{ if isset .Params "tags" }}
-                {{ .Render "tags" }}
-            {{ end }}
-
-            {{ if isset .Params "categories" }}
-                {{ .Render "categories" }}
-            {{ end }}
-        </nav>
-
         {{ .Render "related" }}
     </footer>
 </article>
