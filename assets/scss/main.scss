@@ -273,7 +273,7 @@ header {
 .content-grid {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: calc(100vh - $layout-border-top-width);
+    height: calc(100vh - #{$layout-border-top-width});
 }
 
 .viewport {
