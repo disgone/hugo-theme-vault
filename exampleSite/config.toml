@@ -58,6 +58,10 @@ theme = "hugo-theme-vault"
 [build]
   writeStats = true
 
+# Syntax highlighting - use CSS classes instead of inline styles
+[markup.highlight]
+  noClasses = false
+
 [minify]
   disableCSS = false
   disableHTML = false
