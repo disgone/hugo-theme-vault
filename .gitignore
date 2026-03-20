@@ -7,6 +7,7 @@ hugo.exe
 
 # Hugo-generated assets
 /resources/
+.hugo_build.lock
 
 ### Node ###
 # Logs
