@@ -4,6 +4,8 @@
 ### Hugo ###
 hugo.exe
 /public/
+
+# Hugo-generated assets
 /resources/
 
 ### Node ###
