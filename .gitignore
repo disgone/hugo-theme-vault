@@ -4,6 +4,7 @@
 ### Hugo ###
 hugo.exe
 /public/
+/resources/
 
 ### Node ###
 # Logs
