@@ -19,11 +19,13 @@ More details about installing and running themes can be found in the [Hugo docum
 
 ## Customizing Vault
 
+This theme uses Hugo Pipes and no separate build step is required.
+
 <!-- Notes on customizing resources under /src -->
 
 ## Why
 
-The previous iteration of my site was running [Ghost](https://ghost.org/) on $5/mo [Digital Ocean droplet](https://m.do.co/c/dd662b01af42) which was honestly overkill.  I wanted something which was easy to maintain while also being as portable as possible. I decided that a static site generator would be a good choice for my needs.  This theme was created as a learning activity to both familiarize myself with how Hugo works and also give me a little refresher on front-end tooling like [Yarn](https://yarnpkg.com/en/), [LESS](http://lesscss.org/) and [Webpack](https://webpack.js.org/).
+The previous iteration of my site was running [Ghost](https://ghost.org/) on $5/mo [Digital Ocean droplet](https://m.do.co/c/dd662b01af42) which was honestly overkill.  I wanted something which was easy to maintain while also being as portable as possible. I decided that a static site generator would be a good choice for my needs.  This theme was created as a learning activity to both familiarize myself with how Hugo works.
 
 ## License
 
