@@ -23,10 +23,7 @@
             </div>
         </footer>
     </div>
-    {{ $stylesheet := resources.Get "syntax.css"  }}
-    {{ $stylesheet = $stylesheet | fingerprint }}
-    {{ with $stylesheet }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}" media="screen" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{end}}
+    {{ $syntaxCss := resources.Get "scss/syntax.scss" | toCSS | postCSS | fingerprint }}
+    <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}" media="screen" integrity="{{ $syntaxCss.Data.Integrity }}" crossorigin="anonymous">
 </body>
 </html>
