@@ -129,6 +129,7 @@ main {
 
 ::selection {
     background: $color-primary;
+    color: #ffffff;
 }
 
 
@@ -571,28 +572,6 @@ time {
             text-align: right;
         }
     }
-}
-
-li {
-    display: inline;
-    padding: 0 .25rem;
-}
-
-@include screen-medm {
-    li {
-        padding: 0 .5rem;
-    }
-}
-
-.branding {
-    float: left;
-}
-
-@include screen-medm {
-    & {
-        text-align: right;
-    }
-}
 }
 
 #site-footer {
