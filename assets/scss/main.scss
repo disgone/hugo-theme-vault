@@ -175,47 +175,47 @@ article {
         }
     }
 
-li {
-    position: relative;
+    li {
+        position: relative;
 
-    & > ul,
-    & > ol {
-        margin: 0 0 0 1.5rem;
+        & > ul,
+        & > ol {
+            margin: 0 0 0 1.5rem;
+        }
+
+        &::before {
+            color: $color-primary;
+            font-family: $font-family-sans;
+            font-weight: normal;
+            left: -5em;
+            padding-right: 0.5em;
+            position: absolute;
+            text-align: right;
+            width: 5em;
+        }
     }
 
-    &::before {
-        color: $color-primary;
+    blockquote {
+        background-color: $figure-bg;
+        border-left: .1rem solid $color-secondary;
         font-family: $font-family-sans;
-        font-weight: normal;
-        left: -5em;
-        padding-right: 0.5em;
-        position: absolute;
-        text-align: right;
-        width: 5em;
-    }
-}
-
-blockquote {
-    background-color: $figure-bg;
-    border-left: .1rem solid $color-secondary;
-    font-family: $font-family-sans;
-    padding: 1rem;
-    margin-left: -1rem;
+        padding: 1rem;
+        margin-left: -1rem;
 
         p:last-of-type  {
             margin-bottom: 0;
         }
     }
 
-figure {
-    font-family: $font-family-sans;
-    margin: 1.5rem 0;
+    figure {
+        font-family: $font-family-sans;
+        margin: 1.5rem 0;
 
-    & > * {
-        display: block;
-        background-color: $figure-caption-bg;
-        padding: 1rem;
-    }
+        & > * {
+            display: block;
+            background-color: $figure-caption-bg;
+            padding: 1rem;
+        }
 
         img {
             width: 100%;
@@ -223,11 +223,11 @@ figure {
         }
     }
 
-figcaption {
-    background-color: $figure-caption-bg;
-    font-size: $font-size-small;
-    margin-top: -1rem;
-    padding: .5rem 1rem;
+    figcaption {
+        background-color: $figure-caption-bg;
+        font-size: $font-size-small;
+        margin-top: -1rem;
+        padding: .5rem 1rem;
 
         :last-child {
             margin-bottom: 0;
@@ -239,21 +239,21 @@ table {
     border-collapse: collapse;
     width: 100%;
 
-td,th {
-    padding: .5rem;
-    border-bottom: 1px solid $alt-light;
-}
+    td,th {
+        padding: .5rem;
+        border-bottom: 1px solid $alt-light;
+    }
 
     th {
         font-weight: 600;
         text-align: left;
     }
 
-&.bordered {
-    td,th {
-        border: 1px solid $alt-light;
+    &.bordered {
+        td,th {
+            border: 1px solid $alt-light;
+        }
     }
-}
 }
 
 header {
@@ -317,11 +317,11 @@ header {
         color: mix($color-primary, $font-color);
     }
 
-footer {
-    clear: both;
-    font-family: $font-family-sans;
-    font-size: .75rem;
-    margin-top: 1rem;
+    footer {
+        clear: both;
+        font-family: $font-family-sans;
+        font-size: .75rem;
+        margin-top: 1rem;
 
         ul {
             margin: 0 0 .5rem;
@@ -347,20 +347,20 @@ footer {
                 content: "";
             }
 
-a {
-    border-bottom: none;
+            a {
+                border-bottom: none;
 
-    &:link,
-    &:visited {
-        color: $alt-light;
-    }
+                &:link,
+                &:visited {
+                    color: $alt-light;
+                }
 
-    &:hover,
-    &:active,
-    &:focus {
-        color: $link-color;
-    }
-}
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $link-color;
+                }
+            }
         }
     }
 }
@@ -550,6 +550,28 @@ time {
     a {
         border-bottom: none;
     }
+
+    li {
+        display: inline;
+        padding: 0 .25rem;
+    }
+
+    @include screen-medm {
+        li {
+            padding: 0 .5rem;
+        }
+    }
+
+    .branding {
+        float: left;
+    }
+
+    @include screen-medm {
+        & {
+            text-align: right;
+        }
+    }
+}
 
 li {
     display: inline;
