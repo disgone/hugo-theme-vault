@@ -30,9 +30,8 @@ The theme follows these principles:
 Built with:
 
 - [Hugo](https://gohugo.io/) - Static site generator
-- SCSS/Less - CSS preprocessing
-- PostCSS - CSS transformations
-- Webpack - Asset bundling (for theme development)
+- SCSS - CSS preprocessing with automatic compilation
+- PostCSS - CSS transformations and browser compatibility
 
 ## License
 

@@ -119,19 +119,11 @@ The `blog.md` archetype includes common fields: author, date, title, description
 
 ## Development
 
-### Building Theme Assets
+Hugo Pipes automatically processes SCSS files with PostCSS and autoprefixes for browser compatibility. No separate build step needed.
 
-The theme uses Webpack for development:
-
+Install PostCSS dependencies:
 ```bash
-# Install dependencies
-npm install
-
-# Development build
-npm run builddev
-
-# Production build
-npm run build
+bun install
 ```
 
 ### Running Example Site
@@ -158,7 +150,7 @@ If you get a "theme not found" error:
 
 If styles don't load:
 
-- Run `npm run build` in the theme root to compile assets
+- Run `bun install` in the theme root to install dependencies
 - Check that static assets are generated correctly
 - Clear your browser cache
 
