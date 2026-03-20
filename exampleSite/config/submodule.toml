@@ -1,0 +1,12 @@
+# Git Submodule Configuration
+# Use this config when the theme is added as a git submodule
+
+# Change theme line in config.toml to:
+# theme = "hugo-theme-vault"
+
+# To add the theme as a submodule, run:
+# git submodule add https://github.com/Disgone/hugo-theme-vault.git themes/hugo-theme-vault
+# git submodule update --init --recursive
+
+# To update the theme:
+# git submodule update --remote themes/hugo-theme-vault
