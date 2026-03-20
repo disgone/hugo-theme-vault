@@ -29,7 +29,7 @@
             <div class="viewport">
                 {{ block "footer" . }}
                 {{ end }}
-                <p class='copyright'>&copy; {{ .Site.Params.copyright }}</p>
+                <p class='copyright'>&copy; {{ default "2026" .Site.Params.copyright_year }} {{ .Site.Title }}</p>
             </div>
         </footer>
     </div>
