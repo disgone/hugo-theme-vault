@@ -13,7 +13,7 @@
 
 {{/* Auto-detect dimensions for local images if not provided */}}
 {{- $img := resources.Get $src -}}
-{{- if and $img $width $height -}}
+{{- if and $img (not $width) (not $height) -}}
     {{- $width = $img.Width -}}
     {{- $height = $img.Height -}}
 {{- end -}}

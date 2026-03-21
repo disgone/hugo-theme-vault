@@ -1,58 +1,11 @@
-<!-- Figure with accessibility - semantic wrapper for vault-image -->
-<!-- title is caption, alt is accessibility description -->
-
-{{- $src := .Get "src" -}}
-{{- $alt := .Get "alt" -}}
-{{- $title := .Get "title" -}}
 {{- $variant := .Get "variant" -}}
-{{- $width := .Get "width" -}}
-{{- $height := .Get "height" -}}
-{{- $eager := .Get "eager" -}}
-{{- $format := .Get "format" -}}
-{{- $longdesc := .Get "longdesc" -}}
-{{- $describedby := .Get "describedby" -}}
 
 <figure class="{{ default "normal" $variant }}">
-    {{/* Embed vault-image logic directly */}}
-    {{- $img := resources.Get $src -}}
-    {{- if and $img $width $height -}}
-        {{- $width = $img.Width -}}
-        {{- $height = $img.Height -}}
-    {{- end -}}
+    {{ partial "vault-image.html" . }}
 
-    {{- $srcWithFormat := $src -}}
-    {{- if $img -}}
-        {{- $format := or $format "webp" -}}
-        {{- $processed := $img.Process "image/webp" -}}
-        {{- $srcWithFormat = $processed.RelPermalink -}}
-        {{- $width = $processed.Width -}}
-        {{- $height = $processed.Height -}}
-    {{- end -}}
-
-    {{- if or $alt $title -}}
-        {{- $fallbackContent := "" -}}
-        {{- if $alt -}}
-            {{- $fallbackContent = $alt -}}
-        {{- else if $title -}}
-            {{- $fallbackContent = "Image" -}}
-        {{- end -}}
-        <noscript>
-            <img src="{{ $src }}" alt="{{ $fallbackContent }}" style="display:none">
-        </noscript>
-    {{- end -}}
-
-    <img
-        src="{{ $srcWithFormat }}"
-        alt="{{ $alt | default "" }}"
-        width="{{ $width }}"
-        height="{{ $height }}"
-        {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
-        {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
-        {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
-
-    {{ with $title }}
+    {{- with .Get "title" -}}
         <figcaption>
             <p>{{ . | markdownify }}</p>
         </figcaption>
-    {{ end }}
+    {{- end -}}
 </figure>
