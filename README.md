@@ -11,6 +11,101 @@ Vault is a responsive, minimal theme for [Hugo](https://gohugo.io/) designed for
 - Hidden posts option (using `hidden: true` in front matter)
 - Automatic CSS processing with Hugo Pipes (SCSS, PostCSS, asset fingerprinting)
 - No separate build step required
+- **Image components with accessibility and progressive enhancement**
+
+## Shortcodes
+
+### `vault-image` - Image Component with Accessibility
+
+A responsive image with automatic optimization and accessibility features. Use this when you want the features without figure semantics:
+
+```markdown
+{{< vault-image src="photo.jpg" alt="My Photo" >}}
+```
+
+**Parameters:**
+- `src` (required): Image path or URL
+- `alt` (required): Accessibility description (alt attribute)
+- `title` (optional): Caption/information (shown in figcaption if using vault-figure)
+- `width` (optional): Width in pixels (auto-detected for local files)
+- `height` (optional): Height in pixels (auto-detected for local files)
+- `eager` (optional): Preload on page load (default: false)
+- `format` (optional): "webp", "avif", or "original" (default: webp)
+- `longdesc` (optional): URL to long description for complex images
+- `describedby` (optional): ARIA attribute for linking to description
+
+**Features:**
+- ✅ Lazy loading by default
+- ✅ Auto-detect dimensions for local images
+- ✅ Automatic WebP generation with JPG fallback
+- ✅ Separate alt (accessibility) and title (caption)
+- ✅ Fallback content when image fails to load
+- ✅ Progressive enhancement (works without JavaScript)
+- ✅ Prevents CLS (Cumulative Layout Shift)
+
+**Examples:**
+```markdown
+# Simple image with alt
+{{< vault-image src="photo.jpg" alt="Golden retriever" >}}
+
+# Image with caption (use vault-figure instead)
+{{< vault-image src="photo.jpg" alt="Golden retriever" title="My dog" >}}
+
+# With dimensions
+{{< vault-image src="photo.jpg" alt="Golden retriever" width="800" height="600" >}}
+
+# Remote image
+{{< vault-image src="https://example.com/image.jpg" alt="Photo" width="800" height="400" >}}
+
+# Eager load for above-fold image
+{{< vault-image src="hero.jpg" alt="Team working together" width="1920" height="1080" eager=true >}}
+
+# Complex image with long description
+{{< vault-image
+    src="chart.jpg"
+    alt="Bar chart showing sales"
+    longdesc="/charts/sales-chart-description.html"
+>}}
+```
+
+### `vault-figure` - Image with Caption
+
+Semantic wrapper around `vault-image` with `<figure>` and `<figcaption>`:
+
+```markdown
+{{< vault-figure src="photo.jpg" alt="My Photo" title="My Photo Caption" >}}
+```
+
+**Parameters:**
+Same as `vault-image`, plus:
+- `variant` (optional): CSS variant class (default: "normal")
+
+**Examples:**
+```markdown
+# Image with caption
+{{< vault-figure src="photo.jpg" alt="Photo" title="My beautiful photo" >}}
+
+# With dimensions
+{{< vault-figure src="photo.jpg" alt="Photo" title="My photo" width="800" height="600" >}}
+
+# Complex data visualization
+{{< vault-figure
+    src="chart.jpg"
+    alt="Bar chart showing quarterly revenue"
+    title="Revenue by Quarter"
+    variant="small"
+>}}
+
+# Above-fold hero image
+{{< vault-figure
+    src="hero.jpg"
+    alt="Team working together"
+    title="Our Team"
+    width="1920"
+    height="1080"
+    eager=true
+>}}
+```
 
 ## Installation
 

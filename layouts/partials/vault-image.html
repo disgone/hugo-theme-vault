@@ -1,0 +1,51 @@
+<!-- Image with accessibility features -->
+<!-- Progressive enhancement with fallback content -->
+
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $title := .Get "title" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- $eager := .Get "eager" -}}
+{{- $format := .Get "format" -}}
+{{- $longdesc := .Get "longdesc" -}}
+{{- $describedby := .Get "describedby" -}}
+
+{{/* Auto-detect dimensions for local images if not provided */}}
+{{- $img := resources.Get $src -}}
+{{- if and $img $width $height -}}
+    {{- $width = $img.Width -}}
+    {{- $height = $img.Height -}}
+{{- end -}}
+
+{{/* Generate WebP version for local images (if not remote) */}}
+{{- $srcWithFormat := $src -}}
+{{- if $img -}}
+    {{- $format := or $format "webp" -}}
+    {{- $processed := $img.Process "image/webp" -}}
+    {{- $srcWithFormat = $processed.RelPermalink -}}
+    {{- $width = $processed.Width -}}
+    {{- $height = $processed.Height -}}
+{{- end -}}
+
+{{/* Fallback content - displayed when image fails to load */}}
+{{- if or $alt $title -}}
+    {{- $fallbackContent := "" -}}
+    {{- if $alt -}}
+        {{- $fallbackContent = $alt -}}
+    {{- else if $title -}}
+        {{- $fallbackContent = "Image" -}}
+    {{- end -}}
+    <noscript>
+        <img src="{{ $src }}" alt="{{ $fallbackContent }}" style="display:none">
+    </noscript>
+{{- end -}}
+
+<img
+    src="{{ $srcWithFormat }}"
+    alt="{{ $alt | default "" }}"
+    width="{{ $width }}"
+    height="{{ $height }}"
+    {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
+    {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
+    {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
