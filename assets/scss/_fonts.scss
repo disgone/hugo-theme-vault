@@ -1,3 +1,9 @@
+/* Font paths use absolute paths (/fonts/) for Hugo Modules compatibility.
+ * Hugo Modules changes asset path resolution compared to git submodules.
+ * Absolute paths work consistently across both Hugo Modules and git submodules.
+ * These paths match the preload paths in layouts/partials/head/includes.html.
+ */
+
 /* pt-serif-regular - latin */
 @font-face {
     font-family: 'PT Serif';
@@ -5,7 +11,7 @@
     font-weight: 400;
     font-display: swap;
     src: local('PT Serif'),
-    url('../../static/fonts/pt-serif-v17-latin-regular.woff2') format('woff2');
+    url('/fonts/pt-serif-v17-latin-regular.woff2') format('woff2');
 }
 
 /* pt-serif-italic - latin */
@@ -15,7 +21,7 @@
     font-weight: 400;
     font-display: swap;
     src: local('PT Serif'),
-    url('../../static/fonts/pt-serif-v17-latin-italic.woff2') format('woff2');
+    url('/fonts/pt-serif-v17-latin-italic.woff2') format('woff2');
 }
 
 /* pt-serif-700 - latin */
@@ -25,7 +31,7 @@
     font-weight: 700;
     font-display: swap;
     src: local('PT Serif'),
-    url('../../static/fonts/pt-serif-v17-latin-700.woff2') format('woff2');
+    url('/fonts/pt-serif-v17-latin-700.woff2') format('woff2');
 }
 
 /* pt-serif-700italic - latin */
@@ -35,7 +41,7 @@
     font-weight: 700;
     font-display: swap;
     src: local('PT Serif'),
-    url('../../static/fonts/pt-serif-v17-latin-700italic.woff2') format('woff2');
+    url('/fonts/pt-serif-v17-latin-700italic.woff2') format('woff2');
 }
 
 /* fira-mono-regular - latin */
@@ -45,7 +51,7 @@
     font-weight: 400;
     font-display: swap;
     src: local('Fira Mono'),
-    url('../../static/fonts/fira-mono-v14-latin-regular.woff2') format('woff2');
+    url('/fonts/fira-mono-v14-latin-regular.woff2') format('woff2');
 }
 
 
@@ -56,5 +62,5 @@
     font-weight: 400;
     font-display: swap;
     src: local('Roboto Condensed'),
-    url('../../static/fonts/roboto-condensed-v25-latin-regular.woff2') format('woff2');
+    url('/fonts/roboto-condensed-v25-latin-regular.woff2') format('woff2');
 }
