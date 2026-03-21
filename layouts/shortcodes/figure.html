@@ -1,5 +1,9 @@
 <figure class="{{ default "normal" (.Get "variant") }}">
-    <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}">
+    {{ if .Get "eager" }}
+        <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}" loading="eager">
+    {{ else }}
+        <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}" loading="lazy">
+    {{ end }}
 	<figcaption>
         <p>{{ .Get "title" | markdownify }}</p>
     </figcaption>
