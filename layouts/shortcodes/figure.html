@@ -1,8 +1,30 @@
 <figure class="{{ default "normal" (.Get "variant") }}">
-    {{ if .Get "eager" }}
-        <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}" loading="eager">
+    {{- $src := .Get "src" -}}
+    {{- $width := .Get "width" -}}
+    {{- $height := .Get "height" -}}
+    {{- $eager := .Get "eager" -}}
+
+    {{/* Auto-detect dimensions for local images if not provided */}}
+    {{- $img := resources.Get $src -}}
+    {{- if and $img $width $height -}}
+        {{- $width = $img.Width -}}
+        {{- $height = $img.Height -}}
+    {{- end -}}
+
+    {{ if $eager }}
+        <img
+            src="{{ $src }}"
+            alt="{{ .Get "title" }}"
+            width="{{ $width }}"
+            height="{{ $height }}"
+            loading="eager">
     {{ else }}
-        <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}" loading="lazy">
+        <img
+            src="{{ $src }}"
+            alt="{{ .Get "title" }}"
+            width="{{ $width }}"
+            height="{{ $height }}"
+            loading="lazy">
     {{ end }}
 	<figcaption>
         <p>{{ .Get "title" | markdownify }}</p>
