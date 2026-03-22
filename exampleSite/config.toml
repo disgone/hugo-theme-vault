@@ -7,6 +7,10 @@ theme = "hugo-theme-vault"
   description = "A minimalist Hugo theme for blogs and personal sites"
   latestposts = 5
 
+[params.theme]
+  default = "light"
+  available = ["light", "dark"]
+
 # Social links - uncomment to enable
 # [params.social]
 #   twitter = "username"

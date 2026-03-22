@@ -7,72 +7,7 @@
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     
-    <script>
-        (function() {
-            var stored = localStorage.getItem('theme');
-            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            var theme = 'light';
-            if (stored) {
-                theme = stored;
-            } else if (prefersDark) {
-                theme = 'dark';
-            }
-            document.documentElement.className = theme;
-        })();
-    </script>
-    <style>
-        :root {
-            --layout-border-top-width: 1em;
-            --font-size: 100%;
-            --font-size-large: 100%;
-            --font-size-small: 0.75rem;
-            --font-line-height: 1.5;
-            --font-family-serif: "PT Serif", Georgia, "Times New Roman", Times, serif;
-            --font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-family-heading: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-family-fixed: "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-        }
-        .light {
-            --color-bg: #eaeaea;
-            --color-bg-alt: #252a34;
-            --color-surface: #eaeaea;
-            --color-text: #252a34;
-            --color-primary: #ff2e63;
-            --color-secondary: #08d9d6;
-            --color-link: #ff2e63;
-            --color-link-hover: #08d9d6;
-            --color-border: #252a34;
-            --color-border-light: #313244;
-            --color-border-lighter: #45475a;
-            --color-code-bg: #252a34;
-            --color-code-text: #cdd6f4;
-            --color-selection-bg: #ff2e63;
-            --color-selection-text: #ffffff;
-            --color-footer-bg: #252a34;
-            --color-footer-text: #ffffff;
-            --color-figure-bg: #eaeaea;
-        }
-        .dark {
-            --color-bg: #181825;
-            --color-bg-alt: #252a34;
-            --color-surface: #252a34;
-            --color-text: #cdd6f4;
-            --color-primary: #ff2e63;
-            --color-secondary: #08d9d6;
-            --color-link: #ff2e63;
-            --color-link-hover: #08d9d6;
-            --color-border: #181825;
-            --color-border-light: #313244;
-            --color-border-lighter: #45475a;
-            --color-code-bg: #252a34;
-            --color-code-text: #cdd6f4;
-            --color-selection-bg: #ff2e63;
-            --color-selection-text: #ffffff;
-            --color-footer-bg: #252a34;
-            --color-footer-text: #cdd6f4;
-            --color-figure-bg: #252a34;
-        }
-    </style>
+
     
     {{ partial "head/includes" . }}
 </head>

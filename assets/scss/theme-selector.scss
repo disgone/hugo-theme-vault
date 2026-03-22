@@ -1,0 +1,90 @@
+@import 'tokens';
+@import 'themes';
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .25rem;
+    cursor: pointer;
+    color: var(--color-text);
+    vertical-align: middle;
+
+    @media (min-width: 768px) {
+        padding: 0 .5rem;
+    }
+
+    svg {
+        width: 18px;
+        height: 18px;
+        transition: scale 300ms ease-in-out, rotate 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #sun-icon {
+        position: absolute;
+        scale: 1;
+    }
+
+    #moon-icon {
+        scale: 0;
+        rotate: 0turn;
+    }
+}
+
+// Dark theme when checkbox is checked
+:root:has(input#theme-toggle:checked) {
+    --color-bg: #{theme-color("dark", "bg")};
+    --color-bg-alt: #{theme-color("dark", "bg-alt")};
+    --color-surface: #{theme-color("dark", "surface")};
+    --color-text: #{theme-color("dark", "text")};
+    --color-primary: #{theme-color("dark", "primary")};
+    --color-secondary: #{theme-color("dark", "secondary")};
+    --color-link: #{theme-color("dark", "link")};
+    --color-link-hover: #{theme-color("dark", "link-hover")};
+    --color-border: #{theme-color("dark", "border")};
+    --color-border-light: #{theme-color("dark", "border-light")};
+    --color-border-lighter: #{theme-color("dark", "border-lighter")};
+    --color-code-bg: #{theme-color("dark", "code-bg")};
+    --color-code-text: #{theme-color("dark", "code-text")};
+    --color-selection-bg: #{theme-color("dark", "selection-bg")};
+    --color-selection-text: #{theme-color("dark", "selection-text")};
+    --color-footer-bg: #{theme-color("dark", "footer-bg")};
+    --color-footer-text: #{theme-color("dark", "footer-text")};
+    --color-figure-bg: #{theme-color("dark", "figure-bg")};
+
+    --syntax-bg: #{theme-syntax("dark", "bg")};
+    --syntax-fg: #{theme-syntax("dark", "fg")};
+    --syntax-keyword: #{theme-syntax("dark", "keyword")};
+    --syntax-keyword-alt: #{theme-syntax("dark", "keyword-alt")};
+    --syntax-function: #{theme-syntax("dark", "function")};
+    --syntax-string: #{theme-syntax("dark", "string")};
+    --syntax-number: #{theme-syntax("dark", "number")};
+    --syntax-comment: #{theme-syntax("dark", "comment")};
+    --syntax-operator: #{theme-syntax("dark", "operator")};
+
+    .theme-toggle {
+        color: var(--color-primary);
+
+        #sun-icon {
+            scale: 0;
+        }
+
+        #moon-icon {
+            scale: 1;
+            rotate: 1turn;
+        }
+    }
+}
