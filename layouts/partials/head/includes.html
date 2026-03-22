@@ -13,5 +13,5 @@
 <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">
 {{ end }}
 
-{{ $css := resources.Get "scss/main.scss" | toCSS | postCSS | fingerprint }}
+{{ $css := resources.Get "scss/main.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">

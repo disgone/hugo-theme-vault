@@ -119,12 +119,7 @@ The `blog.md` archetype includes common fields: author, date, title, description
 
 ## Development
 
-Hugo Pipes automatically processes SCSS files with PostCSS and autoprefixes for browser compatibility. No separate build step needed.
-
-Install PostCSS dependencies:
-```bash
-bun install
-```
+Hugo Pipes automatically processes SCSS files. No separate build step needed.
 
 ### Running Example Site
 

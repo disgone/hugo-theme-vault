@@ -195,11 +195,6 @@ Same parameters as `vault-image`, plus:
 
 The theme uses Hugo Pipes for automatic CSS processing. No separate build step needed.
 
-Install PostCSS dependencies for autoprefixing:
-```bash
-bun install
-```
-
 ## License
 
 MIT License. See [LICENSE](LICENSE.md).
