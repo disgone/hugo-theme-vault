@@ -33,7 +33,12 @@
             </div>
         </footer>
     </div>
-    {{ $syntaxCss := resources.Get "scss/syntax.scss" | toCSS | postCSS | fingerprint }}
-    <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}" media="screen" integrity="{{ $syntaxCss.Data.Integrity }}" crossorigin="anonymous">
+    {{ $noop := .Content }}
+    {{ if .RawContent }}
+        {{ if findRE "```" .RawContent }}
+            {{ $syntaxCss := resources.Get "scss/syntax.scss" | toCSS | fingerprint }}
+            <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}" media="screen" integrity="{{ $syntaxCss.Data.Integrity }}" crossorigin="anonymous">
+        {{ end }}
+    {{ end }}
 </body>
 </html>
