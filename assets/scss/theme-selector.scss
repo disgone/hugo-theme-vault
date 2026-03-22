@@ -44,36 +44,10 @@
     }
 }
 
-// Dark theme when checkbox is checked
 :root:has(input#theme-toggle:checked) {
-    --color-bg: #{theme-color("dark", "bg")};
-    --color-bg-alt: #{theme-color("dark", "bg-alt")};
-    --color-surface: #{theme-color("dark", "surface")};
-    --color-text: #{theme-color("dark", "text")};
-    --color-primary: #{theme-color("dark", "primary")};
-    --color-secondary: #{theme-color("dark", "secondary")};
-    --color-link: #{theme-color("dark", "link")};
-    --color-link-hover: #{theme-color("dark", "link-hover")};
-    --color-border: #{theme-color("dark", "border")};
-    --color-border-light: #{theme-color("dark", "border-light")};
-    --color-border-lighter: #{theme-color("dark", "border-lighter")};
-    --color-code-bg: #{theme-color("dark", "code-bg")};
-    --color-code-text: #{theme-color("dark", "code-text")};
-    --color-selection-bg: #{theme-color("dark", "selection-bg")};
-    --color-selection-text: #{theme-color("dark", "selection-text")};
-    --color-footer-bg: #{theme-color("dark", "footer-bg")};
-    --color-footer-text: #{theme-color("dark", "footer-text")};
-    --color-figure-bg: #{theme-color("dark", "figure-bg")};
-
-    --syntax-bg: #{theme-syntax("dark", "bg")};
-    --syntax-fg: #{theme-syntax("dark", "fg")};
-    --syntax-keyword: #{theme-syntax("dark", "keyword")};
-    --syntax-keyword-alt: #{theme-syntax("dark", "keyword-alt")};
-    --syntax-function: #{theme-syntax("dark", "function")};
-    --syntax-string: #{theme-syntax("dark", "string")};
-    --syntax-number: #{theme-syntax("dark", "number")};
-    --syntax-comment: #{theme-syntax("dark", "comment")};
-    --syntax-operator: #{theme-syntax("dark", "operator")};
+    @each $role, $slot in $semantic {
+        --#{$role}: #{palette-get("vault-dark", $slot)};
+    }
 
     .theme-toggle {
         color: var(--color-primary);

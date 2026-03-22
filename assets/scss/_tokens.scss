@@ -1,246 +1,173 @@
-$palette: (
-  // Base
-  0: #ffffff,
-  1: #eaeaea,
-  // Dark backgrounds
-  2: #252a34,
-  3: #181825,
-  4: #252a34,
-  // Light text
-  5: #cdd6f4,
-  // Accents
-  6: #ff2e63,
-  7: #08d9d6,
-  8: #66d9ef,
-  9: #f92672,
-  10: #a6e22e,
-  11: #e6db74,
-  12: #ae81ff,
-  13: #bac2be,
-  // Borders
-  14: #313244,
-  15: #45475a,
-  // Nord
-  16: #3b4252,
-  17: #434c5e,
-  18: #4c566a,
-  19: #d8dee9,
-  20: #e5e9f0,
-  21: #8fbcbb,
-  22: #88c0d0,
-  23: #81a1c1,
-  24: #5e81ac,
-  // Catppuccin Mocha
-  25: #cdd6f4,
-  26: #f5e0dc,
-  27: #f2cdcd,
-  28: #f5c2e7,
-  29: #cba6f7,
-  30: #f38ba8,
-  31: #fab387,
-  32: #f9e2af,
-  33: #a6e3a1,
-  34: #94e2d5,
-  35: #89dceb,
-  36: #89b4fa,
-  37: #1e1e2e,
-  38: #313244,
-  // Catppuccin Frappe
-  39: #c6d0f5,
-  40: #f2dcd5,
-  41: #f4b8d6,
-  42: #c7b1fa,
-  43: #ed8896,
-  44: #f8b68d,
-  45: #f0d79e,
-  46: #a6d98a,
-  47: #9cc8d6,
-  48: #99d0e8,
-  49: #91b4e8,
-  50: #303446,
-  51: #45475a,
+// Slot conventions (same meaning across all schemes):
+//   base-0: page background
+//   base-1: surface / code background
+//   base-2: elevated surface / border
+//   base-3: subtle border / muted surface
+//   text-0: body text
+//   text-1: bright / high-contrast text (e.g. on dark surfaces)
+//   text-2: muted text
+//   text-3: very subtle / comment text
+//   red:    primary accent (links, highlights)
+//   orange: secondary accent (link hover, blockquote border)
+//   yellow: syntax keyword
+//   green:  syntax function
+//   blue:   syntax keyword-alt / operator
+//   purple: syntax number
+//   pink:   syntax string
+//   cyan:   syntax comment
+
+$schemes: (
+    "vault-light": (
+        "base-0":  #eaeaea,
+        "base-1":  #252a34,
+        "base-2":  #313244,
+        "base-3":  #45475a,
+        "text-0":  #252a34,
+        "text-1":  #ffffff,
+        "text-2":  #45475a,
+        "text-3":  #bac2be,
+        "red":     #ff2e63,
+        "orange":  #08d9d6,
+        "yellow":  #66d9ef,
+        "green":   #a6e22e,
+        "blue":    #f92672,
+        "purple":  #ae81ff,
+        "pink":    #e6db74,
+        "cyan":    #bac2be,
+    ),
+    "vault-dark": (
+        "base-0":  #181825,
+        "base-1":  #252a34,
+        "base-2":  #313244,
+        "base-3":  #45475a,
+        "text-0":  #cdd6f4,
+        "text-1":  #ffffff,
+        "text-2":  #bac2be,
+        "text-3":  #a6adc8,
+        "red":     #ff2e63,
+        "orange":  #08d9d6,
+        "yellow":  #66d9ef,
+        "green":   #a6e22e,
+        "blue":    #f92672,
+        "purple":  #ae81ff,
+        "pink":    #e6db74,
+        "cyan":    #bac2be,
+    ),
+    "nord": (
+        "base-0":  #2e3440,
+        "base-1":  #3b4252,
+        "base-2":  #434c5e,
+        "base-3":  #4c566a,
+        "text-0":  #d8dee9,
+        "text-1":  #eceff4,
+        "text-2":  #e5e9f0,
+        "text-3":  #4c566a,
+        "red":     #bf616a,
+        "orange":  #d08770,
+        "yellow":  #ebcb8b,
+        "green":   #a3be8c,
+        "blue":    #81a1c1,
+        "purple":  #b48ead,
+        "pink":    #8fbcbb,
+        "cyan":    #88c0d0,
+    ),
+    "catppuccin-mocha": (
+        "base-0":  #1e1e2e,
+        "base-1":  #313244,
+        "base-2":  #45475a,
+        "base-3":  #585b70,
+        "text-0":  #cdd6f4,
+        "text-1":  #cdd6f4,
+        "text-2":  #a6adc8,
+        "text-3":  #6c7086,
+        "red":     #f38ba8,
+        "orange":  #fab387,
+        "yellow":  #f9e2af,
+        "green":   #a6e3a1,
+        "blue":    #89b4fa,
+        "purple":  #cba6f7,
+        "pink":    #f5c2e7,
+        "cyan":    #94e2d5,
+    ),
+    "catppuccin-frappe": (
+        "base-0":  #303446,
+        "base-1":  #414559,
+        "base-2":  #51576d,
+        "base-3":  #626880,
+        "text-0":  #c6d0f5,
+        "text-1":  #c6d0f5,
+        "text-2":  #a5adce,
+        "text-3":  #737994,
+        "red":     #e78284,
+        "orange":  #ef9f76,
+        "yellow":  #e5c890,
+        "green":   #a6d189,
+        "blue":    #8caaee,
+        "purple":  #ca9ee6,
+        "pink":    #f4b8e4,
+        "cyan":    #81c8be,
+    ),
 );
 
-$themes: (
-  "light": (
-    "color": (
-      "bg": 1,
-      "bg-alt": 2,
-      "surface": 1,
-      "text": 4,
-      "primary": 6,
-      "secondary": 7,
-      "link": 6,
-      "link-hover": 7,
-      "border": 2,
-      "border-light": 14,
-      "border-lighter": 15,
-      "code-bg": 2,
-      "code-text": 5,
-      "selection-bg": 6,
-      "selection-text": 0,
-      "footer-bg": 2,
-      "footer-text": 0,
-      "figure-bg": 1,
-    ),
-    "syntax": (
-      "bg": 2,
-      "fg": 0,
-      "keyword": 8,
-      "keyword-alt": 9,
-      "function": 10,
-      "string": 11,
-      "number": 12,
-      "comment": 13,
-      "operator": 9,
-    ),
-  ),
-  "dark": (
-    "color": (
-      "bg": 3,
-      "bg-alt": 2,
-      "surface": 2,
-      "text": 5,
-      "primary": 6,
-      "secondary": 7,
-      "link": 6,
-      "link-hover": 7,
-      "border": 3,
-      "border-light": 14,
-      "border-lighter": 15,
-      "code-bg": 2,
-      "code-text": 5,
-      "selection-bg": 6,
-      "selection-text": 0,
-      "footer-bg": 2,
-      "footer-text": 5,
-      "figure-bg": 2,
-    ),
-    "syntax": (
-      "bg": 2,
-      "fg": 5,
-      "keyword": 8,
-      "keyword-alt": 9,
-      "function": 10,
-      "string": 11,
-      "number": 12,
-      "comment": 13,
-      "operator": 9,
-    ),
-  ),
-  "nord": (
-    "color": (
-      "bg": 19,
-      "bg-alt": 16,
-      "surface": 20,
-      "text": 16,
-      "primary": 24,
-      "secondary": 22,
-      "link": 24,
-      "link-hover": 21,
-      "border": 17,
-      "border-light": 18,
-      "border-lighter": 18,
-      "code-bg": 16,
-      "code-text": 19,
-      "selection-bg": 24,
-      "selection-text": 19,
-      "footer-bg": 16,
-      "footer-text": 19,
-      "figure-bg": 20,
-    ),
-    "syntax": (
-      "bg": 16,
-      "fg": 19,
-      "keyword": 22,
-      "keyword-alt": 9,
-      "function": 18,
-      "string": 23,
-      "number": 12,
-      "comment": 13,
-      "operator": 9,
-    ),
-  ),
-  "catppuccin-mocha": (
-    "color": (
-      "bg": 37,
-      "bg-alt": 38,
-      "surface": 38,
-      "text": 25,
-      "primary": 29,
-      "secondary": 34,
-      "link": 36,
-      "link-hover": 34,
-      "border": 37,
-      "border-light": 38,
-      "border-lighter": 38,
-      "code-bg": 37,
-      "code-text": 25,
-      "selection-bg": 29,
-      "selection-text": 26,
-      "footer-bg": 37,
-      "footer-text": 25,
-      "figure-bg": 38,
-    ),
-    "syntax": (
-      "bg": 37,
-      "fg": 25,
-      "keyword": 28,
-      "keyword-alt": 30,
-      "function": 33,
-      "string": 31,
-      "number": 29,
-      "comment": 13,
-      "operator": 9,
-    ),
-  ),
-  "catppuccin-frappe": (
-    "color": (
-      "bg": 50,
-      "bg-alt": 51,
-      "surface": 51,
-      "text": 39,
-      "primary": 42,
-      "secondary": 47,
-      "link": 49,
-      "link-hover": 47,
-      "border": 50,
-      "border-light": 51,
-      "border-lighter": 51,
-      "code-bg": 50,
-      "code-text": 39,
-      "selection-bg": 42,
-      "selection-text": 40,
-      "footer-bg": 50,
-      "footer-text": 39,
-      "figure-bg": 51,
-    ),
-    "syntax": (
-      "bg": 50,
-      "fg": 39,
-      "keyword": 41,
-      "keyword-alt": 43,
-      "function": 46,
-      "string": 44,
-      "number": 42,
-      "comment": 13,
-      "operator": 9,
-    ),
-  ),
+// Global semantic map: role → palette slot.
+// Same for every scheme — swap a palette, the whole theme updates.
+$semantic: (
+    // UI
+    "color-bg":             "base-0",
+    "color-bg-alt":         "base-1",
+    "color-background":     "base-0",
+    "color-surface":        "base-1",
+    "color-alt":            "base-1",
+    "color-text":           "text-0",
+    "color-primary":        "red",
+    "color-secondary":      "orange",
+    "color-link":           "red",
+    "color-link-hover":     "orange",
+    "color-hover":          "orange",
+    "color-border":         "base-1",
+    "color-border-light":   "base-2",
+    "color-border-lighter": "base-3",
+    "color-code-bg":        "base-1",
+    "color-code-text":      "text-1",
+    "color-selection-bg":   "red",
+    "color-selection-text": "text-1",
+    "color-figure-bg":      "base-0",
+    "color-footer-bg":      "base-1",
+    "color-footer-text":    "text-1",
+    // Syntax
+    "syntax-bg":            "base-1",
+    "syntax-fg":            "text-1",
+    "syntax-keyword":       "yellow",
+    "syntax-keyword-alt":   "blue",
+    "syntax-function":      "green",
+    "syntax-string":        "pink",
+    "syntax-number":        "purple",
+    "syntax-comment":       "text-3",
+    "syntax-operator":      "blue",
 );
 
-$font-family-serif: "PT Serif", Georgia, "Times New Roman", Times, serif;
-$font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+@function palette-get($scheme-name, $slot) {
+    $scheme: map-get($schemes, $scheme-name);
+    @return map-get($scheme, unquote($slot));
+}
+
+@function resolve($scheme-name, $role) {
+    $slot: map-get($semantic, $role);
+    @return palette-get($scheme-name, $slot);
+}
+
+$font-family-serif:   "PT Serif", Georgia, "Times New Roman", Times, serif;
+$font-family-sans:    "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 $font-family-heading: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-$font-family-fixed: "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+$font-family-fixed:   "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
 
 $font: (
-  "size": 100%,
-  "size-large": 100%,
-  "size-small": 0.75rem,
-  "line-height": 1.5,
+    "size":        100%,
+    "size-large":  100%,
+    "size-small":  0.75rem,
+    "line-height": 1.5,
 );
 
 $layout: (
-  "border-top-width": 1em,
+    "border-top-width": 1em,
 );

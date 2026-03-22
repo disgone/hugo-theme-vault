@@ -1,89 +1,23 @@
-// Helper to get theme color
-@function theme-color($theme-name, $color-name) {
-  $theme: map-get($themes, $theme-name);
-  $color-map: map-get($theme, "color");
-  @return map-get($palette, map-get($color-map, $color-name));
-}
-
-@function theme-syntax($theme-name, $syntax-name) {
-  $theme: map-get($themes, $theme-name);
-  $syntax-map: map-get($theme, "syntax");
-  @return map-get($palette, map-get($syntax-map, $syntax-name));
-}
-
-// Root defaults (layout/fonts + light theme as fallback)
 :root {
-  --layout-border-top-width: #{map-get($layout, "border-top-width")};
-  --font-size: #{map-get($font, "size")};
-  --font-size-large: #{map-get($font, "size-large")};
-  --font-size-small: #{map-get($font, "size-small")};
-  --font-line-height: #{map-get($font, "line-height")};
-  --font-family-serif: #{$font-family-serif};
-  --font-family-sans: #{$font-family-sans};
-  --font-family-heading: #{$font-family-heading};
-  --font-family-fixed: #{$font-family-fixed};
+    --layout-border-top-width: #{map-get($layout, "border-top-width")};
+    --font-size:               #{map-get($font, "size")};
+    --font-size-large:         #{map-get($font, "size-large")};
+    --font-size-small:         #{map-get($font, "size-small")};
+    --font-line-height:        #{map-get($font, "line-height")};
+    --font-family-serif:       #{$font-family-serif};
+    --font-family-sans:        #{$font-family-sans};
+    --font-family-heading:     #{$font-family-heading};
+    --font-family-fixed:       #{$font-family-fixed};
 
-  // Light theme as default
-  --color-bg: #{theme-color("light", "bg")};
-  --color-bg-alt: #{theme-color("light", "bg-alt")};
-  --color-surface: #{theme-color("light", "surface")};
-  --color-text: #{theme-color("light", "text")};
-  --color-primary: #{theme-color("light", "primary")};
-  --color-secondary: #{theme-color("light", "secondary")};
-  --color-link: #{theme-color("light", "link")};
-  --color-link-hover: #{theme-color("light", "link-hover")};
-  --color-border: #{theme-color("light", "border")};
-  --color-border-light: #{theme-color("light", "border-light")};
-  --color-border-lighter: #{theme-color("light", "border-lighter")};
-  --color-code-bg: #{theme-color("light", "code-bg")};
-  --color-code-text: #{theme-color("light", "code-text")};
-  --color-selection-bg: #{theme-color("light", "selection-bg")};
-  --color-selection-text: #{theme-color("light", "selection-text")};
-  --color-footer-bg: #{theme-color("light", "footer-bg")};
-  --color-footer-text: #{theme-color("light", "footer-text")};
-  --color-figure-bg: #{theme-color("light", "figure-bg")};
-
-  --syntax-bg: #{theme-syntax("light", "bg")};
-  --syntax-fg: #{theme-syntax("light", "fg")};
-  --syntax-keyword: #{theme-syntax("light", "keyword")};
-  --syntax-keyword-alt: #{theme-syntax("light", "keyword-alt")};
-  --syntax-function: #{theme-syntax("light", "function")};
-  --syntax-string: #{theme-syntax("light", "string")};
-  --syntax-number: #{theme-syntax("light", "number")};
-  --syntax-comment: #{theme-syntax("light", "comment")};
-  --syntax-operator: #{theme-syntax("light", "operator")};
+    @each $role, $slot in $semantic {
+        --#{$role}: #{palette-get("vault-light", $slot)};
+    }
 }
 
-// Generate theme classes from tokens
-@each $name, $theme in $themes {
-  .theme-#{$name} {
-    --color-bg: #{theme-color($name, "bg")};
-    --color-bg-alt: #{theme-color($name, "bg-alt")};
-    --color-surface: #{theme-color($name, "surface")};
-    --color-text: #{theme-color($name, "text")};
-    --color-primary: #{theme-color($name, "primary")};
-    --color-secondary: #{theme-color($name, "secondary")};
-    --color-link: #{theme-color($name, "link")};
-    --color-link-hover: #{theme-color($name, "link-hover")};
-    --color-border: #{theme-color($name, "border")};
-    --color-border-light: #{theme-color($name, "border-light")};
-    --color-border-lighter: #{theme-color($name, "border-lighter")};
-    --color-code-bg: #{theme-color($name, "code-bg")};
-    --color-code-text: #{theme-color($name, "code-text")};
-    --color-selection-bg: #{theme-color($name, "selection-bg")};
-    --color-selection-text: #{theme-color($name, "selection-text")};
-    --color-footer-bg: #{theme-color($name, "footer-bg")};
-    --color-footer-text: #{theme-color($name, "footer-text")};
-    --color-figure-bg: #{theme-color($name, "figure-bg")};
-
-    --syntax-bg: #{theme-syntax($name, "bg")};
-    --syntax-fg: #{theme-syntax($name, "fg")};
-    --syntax-keyword: #{theme-syntax($name, "keyword")};
-    --syntax-keyword-alt: #{theme-syntax($name, "keyword-alt")};
-    --syntax-function: #{theme-syntax($name, "function")};
-    --syntax-string: #{theme-syntax($name, "string")};
-    --syntax-number: #{theme-syntax($name, "number")};
-    --syntax-comment: #{theme-syntax($name, "comment")};
-    --syntax-operator: #{theme-syntax($name, "operator")};
-  }
+@each $name, $scheme in $schemes {
+    .theme-#{$name} {
+        @each $role, $slot in $semantic {
+            --#{$role}: #{palette-get($name, $slot)};
+        }
+    }
 }

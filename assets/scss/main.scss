@@ -124,7 +124,7 @@ main {
 
 ::selection {
     background: $color-primary;
-    color: #ffffff;
+    color: var(--color-selection-text);
 }
 
 
@@ -192,7 +192,7 @@ article {
     }
 
     blockquote {
-        background-color: $figure-bg;
+        background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
         border-left: .1rem solid $color-secondary;
         font-family: $font-family-sans;
         padding: 1rem;
