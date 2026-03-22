@@ -1,0 +1,95 @@
+$palette: (
+  0: #ffffff,  1: #eaeaea,  2: #252a34,   3: #181825,
+  4: #252a34,  5: #cdd6f4,  6: #ff2e63,   7: #08d9d6,
+  8: #66d9ef,  9: #f92672,  10: #a6e22e,  11: #e6db74,
+  12: #ae81ff, 13: #bac2be,
+  14: #313244,
+  15: #45475a,
+);
+
+$themes: (
+  "light": (
+    "palette": $palette,
+    "color": (
+      "bg": 1,
+      "bg-alt": 2,
+      "surface": 1,
+      "text": 4,
+      "primary": 6,
+      "secondary": 7,
+      "link": 6,
+      "link-hover": 7,
+      "border": 2,
+      "border-light": 14,
+      "border-lighter": 15,
+      "code-bg": 2,
+      "code-text": 5,
+      "selection-bg": 6,
+      "selection-text": 0,
+      "footer-bg": 2,
+      "footer-text": 0,
+      "figure-bg": 1,
+    ),
+    "syntax": (
+      "bg": 2,
+      "fg": 0,
+      "keyword": 8,
+      "keyword-alt": 9,
+      "function": 10,
+      "string": 11,
+      "number": 12,
+      "comment": 13,
+      "operator": 9,
+    ),
+  ),
+  "dark": (
+    "palette": $palette,
+    "color": (
+      "bg": 3,
+      "bg-alt": 2,
+      "surface": 2,
+      "text": 5,
+      "primary": 6,
+      "secondary": 7,
+      "link": 6,
+      "link-hover": 7,
+      "border": 3,
+      "border-light": 14,
+      "border-lighter": 15,
+      "code-bg": 2,
+      "code-text": 5,
+      "selection-bg": 6,
+      "selection-text": 0,
+      "footer-bg": 2,
+      "footer-text": 5,
+      "figure-bg": 2,
+    ),
+    "syntax": (
+      "bg": 2,
+      "fg": 5,
+      "keyword": 8,
+      "keyword-alt": 9,
+      "function": 10,
+      "string": 11,
+      "number": 12,
+      "comment": 13,
+      "operator": 9,
+    ),
+  ),
+);
+
+$font-family-serif: "PT Serif", Georgia, "Times New Roman", Times, serif;
+$font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-heading: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-fixed: "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+
+$font: (
+  "size": 100%,
+  "size-large": 100%,
+  "size-small": 0.75rem,
+  "line-height": 1.5,
+);
+
+$layout: (
+  "border-top-width": 1em,
+);

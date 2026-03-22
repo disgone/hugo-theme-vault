@@ -1,0 +1,48 @@
+:root {
+  --layout-border-top-width: #{map-get($layout, "border-top-width")};
+  --font-size: #{map-get($font, "size")};
+  --font-size-large: #{map-get($font, "size-large")};
+  --font-size-small: #{map-get($font, "size-small")};
+  --font-line-height: #{map-get($font, "line-height")};
+  --font-family-serif: #{$font-family-serif};
+  --font-family-sans: #{$font-family-sans};
+  --font-family-heading: #{$font-family-heading};
+  --font-family-fixed: #{$font-family-fixed};
+}
+
+@each $name, $theme in $themes {
+  $theme-palette: map-get($theme, "palette");
+  $color-map: map-get($theme, "color");
+  $syntax-map: map-get($theme, "syntax");
+
+  .#{$name} {
+    --color-bg: #{map-get($theme-palette, map-get($color-map, "bg"))};
+    --color-bg-alt: #{map-get($theme-palette, map-get($color-map, "bg-alt"))};
+    --color-surface: #{map-get($theme-palette, map-get($color-map, "surface"))};
+    --color-text: #{map-get($theme-palette, map-get($color-map, "text"))};
+    --color-primary: #{map-get($theme-palette, map-get($color-map, "primary"))};
+    --color-secondary: #{map-get($theme-palette, map-get($color-map, "secondary"))};
+    --color-link: #{map-get($theme-palette, map-get($color-map, "link"))};
+    --color-link-hover: #{map-get($theme-palette, map-get($color-map, "link-hover"))};
+    --color-border: #{map-get($theme-palette, map-get($color-map, "border"))};
+    --color-border-light: #{map-get($theme-palette, map-get($color-map, "border-light"))};
+    --color-border-lighter: #{map-get($theme-palette, map-get($color-map, "border-lighter"))};
+    --color-code-bg: #{map-get($theme-palette, map-get($color-map, "code-bg"))};
+    --color-code-text: #{map-get($theme-palette, map-get($color-map, "code-text"))};
+    --color-selection-bg: #{map-get($theme-palette, map-get($color-map, "selection-bg"))};
+    --color-selection-text: #{map-get($theme-palette, map-get($color-map, "selection-text"))};
+    --color-footer-bg: #{map-get($theme-palette, map-get($color-map, "footer-bg"))};
+    --color-footer-text: #{map-get($theme-palette, map-get($color-map, "footer-text"))};
+    --color-figure-bg: #{map-get($theme-palette, map-get($color-map, "figure-bg"))};
+
+    --syntax-bg: #{map-get($theme-palette, map-get($syntax-map, "bg"))};
+    --syntax-fg: #{map-get($theme-palette, map-get($syntax-map, "fg"))};
+    --syntax-keyword: #{map-get($theme-palette, map-get($syntax-map, "keyword"))};
+    --syntax-keyword-alt: #{map-get($theme-palette, map-get($syntax-map, "keyword-alt"))};
+    --syntax-function: #{map-get($theme-palette, map-get($syntax-map, "function"))};
+    --syntax-string: #{map-get($theme-palette, map-get($syntax-map, "string"))};
+    --syntax-number: #{map-get($theme-palette, map-get($syntax-map, "number"))};
+    --syntax-comment: #{map-get($theme-palette, map-get($syntax-map, "comment"))};
+    --syntax-operator: #{map-get($theme-palette, map-get($syntax-map, "operator"))};
+  }
+}

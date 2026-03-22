@@ -1,33 +1,26 @@
-// Colors
-$color-background: #eaeaea;
-$color-primary: #ff2e63;
-$color-secondary: #08d9d6;
-$color-alt: #252a34;
+$color-background: var(--color-bg, #eaeaea);
+$color-primary: var(--color-primary, #ff2e63);
+$color-secondary: var(--color-secondary, #08d9d6);
+$color-alt: var(--color-bg-alt, #252a34);
 
-$alt-dark: darken($color-alt, 10%);
-$alt-light: lighten($color-alt, 10%);
+$font-color: var(--color-text, #252a34);
+$link-color: var(--color-link, #ff2e63);
+$link-color-hover: var(--color-link-hover, #08d9d6);
 
-$font-color: $color-alt;
+$code-color: var(--color-code-text, #D0D4A5);
 
-$link-color: $color-primary;
-$link-color-hover: $color-secondary;
+$footer-background-color: var(--color-footer-bg, #252a34);
+$footer-color: var(--color-footer-text, #ffffff);
 
-$code-color: #D0D4A5;
-
-$footer-background-color: $color-alt;
-$footer-color: lighten($color-alt, 50%);
-
-$figure-bg: darken($color-background, 5%);
+$figure-bg: var(--color-figure-bg, #dce0e8);
 $figure-caption-bg: $figure-bg;
 
-// Typography
-$font-size: 106.25%;
-$line-height: 1.5;
-
+$font-size: var(--font-size, 100%);
+$font-size-large: var(--font-size-large, 100%);
+$line-height: var(--font-line-height, 1.5);
 $font-family-serif: "PT Serif", Georgia, "Times New Roman", Times, serif;
-$font-family-sans: "Roboto Condensed", Helvetica, Arial, sans-serif;
-$font-family-fixed: "Fira Mono", "Droid Sans Mono", "Source Code Pro", consolas, monospace;
-
+$font-family-sans: "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-heading: var(--font-family-heading, "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif);
+$font-family-fixed: "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
 $font-size-small: .75rem;
-
-$layout-border-top-width: 1em;
+$layout-border-top-width: var(--layout-border-top-width, 1em);
