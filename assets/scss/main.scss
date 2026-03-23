@@ -233,7 +233,7 @@ article {
         padding: 1rem;
     }
 
-    figure {
+    .vault-figure {
         font-family: $font-family-sans;
         margin: 1.5rem 0;
 
@@ -243,21 +243,27 @@ article {
             padding: 1rem;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
+        > .vault-image {
+            width: 100%;
         }
-    }
 
-    figcaption {
-        @include surface;
-        font-size: $font-size-small;
-        margin-top: -1rem;
-        padding: .5rem 1rem;
-        text-wrap: pretty;
+        img {
+            display: block;
+            height: auto;
+            max-width: 100%;
+            width: 100%;
+        }
 
-        :last-child {
-            margin-bottom: 0;
+        figcaption {
+            @include surface;
+            font-size: $font-size-small;
+            margin-top: -1rem;
+            padding: .5rem 1rem;
+            text-wrap: pretty;
+
+            :last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -420,20 +426,26 @@ header {
         grid-auto-columns: 50fr 50fr;
         grid-auto-flow: column;
 
-        figure {
+        .vault-figure {
             margin: 0;
             max-width: 100%;
         }
     }
 
-    figure.small {
+    .inset {
         float: right;
         margin: 0 0 1rem 1rem;
         max-width: 50%;
     }
 
+    .inset-left {
+        float: left;
+        margin: 0 1rem 1rem 0;
+        max-width: 50%;
+    }
+
     .dual,
-    article > figure.normal,
+    article > .vault-figure:not(.inset):not(.inset-left),
     .highlight {
         margin-inline: -1rem;
     }
