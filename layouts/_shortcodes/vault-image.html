@@ -1,0 +1,6 @@
+{{- $src := .Get "src" -}}
+{{- if $src }}
+  {{- partial "vault-image.html" . -}}
+{{- else }}
+  {{- errorf "vault-image shortcode requires a 'src' argument: see %s" .Position -}}
+{{- end }}

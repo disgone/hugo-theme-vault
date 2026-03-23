@@ -1,11 +1,9 @@
-{{- $variant := .Get "variant" -}}
-
-<figure class="{{ default "normal" $variant }}">
+{{- $variant := .Params.variant | default "normal" -}}
+<figure class="{{ $variant }}">
     {{ partial "vault-image.html" . }}
-
-    {{- with .Get "title" -}}
+    {{- with .Params.title -}}
         <figcaption>
             <p>{{ . | markdownify }}</p>
         </figcaption>
-    {{- end -}}
+    {{- end }}
 </figure>
