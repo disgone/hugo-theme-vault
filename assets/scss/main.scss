@@ -115,8 +115,8 @@ sub {
 }
 
 sup {
-    top: -.5rem;
-    left: .25rem;
+    inset-block-start: -.5rem;
+    inset-inline-start: .25rem;
 }
 
 sub {
@@ -189,20 +189,20 @@ article {
             color: $color-primary;
             font-family: $font-family-sans;
             font-weight: normal;
-            left: -5em;
-            padding-right: 0.5em;
+            inset-inline-start: -5em;
+            padding-inline-end: 0.5em;
             position: absolute;
-            text-align: right;
+            text-align: end;
             width: 5em;
         }
     }
 
     blockquote {
         background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
-        border-left: .1rem solid $color-secondary;
+        border-inline-start: .1rem solid $color-secondary;
         font-family: $font-family-sans;
         padding: 1rem;
-        margin-left: -1rem;
+        margin-inline-start: -1rem;
         text-wrap: pretty;
 
         p:last-of-type  {
@@ -250,7 +250,7 @@ table {
 
     th {
         font-weight: 600;
-        text-align: left;
+        text-align: start;
     }
 
     &.bordered {
@@ -546,7 +546,7 @@ header {
 
     .previous {
         grid-column: 1;
-        text-align: left;
+        text-align: start;
     }
 
     span {
@@ -556,7 +556,7 @@ header {
 
     .next {
         grid-column: 3;
-        text-align: right;
+        text-align: end;
     }
 }
 
