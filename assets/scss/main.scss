@@ -70,7 +70,7 @@ pre {
     background-color: $color-alt;
     margin: 1rem 0;
     overflow-x: auto;
-    padding: 2%;
+    padding: 1rem;
 
     & > code {
         color: $code-color;
@@ -212,12 +212,17 @@ article {
         border-inline-start: .1rem solid $color-secondary;
         font-family: $font-family-sans;
         padding: 1rem;
-        margin-inline-start: -1rem;
+        margin-inline: -1rem;
         text-wrap: pretty;
 
         p:last-of-type  {
             margin-bottom: 0;
         }
+    }
+
+    pre:not(.highlight pre) {
+        margin-inline: -1rem;
+        padding: 1rem;
     }
 
     figure {
@@ -422,8 +427,7 @@ header {
     .dual,
     article > figure.normal,
     .highlight {
-        width: 110%;
-        margin-left: -5%;
+        margin-inline: -1rem;
     }
 }
 
