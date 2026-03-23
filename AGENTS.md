@@ -64,8 +64,11 @@ This theme has no test framework. Manual testing via hugo server only.
 
 **Variables:**
 ```scss
-$color-primary: #ff2e63;
+// Theme configuration - edit assets/scss/_settings.scss
 $font-family-serif: "Literata", Georgia, serif;
+
+// CSS custom property aliases
+$color-primary: var(--color-primary, #ff2e63);
 ```
 
 **Mixins for Responsive Breakpoints:**
