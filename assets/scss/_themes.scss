@@ -12,7 +12,7 @@
     --font-family-fixed:       #{$font-family-fixed};
 
     @each $role, $slot in $semantic {
-        --#{$role}: #{palette-get("vault-light", $slot)};
+        --#{$role}: #{palette-get($theme-scheme-light, $slot)};
     }
 }
 
