@@ -48,9 +48,14 @@ a {
     }
 
     &:hover,
-    &:active,
-    &:focus {
+    &:active {
         color: $link-color-hover;
+    }
+
+    &:focus-visible {
+        color: $link-color-hover;
+        outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+        outline-offset: .2rem;
     }
 }
 
@@ -357,10 +362,16 @@ header {
                 }
 
                 &:hover,
-                &:active,
-                &:focus {
+                &:active {
                     color: $link-color;
                     opacity: 1;
+                }
+
+                &:focus-visible {
+                    color: $link-color;
+                    opacity: 1;
+                    outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+                    outline-offset: .2rem;
                 }
             }
         }
@@ -639,6 +650,11 @@ header {
     cursor: pointer;
     color: var(--color-text);
     vertical-align: middle;
+
+    &:focus-visible {
+        outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+        outline-offset: .2rem;
+    }
 
     @media (min-width: 768px) {
         padding: 0 .5rem;
