@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
     font-weight: 700;
     margin: 1.5rem 0 .345rem 0;
+    text-wrap: balance;
 }
 
 p {
@@ -135,16 +136,16 @@ main {
 
 article {
     & > h1 {
-        font-size: 2.3rem;
+        font-size: clamp(2rem, calc(1rem + 1.3vw), 2.3rem);
     }
 
     & > h2 {
-        font-size: 1.85rem;
+        font-size: clamp(1.65rem, calc(0.95rem + 0.9vw), 1.85rem);
         line-height: 1.2;
     }
 
     & > h3 {
-        font-size: 1.5rem;
+        font-size: clamp(1.35rem, calc(0.9rem + 0.6vw), 1.5rem);
     }
 
     & > h4 {
@@ -202,6 +203,7 @@ article {
         font-family: $font-family-sans;
         padding: 1rem;
         margin-left: -1rem;
+        text-wrap: pretty;
 
         p:last-of-type  {
             margin-bottom: 0;
@@ -229,6 +231,7 @@ article {
         font-size: $font-size-small;
         margin-top: -1rem;
         padding: .5rem 1rem;
+        text-wrap: pretty;
 
         :last-child {
             margin-bottom: 0;
@@ -295,6 +298,7 @@ header {
     font-style: italic;
     font-weight: normal;
     line-height: 1.5rem;
+    text-wrap: pretty;
 }
 
 .metadata {
