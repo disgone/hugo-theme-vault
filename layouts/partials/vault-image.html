@@ -13,19 +13,20 @@
 
 {{/* Auto-detect dimensions for local images if not provided */}}
 {{- $img := resources.Get $src -}}
+{{- $origWidth := $width -}}
+{{- $origHeight := $height -}}
 {{- if and $img (not $width) (not $height) -}}
-    {{- $width = $img.Width -}}
-    {{- $height = $img.Height -}}
+    {{- $origWidth = $img.Width -}}
+    {{- $origHeight = $img.Height -}}
 {{- end -}}
 
 {{/* Generate WebP version for local images (if not remote) */}}
 {{- $srcWithFormat := $src -}}
 {{- if $img -}}
-    {{- $format := or $format "webp" -}}
-    {{- $processed := $img.Process "image/webp" -}}
-    {{- $srcWithFormat = $processed.RelPermalink -}}
-    {{- $width = $processed.Width -}}
-    {{- $height = $processed.Height -}}
+    {{- $webp := $img.Resize (printf "%dx%d webp" $img.Width $img.Height) -}}
+    {{- $srcWithFormat = $webp.RelPermalink -}}
+    {{- $width = $webp.Width -}}
+    {{- $height = $webp.Height -}}
 {{- end -}}
 
 {{/* Fallback content - displayed when image fails to load */}}
@@ -41,11 +42,25 @@
     </noscript>
 {{- end -}}
 
+{{- if $img -}}
+<picture>
+    <source type="image/webp" srcset="{{ $srcWithFormat }}">
+    <img
+        src="{{ $src }}"
+        alt="{{ $alt | default "" }}"
+        width="{{ $origWidth }}"
+        height="{{ $origHeight }}"
+        {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
+        {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
+        {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
+</picture>
+{{- else -}}
 <img
     src="{{ $srcWithFormat }}"
     alt="{{ $alt | default "" }}"
-    width="{{ $width }}"
-    height="{{ $height }}"
+    width="{{ $origWidth }}"
+    height="{{ $origHeight }}"
     {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
     {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
     {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
+{{- end -}}
