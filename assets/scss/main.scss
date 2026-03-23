@@ -268,7 +268,7 @@ header {
 .content-grid {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: calc(100vh - #{$layout-border-top-width});
+    min-block-size: calc(100dvh - #{$layout-border-top-width});
 }
 
 .viewport {
@@ -583,11 +583,10 @@ header {
     &::before {
         background-color: $footer-background-color;
         content: "";
-        height: calc(100vh - 2em);
-        left: 0;
+        inset-inline: 0;
+        inset-block-start: 2em;
+        min-block-size: calc(100dvh - 2em);
         position: absolute;
-        top: 2em;
-        width: 100%;
         z-index: -1;
     }
 
