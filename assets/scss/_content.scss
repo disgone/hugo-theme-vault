@@ -88,27 +88,6 @@ article {
     }
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-
-    td,th {
-        padding: .5rem;
-        border-bottom: 1px solid var(--color-border-light);
-    }
-
-    th {
-        font-weight: 600;
-        text-align: start;
-    }
-
-    &.bordered {
-        td,th {
-            border: 1px solid var(--color-border-light);
-        }
-    }
-}
-
 .description {
     font-family: $font-family-serif;
     font-size: .9rem;

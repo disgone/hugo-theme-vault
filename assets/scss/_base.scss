@@ -120,3 +120,24 @@ h1, h2, h3, h4, h5, h6 {
     margin: 1.5rem 0 .345rem 0;
     text-wrap: balance;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        padding: .5rem;
+        border-bottom: 1px solid var(--color-border-light);
+    }
+
+    th {
+        font-weight: 600;
+        text-align: start;
+    }
+
+    &.bordered {
+        td, th {
+            border: 1px solid var(--color-border-light);
+        }
+    }
+}
