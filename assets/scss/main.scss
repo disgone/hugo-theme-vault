@@ -168,6 +168,14 @@ article {
         list-style: none;
     }
 
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin-bottom: 1rem;
+    }
+
     ol {
         counter-reset: start-from 0;
 
