@@ -1,0 +1,139 @@
+.site-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-block-size: calc(100dvh - #{$layout-border-top-width});
+}
+
+.site-container {
+    margin: 0 auto;
+    padding: 1em;
+    width: 95vw;
+}
+
+@include screen-lrg {
+    .site-container {
+        max-width: 1200px;
+        width: 65vw;
+    }
+}
+
+header {
+    .description {
+        margin: .5rem 0;
+    }
+}
+
+#home-welcome,
+header {
+    h1 {
+        @include page-header-title;
+    }
+}
+
+#site-header {
+    font-family: $font-family-sans;
+    text-align: center;
+    text-transform: uppercase;
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        display: inline;
+        padding: 0 .25rem;
+    }
+
+    @include screen-medm {
+        li {
+            padding: 0 .5rem;
+        }
+    }
+
+    .branding {
+        float: left;
+    }
+
+    @include screen-medm {
+        & {
+            text-align: right;
+        }
+    }
+}
+
+#site-footer {
+    background-color: $footer-background-color;
+    color: $footer-color;
+
+    &::before {
+        background-color: $footer-background-color;
+        content: "";
+        inset-inline: 0;
+        inset-block-start: 2em;
+        min-block-size: calc(100dvh - 2em);
+        position: absolute;
+        z-index: -1;
+    }
+
+    a {
+        opacity: 0.7;
+
+        &:link,
+        &:visited {
+            color: var(--color-footer-text);
+        }
+
+        &:hover,
+        &:active {
+            color: $link-color;
+            opacity: 1;
+        }
+    }
+
+    p:only-child {
+        margin: 0;
+    }
+}
+
+.copyright {
+    font-family: $font-family-sans;
+    font-size: $font-size-small;
+}
+
+.pagination {
+    display: grid;
+    grid-template-columns: 30% auto 30%;
+    margin-top: 1.5rem;
+
+    .previous {
+        grid-column: 1;
+        text-align: start;
+    }
+
+    span {
+        grid-column: 2;
+        text-align: center;
+    }
+
+    .next {
+        grid-column: 3;
+        text-align: end;
+    }
+}
+
+#home-welcome {
+    p {
+        margin: 1rem 0;
+    }
+}
+
+@include screen-lrg {
+    .browse {
+        display: grid;
+        grid-template-columns: 55% auto 40%;
+
+        .taxonomy {
+            grid-column: 3;
+        }
+    }
+}
