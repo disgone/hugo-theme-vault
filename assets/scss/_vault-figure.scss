@@ -1,0 +1,33 @@
+.vault-figure {
+    font-family: $font-family-sans;
+    margin: 1.5rem 0;
+
+    & > * {
+        @include surface;
+        display: block;
+        padding: 1rem;
+    }
+
+    > .vault-image {
+        width: 100%;
+    }
+
+    img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    figcaption {
+        @include surface;
+        font-size: $font-size-small;
+        margin-top: -1rem;
+        padding: .5rem 1rem;
+        text-wrap: pretty;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
