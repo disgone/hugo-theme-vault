@@ -65,9 +65,11 @@ This theme has no test framework. Manual testing via hugo server only.
 **Variables:**
 ```scss
 // Theme configuration - edit assets/scss/_settings.scss
+$theme-scheme-light: "vault-light";
+$theme-scheme-dark: "catppuccin-mocha";
 $font-family-serif: "Literata", Georgia, serif;
 
-// CSS custom property aliases
+// CSS custom property aliases (auto-generated)
 $color-primary: var(--color-primary, #ff2e63);
 ```
 
@@ -98,7 +100,7 @@ $color-primary: var(--color-primary, #ff2e63);
 - Alphabetical (asc) within selectors
 
 **SCSS Organization:**
-- Foundation partials (`_tokens.scss`, `_themes.scss`, `_variables.scss`, `_mixins.scss`, `_fonts.scss`, `_reset.scss`) imported first
+- Foundation partials (`_themes.scss`, `_settings.scss`, `_mixins.scss`, `_fonts.scss`, `_reset.scss`) imported first
 - Base layer (`_base.scss`) for document and element defaults (all base HTML element rules belong here)
 - Content layer (`_content.scss`) for article-specific and typography classes
 - Layout layer (`_layout.scss`) for site shell, header, footer, pagination
@@ -109,9 +111,8 @@ $color-primary: var(--color-primary, #ff2e63);
 
 **Imports Order:**
 ```scss
-@import 'tokens';
+@import 'settings';
 @import 'themes';
-@import 'variables';
 @import 'mixins';
 @import 'fonts';
 @import 'reset';
@@ -161,9 +162,8 @@ assets/scss/        # Stylesheets
   _layout.scss      # Site shell and layout
   _vault-figure.scss # Figure shortcode styling
   _theme-toggle.scss # Theme toggle styling
-  _tokens.scss      # Color schemes and tokens
-  _themes.scss      # CSS custom property emission
-  _variables.scss   # Sass variable aliases
+  _themes.scss      # Palettes, semantic maps, CSS generation
+  _settings.scss    # Theme configuration, SCSS variable aliases
   _mixins.scss      # Shared mixins and breakpoints
   _fonts.scss       # Font imports
   _reset.scss       # CSS reset
