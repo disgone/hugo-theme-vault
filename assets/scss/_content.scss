@@ -120,7 +120,7 @@ article {
 .post {
     :not(pre) > code {
         @include surface;
-        border: 1px solid var(--color-border-light);
+        border: 1px solid color-mix(in srgb, var(--color-border-light) 60%, transparent);
         border-radius: 0.25rem;
         color: $font-color;
         font-size: 0.9em;
