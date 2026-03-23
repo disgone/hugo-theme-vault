@@ -29,24 +29,22 @@
     {{- $height = $webp.Height -}}
 {{- end -}}
 
-{{/* Fallback content - displayed when image fails to load */}}
-{{- if or $alt $title -}}
-    {{- $fallbackContent := "" -}}
-    {{- if $alt -}}
-        {{- $fallbackContent = $alt -}}
-    {{- else if $title -}}
-        {{- $fallbackContent = "Image" -}}
-    {{- end -}}
-    <noscript>
-        <img src="{{ $src }}" alt="{{ $fallbackContent }}" style="display:none">
-    </noscript>
-{{- end -}}
-
 {{- if $img -}}
 <picture>
+    {{- if or $alt $title -}}
+        {{- $fallbackContent := "" -}}
+        {{- if $alt -}}
+            {{- $fallbackContent = $alt -}}
+        {{- else if $title -}}
+            {{- $fallbackContent = "Image" -}}
+        {{- end -}}
+        <noscript>
+            <img src="{{ $img.RelPermalink }}" alt="{{ $fallbackContent }}" style="display:none">
+        </noscript>
+    {{- end -}}
     <source type="image/webp" srcset="{{ $srcWithFormat }}">
     <img
-        src="{{ $src }}"
+        src="{{ $img.RelPermalink }}"
         alt="{{ $alt | default "" }}"
         width="{{ $origWidth }}"
         height="{{ $origHeight }}"
