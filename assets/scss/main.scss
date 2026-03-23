@@ -11,34 +11,29 @@
 @import 'vault-figure';
 @import 'theme-toggle';
 
-.teaser {
-    border-color: var(--color-border-lighter);
-    border-style: solid;
-    border-width: 0 0 1px;
-    font-size: 1rem;
-    padding: .5rem 0;
+.icon {
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
 
-    @include screen-med {
-        time {
-            float: right;
-        }
+    &.large {
+        height: 2rem;
+        width: 2rem;
     }
 
-    .title {
-        margin: 0;
+    &.small {
+        height: .75rem;
+        width: .75rem;
     }
 
-    .description {
-        margin: 0;
+    &.left {
+        float: left;
+        margin-right: .25rem;
     }
 
-    a {
-        text-decoration: none;
-    }
-
-    time {
-        font-size: $font-size-small;
-        opacity: 0.7;
+    &.right {
+        float: right;
+        margin-left: .25rem;
     }
 }
 
@@ -71,15 +66,6 @@
     li {
         border-bottom: 1px solid var(--color-border-light);
 
-        @include screen-medm {
-            float: left;
-            width: 48%;
-
-            &:nth-child(2n) {
-                margin-left: 4%;
-            }
-        }
-
         & > a {
             display: block;
             padding: 5px 5px 5px 0;
@@ -101,28 +87,48 @@
     }
 }
 
-.icon {
-    height: 1rem;
-    width: 1rem;
-    vertical-align: middle;
+.teaser {
+    border-color: var(--color-border-lighter);
+    border-style: solid;
+    border-width: 0 0 1px;
+    font-size: 1rem;
+    padding: .5rem 0;
 
-    &.large {
-        height: 2rem;
-        width: 2rem;
+    .title {
+        margin: 0;
     }
 
-    &.small {
-        height: .75rem;
-        width: .75rem;
+    .description {
+        margin: 0;
     }
 
-    &.left {
-        float: left;
-        margin-right: .25rem;
+    a {
+        text-decoration: none;
     }
 
-    &.right {
-        float: right;
-        margin-left: .25rem;
+    time {
+        font-size: $font-size-small;
+        opacity: 0.7;
+    }
+}
+
+@include screen-med {
+    .teaser {
+        time {
+            float: right;
+        }
+    }
+}
+
+@include screen-medm {
+    .taxonomy-list {
+        li {
+            float: left;
+            width: 48%;
+
+            &:nth-child(2n) {
+                margin-left: 4%;
+            }
+        }
     }
 }

@@ -80,23 +80,29 @@ $font-family-serif: "PT Serif", Georgia, serif;
 - Use variables for repeated values
 
 **Naming Conventions:**
-- BEM-ish: `.component`, `.component--modifier`, `.component__element`
 - Use hyphens: `.content-grid`, `.site-header`
 - IDs for anchors only: `#site-header`, `#home-welcome`
 
+**Selector Ordering (within files):**
+1. Base HTML elements (with common elements first): html, body, a, h1-h6, img, p, main
+2. Remaining base elements alphabetically
+3. Classes alphabetically
+4. Pseudo selectors
+5. IDs
+6. Media queries (at end of file)
+
 **Property Ordering:**
 - Alphabetical (asc) within selectors
-- Selector ordering in `_base.scss`: html → body → alphabetical for elements
 
 **SCSS Organization:**
 - Foundation partials (`_tokens.scss`, `_themes.scss`, `_variables.scss`, `_mixins.scss`, `_fonts.scss`, `_reset.scss`) imported first
-- Base layer (`_base.scss`) for document and element defaults
-- Content layer (`_content.scss`) for article, typography, tables
+- Base layer (`_base.scss`) for document and element defaults (all base HTML element rules belong here)
+- Content layer (`_content.scss`) for article-specific and typography classes
 - Layout layer (`_layout.scss`) for site shell, header, footer, pagination
 - Component partials (`_vault-figure.scss`, `_theme-toggle.scss`, etc.) for reusable blocks
 - `main.scss` is the single entrypoint importing foundation then layers in order
-- Base before components: element defaults in `_base.scss`, custom classes in other partials
-- Colocated media queries: keep responsive rules with the selector they affect using breakpoint mixins
+- Component-specific rules (including media queries) belong in component partials, not in base/content/layout layers
+- Colocated media queries: keep responsive rules at end of file using breakpoint mixins
 
 **Imports Order:**
 ```scss
