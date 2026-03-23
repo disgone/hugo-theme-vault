@@ -19,4 +19,4 @@
 
 {{ $css := resources.Get "scss/main.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
-<script>(function(){const e=localStorage.getItem("theme");e==="dark"||!e&&window.matchMedia("(prefers-color-scheme: dark)").matches&&document.documentElement.classList.add("dark")})()</script>
+<script>(function(){const t=localStorage.getItem("theme");const d=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);d&&document.documentElement.classList.add("dark")})()</script>
