@@ -20,3 +20,20 @@
 
 {{ $themeSelectorCss := resources.Get "scss/theme-selector.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $themeSelectorCss.RelPermalink }}" integrity="{{ $themeSelectorCss.Data.Integrity }}" crossorigin="anonymous">
+<script>
+(function() {
+    var toggle = document.getElementById("theme-toggle");
+    if (document.documentElement.classList.contains("dark")) {
+        toggle.checked = true;
+    }
+    toggle.addEventListener("change", function() {
+        if (this.checked) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
+    });
+})();
+</script>

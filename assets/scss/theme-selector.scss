@@ -44,7 +44,8 @@
     }
 }
 
-:root:has(input#theme-toggle:checked) {
+:root:has(input#theme-toggle:checked),
+:root.dark {
     @each $role, $slot in $semantic {
         --#{$role}: #{palette-get("vault-dark", $slot)};
     }

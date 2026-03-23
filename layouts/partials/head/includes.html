@@ -16,3 +16,4 @@
 
 {{ $css := resources.Get "scss/main.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+<script>if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")</script>
