@@ -184,6 +184,7 @@ Parameters:
 - `width`, `height` (optional): Dimensions in pixels
 - `sizes` (optional): Override the default responsive slot size for local images
 - `eager` (optional): Use `loading="eager"`
+- `class` (optional): CSS class(es) on the rendered element
 - `longdesc` (optional): URL to long description
 - `describedby` (optional): ARIA attribute
 
@@ -194,7 +195,7 @@ Parameters:
 ```
 
 Same parameters as `vault-image`, plus:
-- `variant` (optional): CSS variant class
+- `figureClass` (optional): CSS class(es) on the `<figure>` element, e.g. `inset` or `inset-left`
 
 ## Build Assets
 
