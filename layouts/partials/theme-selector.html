@@ -18,8 +18,6 @@
     </label>
 </li>
 
-{{ $themeSelectorCss := resources.Get "scss/theme-selector.scss" | toCSS | fingerprint }}
-<link rel="stylesheet" href="{{ $themeSelectorCss.RelPermalink }}" integrity="{{ $themeSelectorCss.Data.Integrity }}" crossorigin="anonymous">
 <script>
 (function() {
     var toggle = document.getElementById("theme-toggle");
