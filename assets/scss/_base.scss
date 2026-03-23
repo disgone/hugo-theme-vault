@@ -109,11 +109,6 @@ svg {
     fill: currentColor;
 }
 
-::selection {
-    background: $color-primary;
-    color: var(--color-selection-text);
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
     font-weight: 700;
@@ -140,4 +135,9 @@ table {
             border: 1px solid var(--color-border-light);
         }
     }
+}
+
+::selection {
+    background: $color-primary;
+    color: var(--color-selection-text);
 }
