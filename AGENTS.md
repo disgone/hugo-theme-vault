@@ -73,9 +73,6 @@ $font-family-serif: "PT Serif", Georgia, serif;
 @include screen-lrg { ... }    // min-width: 992px
 @include screen-medm { ... }   // min-width: 768px
 @include screen-med { ... }    // 768px - 991px
-@include screen-hm { ... }     // min-width: 480px
-@include screen-h { ... }      // 480px - 767px
-@include screen-v { ... }      // 320px - 479px
 ```
 
 **Nesting:**
@@ -87,12 +84,33 @@ $font-family-serif: "PT Serif", Georgia, serif;
 - Use hyphens: `.content-grid`, `.site-header`
 - IDs for anchors only: `#site-header`, `#home-welcome`
 
+**Property Ordering:**
+- Alphabetical (asc) within selectors
+- Selector ordering in `_base.scss`: html → body → alphabetical for elements
+
+**SCSS Organization:**
+- Foundation partials (`_tokens.scss`, `_themes.scss`, `_variables.scss`, `_mixins.scss`, `_fonts.scss`, `_reset.scss`) imported first
+- Base layer (`_base.scss`) for document and element defaults
+- Content layer (`_content.scss`) for article, typography, tables
+- Layout layer (`_layout.scss`) for site shell, header, footer, pagination
+- Component partials (`_vault-figure.scss`, `_theme-toggle.scss`, etc.) for reusable blocks
+- `main.scss` is the single entrypoint importing foundation then layers in order
+- Base before components: element defaults in `_base.scss`, custom classes in other partials
+- Colocated media queries: keep responsive rules with the selector they affect using breakpoint mixins
+
 **Imports Order:**
 ```scss
+@import 'tokens';
+@import 'themes';
 @import 'variables';
 @import 'mixins';
 @import 'fonts';
 @import 'reset';
+@import 'base';
+@import 'layout';
+@import 'content';
+@import 'vault-figure';
+@import 'theme-toggle';
 ```
 
 ### HTML
@@ -129,6 +147,19 @@ layouts/
   partials/         # Reusable components
   shortcodes/       # Markdown shortcodes
 assets/scss/        # Stylesheets
+  _base.scss        # Document and element defaults
+  _content.scss     # Article/content styling
+  _layout.scss      # Site shell and layout
+  _vault-figure.scss # Figure shortcode styling
+  _theme-toggle.scss # Theme toggle styling
+  _tokens.scss      # Color schemes and tokens
+  _themes.scss      # CSS custom property emission
+  _variables.scss   # Sass variable aliases
+  _mixins.scss      # Shared mixins and breakpoints
+  _fonts.scss       # Font imports
+  _reset.scss       # CSS reset
+  main.scss         # Entrypoint importing all partials
+  syntax.scss       # Syntax highlighting (separate pipeline)
 static/             # Static files (fonts, favicon)
 archetypes/         # Content templates (default.md, blog.md)
 exampleSite/        # Demo site (development/testing)
