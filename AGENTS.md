@@ -65,7 +65,7 @@ This theme has no test framework. Manual testing via hugo server only.
 **Variables:**
 ```scss
 $color-primary: #ff2e63;
-$font-family-serif: "PT Serif", Georgia, serif;
+$font-family-serif: "Literata", Georgia, serif;
 ```
 
 **Mixins for Responsive Breakpoints:**

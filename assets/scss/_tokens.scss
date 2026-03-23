@@ -156,9 +156,9 @@ $semantic: (
     @return palette-get($scheme-name, $slot);
 }
 
-$font-family-serif:   "PT Serif", Georgia, "Times New Roman", Times, serif;
+$font-family-serif:   "Literata", Georgia, "Times New Roman", Times, serif;
 $font-family-sans:    "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-$font-family-heading: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-heading: "Geist", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 $font-family-fixed:   "Geist Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
 
 $font: (
