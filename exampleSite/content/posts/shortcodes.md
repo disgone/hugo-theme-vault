@@ -27,22 +27,22 @@ The shortcodes behave differently depending on the image source.
 
 ## vault-image
 
-Renders an image without a caption. Use this for contextual images embedded in the flow of text.
+Renders an image without a caption. Use this for contextual images embedded in flow of text.
 
-{{< vault-image src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" >}}
+{{< vault-image src="photo.jpg" alt="Example: Basic vault-image shortcode without parameters — Sunlight filtering through a dense forest canopy" >}}
 
 ```markdown
-{{</* vault-image src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" */>}}
+{{</* vault-image src="photo.jpg" alt="Example: Basic vault-image shortcode without parameters — Sunlight filtering through a dense forest canopy" */>}}
 ```
 
 ### With explicit dimensions
 
 Dimensions are auto-detected for local images. For remote images, always specify them to prevent cumulative layout shift.
 
-{{< vault-image src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" width="800" height="500" >}}
+{{< vault-image src="photo.jpg" alt="Example: vault-image with explicit width and height parameters — Sunlight filtering through a dense forest canopy" width="800" height="500" >}}
 
 ```markdown
-{{</* vault-image src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" width="800" height="500" */>}}
+{{</* vault-image src="photo.jpg" alt="Example: vault-image with explicit width and height parameters — Sunlight filtering through a dense forest canopy" width="800" height="500" */>}}
 ```
 
 ### Parameters
@@ -78,22 +78,22 @@ Dimensions are auto-detected for local images. For remote images, always specify
 
 ## vault-figure
 
-Wraps the image in `<figure>` and `<figcaption>`. Use this when a visible caption adds meaningful context for sighted users. Accepts all the same parameters as `vault-image`, plus `title` as the caption text.
+Wraps image in `<figure>` and `<figcaption>`. Use this when a visible caption adds meaningful context for sighted users. Accepts all same parameters as `vault-image`, plus `title` as caption text.
 
-{{< vault-figure src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" title="Old-growth forest, Pacific Northwest" >}}
+{{< vault-figure src="photo.jpg" alt="Example: Basic vault-figure shortcode with caption — Sunlight filtering through a dense forest canopy" title="Example: Basic vault-figure shortcode with caption" >}}
 
 ```markdown
-{{</* vault-figure src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" title="Old-growth forest, Pacific Northwest" */>}}
+{{</* vault-figure src="photo.jpg" alt="Example: Basic vault-figure shortcode with caption — Sunlight filtering through a dense forest canopy" title="Example: Basic vault-figure shortcode with caption" */>}}
 ```
 
 ### Inset layout
 
-Use `figureClass="inset"` when you want the figure to float right within article text, reduced to roughly half the column width.
+Use `figureClass="inset"` when you want figure to float right within article text, reduced to roughly half the column width.
 
-{{< vault-figure src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" title="Old-growth forest, Pacific Northwest" figureClass="inset" >}}
+{{< vault-figure src="photo.jpg" alt="Example: vault-figure with inset layout for right-aligned figure — Sunlight filtering through a dense forest canopy" title="Example: vault-figure with inset layout (figureClass=\"inset\")" figureClass="inset" >}}
 
 ```markdown
-{{</* vault-figure src="photo.jpg" alt="Sunlight filtering through a dense forest canopy" title="Old-growth forest, Pacific Northwest" figureClass="inset" */>}}
+{{</* vault-figure src="photo.jpg" alt="Example: vault-figure with inset layout for right-aligned figure — Sunlight filtering through a dense forest canopy" title="Example: vault-figure with inset layout (figureClass=\"inset\")" figureClass="inset" */>}}
 ```
 
 Use `figureClass="inset-left"` for a left-aligned alternative.
@@ -102,10 +102,10 @@ Use `figureClass="inset-left"` for a left-aligned alternative.
 
 For images that appear before the user scrolls, lazy loading causes a noticeable delay. Use `eager=true` to force immediate loading.
 
-{{< vault-figure src="screenshot.jpg" alt="Theme configuration panel showing color scheme options" title="Vault theme configuration — color scheme selector" eager=true >}}
+{{< vault-figure src="screenshot.jpg" alt="Example: vault-figure with eager loading for above-fold images — Theme configuration panel showing color scheme options" title="Example: vault-figure with eager loading (eager=true) for above-fold images" eager=true >}}
 
 ```markdown
-{{</* vault-figure src="screenshot.jpg" alt="Theme configuration panel showing color scheme options" title="Vault theme configuration — color scheme selector" eager=true */>}}
+{{</* vault-figure src="screenshot.jpg" alt="Example: vault-figure with eager loading for above-fold images — Theme configuration panel showing color scheme options" title="Example: vault-figure with eager loading (eager=true) for above-fold images" eager=true */>}}
 ```
 
 ### Additional parameters
