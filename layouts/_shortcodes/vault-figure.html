@@ -1,5 +1,5 @@
-{{- $variant := .Params.variant | default "normal" -}}
-<figure class="{{ $variant }}">
+{{- $class := .Params.figureClass -}}
+<figure class="vault-figure{{- with $class }} {{ . -}}{{- end }}">
     {{ partial "vault-image.html" . }}
     {{- with .Params.title -}}
         <figcaption>

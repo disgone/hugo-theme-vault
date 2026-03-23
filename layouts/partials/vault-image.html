@@ -4,8 +4,8 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" -}}
 {{- $title := .Get "title" -}}
-{{- $width := .Get "width" -}}
-{{- $height := .Get "height" -}}
+{{- $width := 0 -}}{{- with .Get "width" -}}{{- $width = int . -}}{{- end -}}
+{{- $height := 0 -}}{{- with .Get "height" -}}{{- $height = int . -}}{{- end -}}
 {{- $eager := .Get "eager" -}}
 {{- $format := .Get "format" -}}
 {{- $sizes := .Get "sizes" | default "(min-width: 60rem) 60rem, 100vw" -}}
@@ -13,6 +13,9 @@
 {{- $describedby := .Get "describedby" -}}
 {{- $fit := .Get "fit" | default "resize" -}}
 {{- $anchor := .Get "anchor" | default "Center" -}}
+{{- $class := .Get "class" -}}
+{{- $imgClass := "vault-image" -}}
+{{- with $class }}{{ $imgClass = printf "%s %s" "vault-image" . }}{{ end -}}
 
 {{- $img := resources.Get $src -}}
 
@@ -139,7 +142,7 @@
 {{- end -}}
 
 {{- if $img -}}
-<picture class="vault-image">
+<picture class="{{ $imgClass }}">
     {{- if or $alt $title -}}
         {{- $fallbackContent := "" -}}
         {{- if $alt -}}
@@ -165,7 +168,7 @@
 </picture>
 {{- else -}}
 <img
-    class="vault-image"
+    class="{{ $imgClass }}"
     src="{{ $src }}"
     alt="{{ $alt | default "" }}"
     {{- if $outWidth }} width="{{ $outWidth }}"{{ end }}
