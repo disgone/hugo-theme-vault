@@ -170,15 +170,20 @@ hidden: false  # Hide from listings when true
 {{< vault-image src="photo.jpg" alt="My Photo" >}}
 ```
 
-Features: lazy loading, auto-detect dimensions, WebP with JPG fallback, progressive enhancement.
+Features:
+- Lazy loading by default
+- Local images get responsive `srcset` and `sizes`
+- Local images serve WebP first with the original format as fallback
+- Local images keep intrinsic `width` and `height` in the fallback markup for layout stability
+- Remote images render as a single responsive `<img>` and do not get generated `srcset`
 
 Parameters:
 - `src` (required): Image path or URL
 - `alt` (required): Accessibility description
-- `title` (optional): Caption text
+- `title` (optional): Caption text for `vault-figure`
 - `width`, `height` (optional): Dimensions in pixels
-- `eager` (optional): Preload on page load
-- `format` (optional): "webp", "avif", or "original"
+- `sizes` (optional): Override the default responsive slot size for local images
+- `eager` (optional): Use `loading="eager"`
 - `longdesc` (optional): URL to long description
 - `describedby` (optional): ARIA attribute
 

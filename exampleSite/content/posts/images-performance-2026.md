@@ -41,27 +41,29 @@ The theme provides two shortcodes for images:
 Use when you just need the image with optimization:
 
 ```markdown
-{{< vault-image src="photo.jpg" title="My Photo" >}}
+{{< vault-image src="photo.jpg" alt="A mountain lake at sunrise" >}}
 ```
 
 Features:
 - Lazy loading by default
 - Auto-detect dimensions for local images
-- Automatic WebP generation with JPG fallback
-- Prevents CLS
+- Local images get responsive `srcset` and `sizes`
+- Local images serve WebP first with the original format as fallback
+- Intrinsic dimensions stay in markup for local images to prevent CLS
+- Remote images render as a single responsive `<img>` and do not get generated `srcset`
 
 ### vault-figure (With Caption)
 
-Use when you want semantic figure semantics with a caption:
+Use when you want a semantic figure with a caption:
 
 ```markdown
-{{< vault-figure src="photo.jpg" title="My Photo" variant="small" >}}
+{{< vault-figure src="photo.jpg" alt="A mountain lake at sunrise" title="Morning light over the water" variant="small" >}}
 ```
 
 Features:
 - All features of `vault-image`
 - Adds `<figure>` and `<figcaption>` tags
-- Supports CSS variants (normal, small, large)
+- Supports the documented `normal` and `small` variants
 - Title is used as caption
 
 ## How to Use
@@ -70,18 +72,18 @@ Choose the shortcode based on your needs:
 
 **For photos without captions:**
 ```markdown
-{{< vault-image src="photo.jpg" title="My Photo" >}}
+{{< vault-image src="photo.jpg" alt="A mountain lake at sunrise" >}}
 ```
 
 **For images with captions:**
 ```markdown
-{{< vault-figure src="photo.jpg" title="My Photo" >}}
+{{< vault-figure src="photo.jpg" alt="A mountain lake at sunrise" title="Morning light over the water" >}}
 ```
 
 **For responsive layouts with variant classes:**
 ```markdown
-{{< vault-figure src="photo.jpg" title="Photo" variant="small" >}}
-{{< vault-figure src="hero.jpg" title="Hero Section" variant="large" width="1920" height="1080" eager=true >}}
+{{< vault-figure src="photo.jpg" alt="A mountain lake at sunrise" title="Morning light over the water" variant="small" >}}
+{{< vault-figure src="hero.jpg" alt="A wide landscape banner" title="Hero section" width="1920" height="1080" eager=true >}}
 ```
 
 ## Performance Comparison
@@ -92,6 +94,12 @@ Choose the shortcode based on your needs:
 | FCP | ~1.5s | ~1.2s |
 | Visual Stability | Poor | Excellent |
 | SEO Impact | Negative | Positive |
+
+## Local vs Remote Images
+
+- Local images get generated `srcset` candidates for WebP and the original format.
+- Local images keep intrinsic `width` and `height` in the fallback `<img>` so the browser can reserve space.
+- Remote images render as a single responsive `<img>`, but the shortcode does not generate `srcset` for remote URLs.
 
 ## Why This Matters in 2026
 
@@ -104,22 +112,25 @@ Choose the shortcode based on your needs:
 
 ```markdown
 # vault-image - Just the image
-{{< vault-image src="image.jpg" title="Caption" >}}
+{{< vault-image src="image.jpg" alt="A sample image" >}}
 
 # vault-image - With dimensions
-{{< vault-image src="image.jpg" title="Caption" width="800" height="600" >}}
+{{< vault-image src="image.jpg" alt="A sample image" width="800" height="600" >}}
 
 # vault-figure - With caption
-{{< vault-figure src="image.jpg" title="Caption" >}}
+{{< vault-figure src="image.jpg" alt="A sample image" title="Caption" >}}
 
-# Above-fold image (preload)
-{{< vault-figure src="hero.jpg" title="Hero" width="1920" height="1080" eager=true >}}
+# Above-fold image (eager loading)
+{{< vault-figure src="hero.jpg" alt="A sample hero image" title="Hero" width="1920" height="1080" eager=true >}}
 ```
 
 ## Technical Details
 
 ### vault-image
-- Simple `<img>` tag with all optimizations
+- Local images render as `<picture>` with a WebP `<source>` plus fallback `<img>`
+- The fallback `<img>` keeps intrinsic `width` and `height`
+- Both WebP and fallback markup include `srcset` and `sizes` for local images
+- Remote images render as a single `<img>` with responsive CSS hooks
 - No semantic wrapper
 - Best for standalone images
 
