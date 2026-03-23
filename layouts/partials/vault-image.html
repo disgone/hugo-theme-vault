@@ -48,7 +48,6 @@
         alt="{{ $alt | default "" }}"
         width="{{ $origWidth }}"
         height="{{ $origHeight }}"
-        style="aspect-ratio: {{ $origWidth }} / {{ $origHeight }};"
         {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
         {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
         {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
