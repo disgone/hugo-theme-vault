@@ -1,4 +1,6 @@
 :root {
+    color-scheme: light dark;
+    scrollbar-gutter: stable;
     --layout-border-top-width: #{map-get($layout, "border-top-width")};
     --font-size:               #{map-get($font, "size")};
     --font-size-large:         #{map-get($font, "size-large")};
