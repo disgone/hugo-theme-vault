@@ -5,10 +5,6 @@
 @import 'fonts';
 @import 'reset';
 
-*, ::before, ::after {
-    box-sizing: border-box;
-}
-
 html {
     background-color: $color-background;
     font-size: $font-size;
@@ -74,7 +70,7 @@ kbd {
 pre {
     background-color: $color-alt;
     margin: 1rem 0;
-    overflow-x: scroll;
+    overflow-x: auto;
     padding: 2%;
 
     & > code {
