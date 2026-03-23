@@ -88,21 +88,6 @@ article {
     }
 }
 
-.vault-image {
-    display: block;
-    max-width: 100%;
-
-    img {
-        display: block;
-        height: auto;
-        width: 100%;
-    }
-}
-
-img.vault-image {
-    height: auto;
-}
-
 table {
     border-collapse: collapse;
     width: 100%;
@@ -219,11 +204,6 @@ table {
         gap: 1rem;
         grid-auto-columns: 50fr 50fr;
         grid-auto-flow: column;
-
-        .vault-figure {
-            margin: 0;
-            max-width: 100%;
-        }
     }
 
     .inset {
@@ -239,7 +219,6 @@ table {
     }
 
     .dual,
-    article > .vault-figure:not(.inset):not(.inset-left),
     .highlight {
         margin-inline: -1rem;
     }

@@ -1,12 +1,8 @@
 .vault-figure {
+    @include surface;
+    display: block;
     font-family: $font-family-sans;
-    margin: 1.5rem 0;
-
-    & > * {
-        @include surface;
-        display: block;
-        padding: 1rem;
-    }
+    padding: 1rem;
 
     > .vault-image {
         width: 100%;
@@ -20,14 +16,40 @@
     }
 
     figcaption {
-        @include surface;
         font-size: $font-size-small;
-        margin-top: -1rem;
-        padding: .5rem 1rem;
+        padding: .75rem 0 0 0;
         text-wrap: pretty;
 
         :last-child {
             margin-bottom: 0;
         }
+    }
+}
+
+.vault-image {
+    display: block;
+    max-width: 100%;
+
+    img {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+}
+
+img.vault-image {
+    height: auto;
+}
+
+@include screen-lrg {
+    .dual {
+        .vault-figure {
+            margin: 0;
+            max-width: 100%;
+        }
+    }
+
+    article > .vault-figure:not(.inset):not(.inset-left) {
+        margin-inline: -1rem;
     }
 }
