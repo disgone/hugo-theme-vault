@@ -212,7 +212,7 @@ article {
 
         & > * {
             display: block;
-            background-color: $figure-caption-bg;
+            background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
             padding: 1rem;
         }
 
@@ -223,7 +223,7 @@ article {
     }
 
     figcaption {
-        background-color: $figure-caption-bg;
+        background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
         font-size: $font-size-small;
         margin-top: -1rem;
         padding: .5rem 1rem;
