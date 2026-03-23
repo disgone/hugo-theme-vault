@@ -88,6 +88,21 @@ img {
     display: block;
 }
 
+.vault-image {
+    display: block;
+    max-width: 100%;
+
+    img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+img.vault-image {
+    height: auto;
+}
+
 hr {
     border-bottom: 1px solid var(--color-border-light);
     border-width: 0 0 .1rem 0;

@@ -8,6 +8,7 @@
 {{- $height := .Get "height" -}}
 {{- $eager := .Get "eager" -}}
 {{- $format := .Get "format" -}}
+{{- $sizes := .Get "sizes" | default "(min-width: 60rem) 60rem, 100vw" -}}
 {{- $longdesc := .Get "longdesc" -}}
 {{- $describedby := .Get "describedby" -}}
 
@@ -20,17 +21,31 @@
     {{- $origHeight = $img.Height -}}
 {{- end -}}
 
-{{/* Generate WebP version for local images (if not remote) */}}
+{{/* Generate responsive image candidates for local images */}}
 {{- $srcWithFormat := $src -}}
+{{- $webpSrcset := slice -}}
+{{- $fallbackSrcset := slice -}}
+{{- $fallbackSrc := $src -}}
 {{- if $img -}}
-    {{- $webp := $img.Resize (printf "%dx%d webp" $img.Width $img.Height) -}}
-    {{- $srcWithFormat = $webp.RelPermalink -}}
-    {{- $width = $webp.Width -}}
-    {{- $height = $webp.Height -}}
+    {{- $candidateWidths := slice -}}
+    {{- range (slice 480 768 1024 1440 $img.Width) -}}
+        {{- if and (le . $img.Width) (not (in $candidateWidths .)) -}}
+            {{- $candidateWidths = $candidateWidths | append . -}}
+        {{- end -}}
+    {{- end -}}
+    {{- range $candidateWidths -}}
+        {{- $fallbackVariant := $img.Resize (printf "%dx" .) -}}
+        {{- $webpVariant := $img.Resize (printf "%dx webp" .) -}}
+        {{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $fallbackVariant.RelPermalink .) -}}
+        {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $webpVariant.RelPermalink .) -}}
+        {{- if eq . $img.Width -}}
+            {{- $fallbackSrc = $fallbackVariant.RelPermalink -}}
+        {{- end -}}
+    {{- end -}}
 {{- end -}}
 
 {{- if $img -}}
-<picture>
+<picture class="vault-image">
     {{- if or $alt $title -}}
         {{- $fallbackContent := "" -}}
         {{- if $alt -}}
@@ -42,9 +57,11 @@
             <img src="{{ $img.RelPermalink }}" alt="{{ $fallbackContent }}" style="display:none">
         </noscript>
     {{- end -}}
-    <source type="image/webp" srcset="{{ $srcWithFormat }}">
+    <source type="image/webp" srcset="{{ delimit $webpSrcset ", " }}" sizes="{{ $sizes }}">
     <img
-        src="{{ $img.RelPermalink }}"
+        src="{{ $fallbackSrc }}"
+        srcset="{{ delimit $fallbackSrcset ", " }}"
+        sizes="{{ $sizes }}"
         alt="{{ $alt | default "" }}"
         width="{{ $origWidth }}"
         height="{{ $origHeight }}"
@@ -54,6 +71,7 @@
 </picture>
 {{- else -}}
 <img
+    class="vault-image"
     src="{{ $srcWithFormat }}"
     alt="{{ $alt | default "" }}"
     width="{{ $origWidth }}"
