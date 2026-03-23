@@ -51,8 +51,7 @@ a {
 
     &:focus-visible {
         color: $link-color-hover;
-        outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
-        outline-offset: .2rem;
+        @include focus-ring;
     }
 }
 
@@ -209,7 +208,7 @@ article {
     }
 
     blockquote {
-        background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
+        @include surface;
         border-inline-start: .1rem solid $color-secondary;
         font-family: $font-family-sans;
         padding: 1rem;
@@ -226,8 +225,8 @@ article {
         margin: 1.5rem 0;
 
         & > * {
+            @include surface;
             display: block;
-            background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
             padding: 1rem;
         }
 
@@ -238,7 +237,7 @@ article {
     }
 
     figcaption {
-        background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
+        @include surface;
         font-size: $font-size-small;
         margin-top: -1rem;
         padding: .5rem 1rem;
@@ -284,20 +283,20 @@ header {
     }
 }
 
-.content-grid {
+.site-layout {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-block-size: calc(100dvh - #{$layout-border-top-width});
 }
 
-.viewport {
+.site-container {
     margin: 0 auto;
     padding: 1em;
     width: 95vw;
 }
 
 @include screen-lrg {
-    .viewport {
+    .site-container {
         max-width: 1200px;
         width: 65vw;
     }
@@ -385,8 +384,7 @@ header {
                 &:focus-visible {
                     color: $link-color;
                     opacity: 1;
-                    outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
-                    outline-offset: .2rem;
+                    @include focus-ring;
                 }
             }
         }
@@ -405,7 +403,7 @@ header {
 
     .dual {
         display: grid;
-        grid-gap: 1rem;
+        gap: 1rem;
         grid-auto-columns: 50fr 50fr;
         grid-auto-flow: column;
 
@@ -460,13 +458,13 @@ header {
     }
 }
 
-.group {
+.section-group {
     border-color: $font-color;
     border-style: solid;
     border-width: .125rem 0 .0;
     margin-top: 2rem;
 
-    .group-title {
+    .section-title {
         color: $font-color;
         border-color: $font-color;
         border-style: solid;
@@ -485,7 +483,7 @@ header {
     }
 }
 
-.fl-list {
+.taxonomy-list {
     li {
         border-bottom: 1px solid var(--color-border-light);
 
@@ -506,7 +504,7 @@ header {
         }
     }
 
-    .count {
+    .taxonomy-count {
         position: absolute;
         right: 0;
         top: .3rem;
@@ -667,8 +665,7 @@ header {
     vertical-align: middle;
 
     &:focus-visible {
-        outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
-        outline-offset: .2rem;
+        @include focus-ring;
     }
 
     @media (min-width: 768px) {

@@ -8,11 +8,11 @@
         <header>
             <h1 class="title">Blog Archive</h1>
         </header>
-        <div class="group">
+        <div class="section-group">
             {{ if eq .Kind "taxonomy" }}
-                <h2 class="group-title">All posts about '{{ .Title | lower }}'</h2>
+                <h2 class="section-title">All posts about '{{ .Title | lower }}'</h2>
             {{ else }}
-                <h2 class="group-title">All posts</h2>
+                <h2 class="section-title">All posts</h2>
             {{ end }}
             {{ $paginator := .Paginate .Data.Pages }}
             {{ range .Paginator.Pages }}

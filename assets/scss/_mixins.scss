@@ -34,3 +34,12 @@
     line-height: 1;
     margin-top: 0;
 }
+
+@mixin focus-ring {
+    outline: .15rem solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+    outline-offset: .2rem;
+}
+
+@mixin surface {
+    background-color: color-mix(in srgb, var(--color-text) 8%, var(--color-bg));
+}

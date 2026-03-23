@@ -1,8 +1,8 @@
 {{ $related := .Site.RegularPages.Related . | first 3 }}
 {{ $dateFormat := default "Mon Jan 2, 2006" (index .Site.Params "date_format") }}
 {{ with $related }}
-<section class="related-content group">
-    <h1 class="group-title">Related Content</h1>
+<section class="related-content section-group">
+    <h1 class="section-title">Related Content</h1>
     {{ range . }}
     <section class='teaser'>
         <time class="published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format $dateFormat }}</time>

@@ -9,14 +9,14 @@
     {{ partial "head/includes" . }}
 </head>
 <body>
-    <div class="content-grid">
+    <div class="site-layout">
         {{ partial "header.html" . }}
-        <main class="viewport">
+        <main class="site-container">
             {{ block "main" . }}
             {{ end }}
         </main>
         <footer id="site-footer">
-            <div class="viewport">
+            <div class="site-container">
                 {{ block "footer" . }}
                 {{ end }}
                 <p class='copyright'>&copy; {{ default "2026" .Site.Params.copyright_year }} {{ .Site.Title }}</p>
