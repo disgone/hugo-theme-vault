@@ -1,0 +1,143 @@
+html {
+    background-color: $color-background;
+    font-size: $font-size;
+}
+
+body {
+    background-color: $color-background;
+    border-top: $layout-border-top-width solid $color-primary;
+    color: $font-color;
+    font-family: $font-family-serif;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    font-kerning: normal;
+    font-size: 1em;
+    font-variant-ligatures: common-ligatures contextual;
+    line-height: $line-height;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    &:focus-visible {
+        @include focus-ring;
+        color: $link-color-hover;
+    }
+
+    &:hover,
+    &:active {
+        color: $link-color-hover;
+    }
+
+    &:link,
+    &:visited {
+        color: $link-color;
+        text-decoration: underline;
+        text-decoration-thickness: .1rem;
+        text-underline-offset: .15em;
+        transition: color 0.2s;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    margin: 1.5rem 0 .345rem 0;
+    text-wrap: balance;
+}
+
+img {
+    display: block;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+main {
+    padding: 1em 1em 2em;
+    position: relative;
+}
+
+code,
+kbd,
+pre {
+    font-family: $font-family-fixed;
+    font-size: .9rem;
+}
+
+kbd {
+    font-style: italic;
+}
+
+pre {
+    background-color: $color-alt;
+    margin: 1rem 0;
+    overflow-x: auto;
+    padding: 1rem;
+
+    & > code {
+        color: $code-color;
+        display: block;
+    }
+}
+
+em {
+    font-style: italic;
+}
+
+hr {
+    border-bottom: 1px solid var(--color-border-light);
+    border-width: 0 0 .1rem 0;
+    margin: 1.5rem 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+sub,
+sup {
+    font-size: .75rem;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.5em;
+}
+
+sup {
+    inset-block-start: -.5rem;
+    inset-inline-start: .25rem;
+}
+
+svg {
+    color: inherit;
+    fill: currentColor;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        padding: .5rem;
+        border-bottom: 1px solid var(--color-border-light);
+    }
+
+    th {
+        font-weight: 600;
+        text-align: start;
+    }
+
+    &.bordered {
+        td, th {
+            border: 1px solid var(--color-border-light);
+        }
+    }
+}
+
+::selection {
+    background: $color-primary;
+    color: var(--color-selection-text);
+}

@@ -1,4 +1,15 @@
-<link rel='dns-prefetch' href='https://fonts.googleapis.com'>
+<!-- Preconnect to own domain -->
+<link rel="preconnect" href="{{ .Site.BaseURL }}" crossorigin>
+
+<!-- Preload critical fonts -->
+<link rel="preload" href="{{ "fonts/Geist-Variable.woff2" | absURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/GeistMono-Variable.woff2" | absURL }}" as="font" type="font/woff2" crossorigin>
+
+<!-- Google Fonts for Literata -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+
 <link rel="icon" href="{{ .Site.Params.assets.favicon | default "favicon.ico" | absURL }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
@@ -6,8 +17,6 @@
 <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">
 {{ end }}
 
-{{ $stylesheet := resources.Get "main.css"  }}
-{{ $stylesheet = $stylesheet | fingerprint }}
-{{ with $stylesheet }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-{{end}}
+{{ $css := resources.Get "scss/main.scss" | toCSS | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+<script>(function(){const t=localStorage.getItem("theme");const d=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);d&&document.documentElement.classList.add("dark")})()</script>

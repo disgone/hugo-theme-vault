@@ -1,0 +1,184 @@
+// Slot conventions (same meaning across all schemes):
+//   base-0: page background
+//   base-1: surface / code background
+//   base-2: elevated surface / border
+//   base-3: subtle border / muted surface
+//   text-0: body text
+//   text-1: bright / high-contrast text (e.g. on dark surfaces)
+//   text-2: muted text
+//   text-3: very subtle / comment text
+//   red:    primary accent (links, highlights)
+//   orange: secondary accent (link hover, blockquote border)
+//   yellow: syntax keyword
+//   green:  syntax function
+//   blue:   syntax keyword-alt / operator
+//   purple: syntax number
+//   pink:   syntax string
+//   cyan:   syntax comment
+
+$schemes: (
+    "vault-light": (
+        "base-0":  #eaeaea,
+        "base-1":  #252a34,
+        "base-2":  #313244,
+        "base-3":  #45475a,
+        "text-0":  #252a34,
+        "text-1":  #ffffff,
+        "text-2":  #45475a,
+        "text-3":  #bac2be,
+        "red":     #ff2e63,
+        "orange":  #08d9d6,
+        "yellow":  #66d9ef,
+        "green":   #a6e22e,
+        "blue":    #f92672,
+        "purple":  #ae81ff,
+        "pink":    #e6db74,
+        "cyan":    #bac2be,
+    ),
+    "vault-dark": (
+        "base-0":  #181825,
+        "base-1":  #252a34,
+        "base-2":  #313244,
+        "base-3":  #45475a,
+        "text-0":  #cdd6f4,
+        "text-1":  #ffffff,
+        "text-2":  #bac2be,
+        "text-3":  #a6adc8,
+        "red":     #ff2e63,
+        "orange":  #08d9d6,
+        "yellow":  #66d9ef,
+        "green":   #a6e22e,
+        "blue":    #f92672,
+        "purple":  #ae81ff,
+        "pink":    #e6db74,
+        "cyan":    #bac2be,
+    ),
+    "nord": (
+        "base-0":  #2e3440,
+        "base-1":  #3b4252,
+        "base-2":  #434c5e,
+        "base-3":  #4c566a,
+        "text-0":  #d8dee9,
+        "text-1":  #eceff4,
+        "text-2":  #e5e9f0,
+        "text-3":  #4c566a,
+        "red":     #bf616a,
+        "orange":  #d08770,
+        "yellow":  #ebcb8b,
+        "green":   #a3be8c,
+        "blue":    #81a1c1,
+        "purple":  #b48ead,
+        "pink":    #8fbcbb,
+        "cyan":    #88c0d0,
+    ),
+    "catppuccin-mocha": (
+        "base-0":  #1e1e2e,
+        "base-1":  #313244,
+        "base-2":  #45475a,
+        "base-3":  #585b70,
+        "text-0":  #cdd6f4,
+        "text-1":  #cdd6f4,
+        "text-2":  #a6adc8,
+        "text-3":  #6c7086,
+        "red":     #f38ba8,
+        "orange":  #fab387,
+        "yellow":  #f9e2af,
+        "green":   #a6e3a1,
+        "blue":    #89b4fa,
+        "purple":  #cba6f7,
+        "pink":    #f5c2e7,
+        "cyan":    #94e2d5,
+    ),
+    "catppuccin-frappe": (
+        "base-0":  #303446,
+        "base-1":  #414559,
+        "base-2":  #51576d,
+        "base-3":  #626880,
+        "text-0":  #c6d0f5,
+        "text-1":  #c6d0f5,
+        "text-2":  #a5adce,
+        "text-3":  #737994,
+        "red":     #e78284,
+        "orange":  #ef9f76,
+        "yellow":  #e5c890,
+        "green":   #a6d189,
+        "blue":    #8caaee,
+        "purple":  #ca9ee6,
+        "pink":    #f4b8e4,
+        "cyan":    #81c8be,
+    ),
+);
+
+// Global semantic map: role → palette slot.
+// Same for every scheme — swap a palette, whole theme updates.
+$semantic: (
+    // UI
+    "color-bg":             "base-0",
+    "color-bg-alt":         "base-1",
+    "color-background":     "base-0",
+    "color-surface":        "base-1",
+    "color-alt":            "base-1",
+    "color-text":           "text-0",
+    "color-primary":        "red",
+    "color-secondary":      "orange",
+    "color-link":           "red",
+    "color-link-hover":     "orange",
+    "color-hover":          "orange",
+    "color-border":         "base-1",
+    "color-border-light":   "base-2",
+    "color-border-lighter": "base-3",
+    "color-code-bg":        "base-1",
+    "color-code-text":      "text-1",
+    "color-selection-bg":   "red",
+    "color-selection-text": "text-1",
+    "color-figure-bg":      "base-0",
+    "color-footer-bg":      "base-1",
+    "color-footer-text":    "text-1",
+    // Syntax
+    "syntax-bg":            "base-1",
+    "syntax-fg":            "text-1",
+    "syntax-keyword":       "yellow",
+    "syntax-keyword-alt":   "blue",
+    "syntax-function":      "green",
+    "syntax-string":        "pink",
+    "syntax-number":        "purple",
+    "syntax-comment":       "text-3",
+    "syntax-operator":      "blue",
+);
+
+@function palette-get($scheme-name, $slot) {
+    $scheme: map-get($schemes, $scheme-name);
+    @return map-get($scheme, unquote($slot));
+}
+
+@function resolve($scheme-name, $role) {
+    $slot: map-get($semantic, $role);
+    @return palette-get($scheme-name, $slot);
+}
+
+// Generate CSS custom properties
+:root {
+    color-scheme: light dark;
+    scrollbar-gutter: stable;
+    --layout-border-top-width: #{map-get($layout, "border-top-width")};
+    --font-size:               #{map-get($font, "size")};
+    --font-size-large:         #{map-get($font, "size-large")};
+    --font-size-small:         #{map-get($font, "size-small")};
+    --font-line-height:        #{map-get($font, "line-height")};
+    --font-family-serif:       #{$_font-stack-serif};
+    --font-family-sans:        #{$_font-stack-sans};
+    --font-family-heading:     #{$_font-stack-heading};
+    --font-family-fixed:       #{$_font-stack-fixed};
+
+    @each $role, $slot in $semantic {
+        --#{$role}: #{palette-get($theme-scheme-light, $slot)};
+    }
+}
+
+@each $name, $scheme in $schemes {
+    .theme-#{$name} {
+        @each $role, $slot in $semantic {
+            --#{$role}: #{palette-get($name, $slot)};
+        }
+    }
+}

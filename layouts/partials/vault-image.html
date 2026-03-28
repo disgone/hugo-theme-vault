@@ -1,0 +1,184 @@
+<!-- Image with accessibility features -->
+<!-- Progressive enhancement with fallback content -->
+
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $title := .Get "title" -}}
+{{- $width := 0 -}}{{- with .Get "width" -}}{{- $width = int . -}}{{- end -}}
+{{- $height := 0 -}}{{- with .Get "height" -}}{{- $height = int . -}}{{- end -}}
+{{- $eager := .Get "eager" -}}
+{{- $format := .Get "format" -}}
+{{- $sizes := .Get "sizes" | default "(min-width: 60rem) 60rem, 100vw" -}}
+{{- $longdesc := .Get "longdesc" -}}
+{{- $describedby := .Get "describedby" -}}
+{{- $fit := .Get "fit" | default "resize" -}}
+{{- $anchor := .Get "anchor" | default "Center" -}}
+{{- $class := .Get "class" -}}
+{{- $imgClass := "vault-image" -}}
+{{- with $class }}{{ $imgClass = printf "%s %s" "vault-image" . }}{{ end -}}
+
+{{- $img := resources.Get $src -}}
+
+{{- $formatStr := "" -}}
+{{- if $format -}}
+    {{- $formatStr = $format -}}
+{{- end -}}
+
+{{- $webpSrcset := slice -}}
+{{- $fallbackSrcset := slice -}}
+{{- $fallbackSrc := $src -}}
+{{- $outWidth := 0 -}}
+{{- $outHeight := 0 -}}
+{{- if $img -}}
+    {{- $origW := $img.Width -}}
+    {{- $origH := $img.Height -}}
+    {{- $candidateWidths := slice -}}
+    {{- range (slice 480 768 1024 1440 $origW) -}}
+        {{- if and (le . $origW) (not (in $candidateWidths .)) -}}
+            {{- $candidateWidths = $candidateWidths | append . -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- if eq $fit "fill" -}}
+        {{- $fillW := $width -}}
+        {{- $fillH := $height -}}
+        {{- if and (not $width) (not $height) -}}
+            {{- $fillW = $origW -}}
+            {{- $fillH = $origH -}}
+        {{- else if and $width (not $height) -}}
+            {{- $scale := div (float $width) (float $origW) -}}
+            {{- $fillH = int (math.Ceil (mul (float $origH) $scale)) -}}
+        {{- else if and (not $width) $height -}}
+            {{- $scale := div (float $height) (float $origH) -}}
+            {{- $fillW = int (math.Ceil (mul (float $origW) $scale)) -}}
+        {{- end -}}
+        {{- $outWidth = $fillW -}}
+        {{- $outHeight = $fillH -}}
+        {{- range $candidateWidths -}}
+            {{- $w := . -}}
+            {{- $scale := div (float $w) (float $fillW) -}}
+            {{- $h := int (math.Ceil (mul (float $fillH) $scale)) -}}
+            {{- $spec := printf "%dx%d %s %s" $w $h (trim $formatStr " ") $anchor -}}
+            {{- $specWebp := printf "%dx%d webp %s" $w $h $anchor -}}
+            {{- $v := $img.Fill $spec -}}
+            {{- $wv := $img.Fill $specWebp -}}
+            {{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $v.RelPermalink $w) -}}
+            {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $wv.RelPermalink $w) -}}
+            {{- if eq $w $origW -}}
+                {{- $fallbackSrc = $v -}}
+            {{- end -}}
+        {{- end -}}
+        {{- $fallbackSpec := printf "%dx%d %s %s" $fillW $fillH (trim $formatStr " ") $anchor -}}
+        {{- $fallbackSrc = $img.Fill $fallbackSpec -}}
+
+    {{- else if eq $fit "fit" -}}
+        {{- $fitW := $width -}}
+        {{- $fitH := $height -}}
+        {{- if and (not $width) (not $height) -}}
+            {{- $fitW = $origW -}}
+            {{- $fitH = $origH -}}
+        {{- else if and $width (not $height) -}}
+            {{- $scale := div (float $width) (float $origW) -}}
+            {{- $fitH = int (math.Ceil (mul (float $origH) $scale)) -}}
+        {{- else if and (not $width) $height -}}
+            {{- $scale := div (float $height) (float $origH) -}}
+            {{- $fitW = int (math.Ceil (mul (float $origW) $scale)) -}}
+        {{- end -}}
+        {{- $outWidth = $fitW -}}
+        {{- $outHeight = $fitH -}}
+        {{- range $candidateWidths -}}
+            {{- $w := . -}}
+            {{- $scale := div (float $w) (float $fitW) -}}
+            {{- $h := int (math.Ceil (mul (float $fitH) $scale)) -}}
+            {{- $spec := printf "%dx%d %s" $w $h (trim $formatStr " ") -}}
+            {{- $specWebp := printf "%dx%d webp" $w $h -}}
+            {{- $v := $img.Fit $spec -}}
+            {{- $wv := $img.Fit $specWebp -}}
+            {{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $v.RelPermalink $w) -}}
+            {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $wv.RelPermalink $w) -}}
+            {{- if eq $w $origW -}}
+                {{- $fallbackSrc = $v -}}
+            {{- end -}}
+        {{- end -}}
+        {{- $fallbackSpec := printf "%dx%d %s" $fitW $fitH (trim $formatStr " ") -}}
+        {{- $fallbackSrc = $img.Fit $fallbackSpec -}}
+
+    {{- else -}}
+        {{- $resizeW := $width -}}
+        {{- $resizeH := $height -}}
+        {{- if and (not $width) (not $height) -}}
+            {{- $resizeW = $origW -}}
+            {{- $resizeH = $origH -}}
+        {{- end -}}
+        {{- $outWidth = $resizeW -}}
+        {{- $outHeight = $resizeH -}}
+        {{- range $candidateWidths -}}
+            {{- $w := . -}}
+            {{- $spec := printf "%dx" $w -}}
+            {{- $specWebp := printf "%dx webp" $w -}}
+            {{- if $formatStr -}}
+                {{- $spec = printf "%dx %s" $w (trim $formatStr " ") -}}
+                {{- $specWebp = printf "%dx webp" $w -}}
+            {{- end -}}
+            {{- $v := $img.Resize $spec -}}
+            {{- $wv := $img.Resize $specWebp -}}
+            {{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $v.RelPermalink $w) -}}
+            {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $wv.RelPermalink $w) -}}
+            {{- if eq $w $origW -}}
+                {{- $fallbackSrc = $v -}}
+            {{- end -}}
+        {{- end -}}
+        {{- $fallbackSpec := printf "%dx" $resizeW -}}
+        {{- if $formatStr -}}
+            {{- $fallbackSpec = printf "%dx %s" $resizeW (trim $formatStr " ") -}}
+        {{- end -}}
+        {{- $fallbackSrc = $img.Resize $fallbackSpec -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if and (not $outWidth) (not $outHeight) -}}
+    {{- if $img -}}
+        {{- $outWidth = $img.Width -}}
+        {{- $outHeight = $img.Height -}}
+    {{- else -}}
+        {{- with $width }}{{ $outWidth = . }}{{ end -}}
+        {{- with $height }}{{ $outHeight = . }}{{ end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if $img -}}
+<picture class="{{ $imgClass }}">
+    {{- if or $alt $title -}}
+        {{- $fallbackContent := "" -}}
+        {{- if $alt -}}
+            {{- $fallbackContent = $alt -}}
+        {{- else if $title -}}
+            {{- $fallbackContent = "Image" -}}
+        {{- end -}}
+        <noscript>
+            <img src="{{ $img.RelPermalink }}" alt="{{ $fallbackContent }}">
+        </noscript>
+    {{- end -}}
+    <source type="image/webp" srcset="{{ delimit $webpSrcset ", " }}" sizes="{{ $sizes }}">
+    <img
+        src="{{ $fallbackSrc.RelPermalink }}"
+        srcset="{{ delimit $fallbackSrcset ", " }}"
+        sizes="{{ $sizes }}"
+        alt="{{ $alt | default "" }}"
+        {{- if $outWidth }} width="{{ $outWidth }}"{{ end }}
+        {{- if $outHeight }} height="{{ $outHeight }}"{{ end }}
+        {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
+        {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
+        {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
+</picture>
+{{- else -}}
+<img
+    class="{{ $imgClass }}"
+    src="{{ $src }}"
+    alt="{{ $alt | default "" }}"
+    {{- if $outWidth }} width="{{ $outWidth }}"{{ end }}
+    {{- if $outHeight }} height="{{ $outHeight }}"{{ end }}
+    {{ if $eager }}loading="eager"{{ else }}loading="lazy"{{ end }}
+    {{ with $longdesc }}longdesc="{{ . }}"{{ end }}
+    {{ with $describedby }}aria-describedby="{{ . }}"{{ end }}>
+{{- end -}}

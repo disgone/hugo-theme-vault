@@ -1,0 +1,77 @@
+title = "Vault Theme Demo"
+baseURL = "http://localhost:1313"
+languageCode = "en-us"
+theme = "hugo-theme-vault"
+
+[params]
+  description = "A minimalist Hugo theme for blogs and personal sites"
+  latestposts = 5
+
+# Social links - uncomment to enable
+# [params.social]
+#   twitter = "username"
+#   github = "username"
+#   linkedin = "username"
+#   email = "your@email.com"
+
+# Analytics configuration - uncomment to enable
+# [params.analytics]
+#   google = "UA-XXXXX-Y"
+#   plausible = "yourdomain.com"
+
+# Custom assets - uncomment to add custom CSS/JS
+# [params.custom]
+#   css = ["custom.css"]
+#   js = ["custom.js"]
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Permalinks
+[permalinks]
+  posts = "/:year/:month/:slug/"
+
+# Main navigation menu
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "Archives"
+  url = "/archives/"
+  weight = 3
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 4
+
+# Build settings
+[build]
+  writeStats = true
+
+# Syntax highlighting - use CSS classes instead of inline styles
+[markup.highlight]
+  noClasses = false
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+
+[minify.tdewolff.css]
+  version = 2
+
+[minify.tdewolff.html]
+  keepWhitespace = false

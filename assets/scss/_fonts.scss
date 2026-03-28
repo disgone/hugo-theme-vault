@@ -1,0 +1,38 @@
+/* Font paths use absolute paths (/fonts/) for Hugo Modules compatibility.
+ * Geist fonts are loaded locally for optimal performance.
+ * Literata is loaded from Google Fonts CDN.
+ */
+
+/* Geist - Variable sans-serif (weight 100-900) */
+@font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/Geist-Variable.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Geist';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/Geist-Variable-Italic.woff2') format('woff2');
+}
+
+/* Geist Mono - Variable monospace (weight 100-900) */
+@font-face {
+    font-family: 'Geist Mono';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/GeistMono-Variable-Italic.woff2') format('woff2');
+}

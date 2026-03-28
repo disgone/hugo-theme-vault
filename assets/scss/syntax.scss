@@ -1,0 +1,287 @@
+// Generated using: hugo gen chromastyles --style=monokai
+// Updated to use CSS custom properties for theming
+
+/* Background */
+.bg, .chroma {
+    color: var(--syntax-fg);
+    background-color: var(--syntax-bg);
+}
+
+/* Error */
+.chroma .err {
+    color: var(--syntax-keyword-alt);
+    background-color: var(--syntax-bg);
+}
+
+/* LineLink */
+.chroma .lnlinks {
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* LineHighlight */
+.chroma .hl {
+    background-color: color-mix(in srgb, var(--syntax-fg) 15%, var(--syntax-bg));
+}
+
+/* LineNumbersTable */
+.chroma .lnt {
+    white-space: pre;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-inline-end: 0.4em;
+    padding: 0 0.4em 0 0.4em;
+    color: var(--syntax-comment);
+}
+
+/* LineNumbers */
+.chroma .ln {
+    white-space: pre;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-inline-end: 0.4em;
+    padding: 0 0.4em 0 0.4em;
+    color: var(--syntax-comment);
+}
+
+/* Line */
+.chroma .line {
+    display: flex;
+}
+
+/* Keyword */
+.chroma .k {
+    color: var(--syntax-keyword);
+}
+
+.chroma .kc {
+    color: var(--syntax-keyword);
+}
+
+.chroma .kd {
+    color: var(--syntax-keyword);
+}
+
+.chroma .kn {
+    color: var(--syntax-keyword-alt);
+}
+
+.chroma .kp {
+    color: var(--syntax-keyword);
+}
+
+.chroma .kr {
+    color: var(--syntax-keyword);
+}
+
+.chroma .kt {
+    color: var(--syntax-keyword);
+}
+
+/* Name */
+.chroma .na {
+    color: var(--syntax-function);
+}
+
+.chroma .nc {
+    color: var(--syntax-function);
+}
+
+.chroma .no {
+    color: var(--syntax-keyword);
+}
+
+.chroma .nd {
+    color: var(--syntax-function);
+}
+
+.chroma .ne {
+    color: var(--syntax-function);
+}
+
+.chroma .nx {
+    color: var(--syntax-function);
+}
+
+.chroma .nt {
+    color: var(--syntax-keyword-alt);
+}
+
+.chroma .nf {
+    color: var(--syntax-function);
+}
+
+.chroma .fm {
+    color: var(--syntax-function);
+}
+
+/* Literal */
+.chroma .l {
+    color: var(--syntax-number);
+}
+
+.chroma .ld {
+    color: var(--syntax-string);
+}
+
+/* LiteralString */
+.chroma .s {
+    color: var(--syntax-string);
+}
+
+.chroma .sa {
+    color: var(--syntax-string);
+}
+
+.chroma .sb {
+    color: var(--syntax-string);
+}
+
+.chroma .sc {
+    color: var(--syntax-string);
+}
+
+.chroma .dl {
+    color: var(--syntax-string);
+}
+
+.chroma .sd {
+    color: var(--syntax-string);
+}
+
+.chroma .s2 {
+    color: var(--syntax-string);
+}
+
+.chroma .se {
+    color: var(--syntax-number);
+}
+
+.chroma .sh {
+    color: var(--syntax-string);
+}
+
+.chroma .si {
+    color: var(--syntax-string);
+}
+
+.chroma .sx {
+    color: var(--syntax-string);
+}
+
+.chroma .sr {
+    color: var(--syntax-string);
+}
+
+.chroma .s1 {
+    color: var(--syntax-string);
+}
+
+.chroma .ss {
+    color: var(--syntax-string);
+}
+
+/* LiteralNumber */
+.chroma .m {
+    color: var(--syntax-number);
+}
+
+.chroma .mb {
+    color: var(--syntax-number);
+}
+
+.chroma .mf {
+    color: var(--syntax-number);
+}
+
+.chroma .mh {
+    color: var(--syntax-number);
+}
+
+.chroma .mi {
+    color: var(--syntax-number);
+}
+
+.chroma .il {
+    color: var(--syntax-number);
+}
+
+.chroma .mo {
+    color: var(--syntax-number);
+}
+
+/* Operator */
+.chroma .o {
+    color: var(--syntax-operator);
+}
+
+.chroma .ow {
+    color: var(--syntax-operator);
+}
+
+/* Comment */
+.chroma .c {
+    color: var(--syntax-comment);
+}
+
+.chroma .ch {
+    color: var(--syntax-comment);
+}
+
+.chroma .cm {
+    color: var(--syntax-comment);
+}
+
+.chroma .c1 {
+    color: var(--syntax-comment);
+}
+
+.chroma .cs {
+    color: var(--syntax-comment);
+}
+
+.chroma .cp {
+    color: var(--syntax-comment);
+}
+
+.chroma .cpf {
+    color: var(--syntax-comment);
+}
+
+/* Generic */
+.chroma .gd {
+    color: var(--syntax-keyword-alt);
+}
+
+.chroma .ge {
+    font-style: italic;
+}
+
+.chroma .gi {
+    color: var(--syntax-function);
+}
+
+.chroma .gs {
+    font-weight: bold;
+}
+
+.chroma .gu {
+    color: var(--syntax-comment);
+}

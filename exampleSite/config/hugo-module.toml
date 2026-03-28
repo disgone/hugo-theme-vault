@@ -1,0 +1,10 @@
+# Hugo Module Configuration
+# Use this config when using the theme as a Hugo module
+
+[module]
+[[module.imports]]
+  path = "github.com/Disgone/hugo-theme-vault"
+
+# Note: To use Hugo modules, run these commands first:
+# hugo mod init github.com/yourusername/your-site
+# hugo mod get github.com/Disgone/hugo-theme-vault

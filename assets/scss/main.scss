@@ -1,0 +1,133 @@
+@import 'settings';
+@import 'themes';
+@import 'mixins';
+@import 'fonts';
+@import 'reset';
+
+@import 'base';
+@import 'layout';
+@import 'content';
+@import 'vault-figure';
+@import 'theme-toggle';
+
+.icon {
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+
+    &.large {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &.small {
+        height: .75rem;
+        width: .75rem;
+    }
+
+    &.left {
+        float: left;
+        margin-right: .25rem;
+    }
+
+    &.right {
+        float: right;
+        margin-left: .25rem;
+    }
+}
+
+.section-group {
+    border-color: $font-color;
+    border-style: solid;
+    border-width: .125rem 0 .0;
+    margin-top: 2rem;
+
+    .section-title {
+        color: $font-color;
+        border-color: $font-color;
+        border-style: solid;
+        border-width: 0 0 .1rem;
+        margin: 0;
+        padding: .325rem 0;
+        text-transform: uppercase;
+    }
+
+    a {
+        text-decoration: none;
+
+        span {
+            display: block;
+        }
+    }
+}
+
+.taxonomy-list {
+    li {
+        border-bottom: 1px solid var(--color-border-light);
+
+        & > a {
+            display: block;
+            padding: 5px 5px 5px 0;
+            position: relative;
+            text-transform: uppercase;
+        }
+    }
+
+    .taxonomy-count {
+        position: absolute;
+        right: 0;
+        top: .3rem;
+    }
+
+    &::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+}
+
+.teaser {
+    border-color: var(--color-border-lighter);
+    border-style: solid;
+    border-width: 0 0 1px;
+    font-size: 1rem;
+    padding: .5rem 0;
+
+    .title {
+        margin: 0;
+    }
+
+    .description {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    time {
+        font-size: $font-size-small;
+        opacity: 0.7;
+    }
+}
+
+@include screen-med {
+    .teaser {
+        time {
+            float: right;
+        }
+    }
+}
+
+@include screen-medm {
+    .taxonomy-list {
+        li {
+            float: left;
+            width: 48%;
+
+            &:nth-child(2n) {
+                margin-left: 4%;
+            }
+        }
+    }
+}
