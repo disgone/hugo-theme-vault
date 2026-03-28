@@ -201,6 +201,10 @@ Same parameters as `vault-image`, plus:
 
 The theme uses Hugo Pipes for automatic CSS processing. No separate build step needed.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
+
 ## License
 
 MIT License. See [LICENSE](LICENSE.md).

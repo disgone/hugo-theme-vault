@@ -2,6 +2,8 @@
 
 This file provides coding standards and development commands for agentic AI coding assistants working on the hugo-theme-vault repository.
 
+**Important:** Follow the [Contributing Guide](CONTRIBUTING.md) for commit message format and release process. All commits must use conventional commit format.
+
 ## Project Overview
 
 Hugo theme for blogs and personal sites. Hugo 0.110+ required. Primary languages: HTML templates and SCSS (no JavaScript source code).
@@ -208,23 +210,9 @@ Use `hugo new posts/my-post.md` to create content.
 
 ## Release Management
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full release process, commit format rules, and version bump table.
+
 Releases are automated via [release-please](https://github.com/googleapis/release-please). When conventional commits land on `main`, release-please opens (or updates) a Release PR containing the version bump and changelog. Merge the PR when ready to publish.
-
-### Version Bump Rules
-
-| Commit | Bump |
-|--------|------|
-| `feat(scope)!:` or `BREAKING CHANGE:` in body | Major |
-| `feat(scope):` | Minor |
-| `fix(scope):` / `perf(scope):` | Patch |
-
-### Changelog Visibility
-
-Only user-facing changes appear in the changelog:
-- **Added:** `feat:` commits
-- **Fixed:** `fix:` commits
-- **Performance:** `perf:` commits
-- Internal types (`docs`, `chore`, `refactor`, `style`, `test`, `build`, `ci`) are hidden
 
 ### Version Files
 
@@ -232,13 +220,3 @@ Release-please automatically updates:
 - `package.json` version field
 - `theme.toml` version field
 - `CHANGELOG.md`
-
-### Breaking Changes
-
-Include migration details in the commit body:
-
-```
-feat(build)!: replace webpack with hugo pipes
-
-BREAKING CHANGE: Remove npm build scripts. Use `hugo` directly.
-```
