@@ -68,7 +68,7 @@
                 {{- $fallbackSrc = $v -}}
             {{- end -}}
         {{- end -}}
-        {{- $fallbackSpec := printf "%dx%d %s %s" $fillW $fillH (trim $formatStr) $anchor -}}
+        {{- $fallbackSpec := printf "%dx%d %s %s" $fillW $fillH (trim $formatStr " ") $anchor -}}
         {{- $fallbackSrc = $img.Fill $fallbackSpec -}}
 
     {{- else if eq $fit "fit" -}}
