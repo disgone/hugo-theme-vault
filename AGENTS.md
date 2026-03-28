@@ -205,3 +205,40 @@ hidden: false  # Hide from listings
 ```
 
 Use `hugo new posts/my-post.md` to create content.
+
+## Release Management
+
+Releases are automated via [release-please](https://github.com/googleapis/release-please). When conventional commits land on `main`, release-please opens (or updates) a Release PR containing the version bump and changelog. Merge the PR when ready to publish.
+
+### Version Bump Rules
+
+| Commit | Bump |
+|--------|------|
+| `feat(scope)!:` or `BREAKING CHANGE:` in body | Major |
+| `feat(scope):` | Minor |
+| `fix(scope):` / `perf(scope):` | Patch |
+
+### Changelog Visibility
+
+Only user-facing changes appear in the changelog:
+- **Added:** `feat:` commits
+- **Fixed:** `fix:` commits
+- **Performance:** `perf:` commits
+- Internal types (`docs`, `chore`, `refactor`, `style`, `test`, `build`, `ci`) are hidden
+
+### Version Files
+
+Release-please automatically updates:
+- `package.json` version field
+- `theme.toml` version field
+- `CHANGELOG.md`
+
+### Breaking Changes
+
+Include migration details in the commit body:
+
+```
+feat(build)!: replace webpack with hugo pipes
+
+BREAKING CHANGE: Remove npm build scripts. Use `hugo` directly.
+```

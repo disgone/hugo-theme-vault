@@ -1,0 +1,27 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "changelog-sections": [
+        { "type": "feat", "section": "Added", "hidden": false },
+        { "type": "fix", "section": "Fixed", "hidden": false },
+        { "type": "perf", "section": "Performance", "hidden": false },
+        { "type": "docs", "section": "Documentation", "hidden": true },
+        { "type": "chore", "section": "Maintenance", "hidden": true },
+        { "type": "style", "section": "Maintenance", "hidden": true },
+        { "type": "refactor", "section": "Maintenance", "hidden": true },
+        { "type": "test", "section": "Maintenance", "hidden": true },
+        { "type": "build", "section": "Maintenance", "hidden": true },
+        { "type": "ci", "section": "Maintenance", "hidden": true }
+      ],
+      "extra-files": [
+        {
+          "type": "toml",
+          "path": "theme.toml",
+          "jsonpath": "$.version"
+        }
+      ]
+    }
+  }
+}
