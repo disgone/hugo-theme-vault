@@ -4,11 +4,12 @@
 
 {{ define "main" }}
 <article class='page'>
-    {{ with .Description }}
     <header>
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}
         <h2 class='description'>{{ . }}</h2>
+        {{ end }}
     </header>
-    {{ end }}
     {{ .Content }}
 </article>
 {{ end }}
