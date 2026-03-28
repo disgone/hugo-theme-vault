@@ -1,5 +1,5 @@
 <li>
-    <input type="checkbox" id="theme-toggle" class="sr-only" hidden>
+    <input type="checkbox" id="theme-toggle" class="sr-only">
     <label for="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
         <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
@@ -16,22 +16,21 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
     </label>
-</li>
-
-<script>
-(function() {
-    var toggle = document.getElementById("theme-toggle");
-    if (document.documentElement.classList.contains("dark")) {
-        toggle.checked = true;
-    }
-    toggle.addEventListener("change", function() {
-        if (this.checked) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
+    <script>
+    (function() {
+        var toggle = document.getElementById("theme-toggle");
+        if (document.documentElement.classList.contains("dark")) {
+            toggle.checked = true;
         }
-    });
-})();
-</script>
+        toggle.addEventListener("change", function() {
+            if (this.checked) {
+                document.documentElement.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+            }
+        });
+    })();
+    </script>
+</li>
