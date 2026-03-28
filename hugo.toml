@@ -1,7 +1,12 @@
-module = [
-  { mounts = [
-    { source = "assets", target = "assets" },
-    { source = "layouts", target = "layouts" },
-    { source = "static", target = "static" },
-  ]}
-]
+[module]
+[[module.mounts]]
+source = "assets"
+target = "assets"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "static"
+target = "static"
