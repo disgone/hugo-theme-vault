@@ -1,9 +1,14 @@
-{{- $class := .Params.figureClass -}}
-<figure class="vault-figure{{- with $class }} {{ . -}}{{- end }}">
-    {{ partial "vault-image.html" . }}
-    {{- with .Params.title -}}
-        <figcaption>
-            <p>{{ . | markdownify }}</p>
-        </figcaption>
-    {{- end }}
-</figure>
+{{- $src := .Get "src" -}}
+{{- if $src -}}
+    {{- $class := .Params.figureClass -}}
+    <figure class="vault-figure{{- with $class }} {{ . -}}{{- end }}">
+        {{ partial "vault-image.html" . }}
+        {{- with .Params.title -}}
+            <figcaption>
+                <p>{{ . | markdownify }}</p>
+            </figcaption>
+        {{- end -}}
+    </figure>
+{{- else -}}
+    {{- errorf "vault-figure shortcode requires a 'src' argument: see %s" .Position -}}
+{{- end -}}
