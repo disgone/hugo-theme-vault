@@ -151,7 +151,7 @@
             {{- $fallbackContent = "Image" -}}
         {{- end -}}
         <noscript>
-            <img src="{{ $img.RelPermalink }}" alt="{{ $fallbackContent }}" style="display:none">
+            <img src="{{ $img.RelPermalink }}" alt="{{ $fallbackContent }}">
         </noscript>
     {{- end -}}
     <source type="image/webp" srcset="{{ delimit $webpSrcset ", " }}" sizes="{{ $sizes }}">
