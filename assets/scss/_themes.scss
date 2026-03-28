@@ -165,10 +165,10 @@ $semantic: (
     --font-size-large:         #{map-get($font, "size-large")};
     --font-size-small:         #{map-get($font, "size-small")};
     --font-line-height:        #{map-get($font, "line-height")};
-    --font-family-serif:       #{$font-family-serif};
-    --font-family-sans:        #{$font-family-sans};
-    --font-family-heading:     #{$font-family-heading};
-    --font-family-fixed:       #{$font-family-fixed};
+    --font-family-serif:       #{$_font-stack-serif};
+    --font-family-sans:        #{$_font-stack-sans};
+    --font-family-heading:     #{$_font-stack-heading};
+    --font-family-fixed:       #{$_font-stack-fixed};
 
     @each $role, $slot in $semantic {
         --#{$role}: #{palette-get($theme-scheme-light, $slot)};
