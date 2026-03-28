@@ -136,9 +136,14 @@
     {{- end -}}
 {{- end -}}
 
-{{- if and $img (not $outWidth) (not $outHeight) -}}
-    {{- $outWidth = $img.Width -}}
-    {{- $outHeight = $img.Height -}}
+{{- if and (not $outWidth) (not $outHeight) -}}
+    {{- if $img -}}
+        {{- $outWidth = $img.Width -}}
+        {{- $outHeight = $img.Height -}}
+    {{- else -}}
+        {{- with $width }}{{ $outWidth = . }}{{ end -}}
+        {{- with $height }}{{ $outHeight = . }}{{ end -}}
+    {{- end -}}
 {{- end -}}
 
 {{- if $img -}}
