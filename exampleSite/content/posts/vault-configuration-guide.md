@@ -48,27 +48,16 @@ params.description
 params.author
 : The author's name, shown in post metadata.
 
-params.colorScheme
-: The default color scheme. See [Color Schemes](#color-schemes) below for accepted values.
-
 ## Color Schemes
 
-Vault ships five balanced palettes. Set one as the default in your config:
-
-```toml
-[params]
-  colorScheme = "vault-dark"
-```
+Vault includes a light and dark palette. The theme respects the visitor's system preference (`prefers-color-scheme`) by default and provides a toggle to switch manually. The choice is persisted in `localStorage`.
 
 | Scheme | Background | Text | Primary | Secondary |
 |--------|-----------|------|---------|-----------|
 | `vault-light` | `#eaeaea` | `#252a34` | `#ff2e63` | `#08d9d6` |
 | `vault-dark` | `#181825` | `#cdd6f4` | `#ff2e63` | `#08d9d6` |
-| `nord` | `#2e3440` | `#eceff4` | `#88c0d0` | `#81a1c1` |
-| `catppuccin-mocha` | `#1e1e2e` | `#cdd6f4` | `#f5c2e7` | `#89b4fa` |
-| `catppuccin-frappe` | `#303446` | `#c6d0f5` | `#f2a5c5` | `#b8baee` |
 
-The theme toggle lets visitors switch schemes at runtime. The value in `config.toml` sets the initial state.
+Additional palettes (`nord`, `catppuccin-mocha`, `catppuccin-frappe`) are defined in SCSS but not yet exposed through the toggle. See `assets/scss/_themes.scss` to customize or add schemes.
 
 ## Installation
 
