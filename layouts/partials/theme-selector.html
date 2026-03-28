@@ -23,15 +23,18 @@
             toggle.checked = true;
         }
         toggle.addEventListener("change", function() {
-            try {
-                if (this.checked) {
-                    document.documentElement.classList.add("dark");
+            if (this.checked) {
+                document.documentElement.classList.add("dark");
+                try {
                     localStorage.setItem("theme", "dark");
-                } else {
-                    document.documentElement.classList.remove("dark");
-                    localStorage.setItem("theme", "light");
+                } catch (e) {
                 }
-            } catch (e) {
+            } else {
+                document.documentElement.classList.remove("dark");
+                try {
+                    localStorage.setItem("theme", "light");
+                } catch (e) {
+                }
             }
         });
     })();
