@@ -145,8 +145,8 @@ If you get a "theme not found" error:
 
 If styles don't load:
 
-- Run `bun install` in the theme root to install dependencies
-- Check that static assets are generated correctly
+- Ensure Hugo 0.110+ is installed (Hugo Pipes handles SCSS natively)
+- Check that the theme is properly linked or installed
 - Clear your browser cache
 
 ## Support
