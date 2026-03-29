@@ -1,0 +1,137 @@
+{{- $rawSrc := .Destination -}}
+{{- $attrs := .Attributes -}}
+{{- $isExternal := or (strings.HasPrefix $rawSrc "http://") (strings.HasPrefix $rawSrc "https://") (strings.HasPrefix $rawSrc "//") -}}
+{{- $outputSrc := $rawSrc -}}
+{{- if not $isExternal -}}
+    {{- $outputSrc = $rawSrc | relURL -}}
+{{- end -}}
+
+{{- $class := "vault-image" -}}
+{{- with $attrs.class }}{{ $class = printf "%s %s" $class . }}{{ end -}}
+
+{{- $alt := .PlainText -}}
+{{- if not $alt }}{{ $alt = .Title }}{{ end -}}
+{{- $alt = $alt | default "" -}}
+
+{{- $loading := "lazy" -}}
+{{- with $attrs.loading -}}
+    {{- $val := lower . -}}
+    {{- if eq $val "eager" -}}
+        {{- $loading = "eager" -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $sizes := "(min-width: 60rem) 60rem, 100vw" -}}
+{{- with $attrs.sizes }}{{ $sizes = . }}{{ end -}}
+
+{{- $longdesc := "" -}}
+{{- with $attrs.longdesc }}{{ $longdesc = . }}{{ end -}}
+{{- $describedby := "" -}}
+{{- with $attrs.describedby }}{{ $describedby = . }}{{ end -}}
+
+{{- $widthAttr := 0 -}}
+{{- with $attrs.width -}}
+    {{- $digits := replaceRE "[^0-9]" "" . -}}
+    {{- if $digits }}{{ $widthAttr = int $digits }}{{ end -}}
+{{- end -}}
+
+{{- $heightAttr := 0 -}}
+{{- with $attrs.height -}}
+    {{- $digits := replaceRE "[^0-9]" "" . -}}
+    {{- if $digits }}{{ $heightAttr = int $digits }}{{ end -}}
+{{- end -}}
+
+{{- $figureClass := "vault-figure" -}}
+{{- with $attrs.figureclass }}{{ $figureClass = printf "%s %s" $figureClass . }}{{ end -}}
+{{- $figureCaption := .Title -}}
+{{- with $attrs.caption }}{{ $figureCaption = . }}{{ end -}}
+
+{{- $figureEnabled := false -}}
+{{- if $figureCaption }}{{ $figureEnabled = true }}{{ end -}}
+{{- with $attrs.figure -}}
+    {{- $val := lower . -}}
+    {{- if in (slice "true" "1" "yes") $val -}}
+        {{- $figureEnabled = true -}}
+    {{- else if in (slice "false" "0" "no") $val -}}
+        {{- $figureEnabled = false -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $resource := false -}}
+{{- if not $isExternal -}}
+    {{- if .Page -}}
+        {{- $resource = .Page.Resources.GetMatch $rawSrc -}}
+        {{- if not $resource -}}
+            {{- $resource = .Page.Resources.GetMatch (printf "**%s" (path.Base $rawSrc)) -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if not $resource -}}
+        {{- $cleanSrc := strings.TrimPrefix "/" $rawSrc -}}
+        {{- $resource = resources.Get $cleanSrc -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $fallbackSrc := $outputSrc -}}
+{{- $fallbackSrcset := slice -}}
+{{- $webpSrcset := slice -}}
+{{- $outWidth := $widthAttr -}}
+{{- $outHeight := $heightAttr -}}
+
+{{- if $resource -}}
+    {{- $origW := $resource.Width -}}
+    {{- $candidateWidths := slice -}}
+    {{- range (slice 320 480 640 768 1024 1440 $origW) -}}
+        {{- $w := . -}}
+        {{- if and (gt $w 0) (le $w $origW) (not (in $candidateWidths $w)) -}}
+            {{- $candidateWidths = $candidateWidths | append $w -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if not (in $candidateWidths $origW) -}}
+        {{- $candidateWidths = $candidateWidths | append $origW -}}
+    {{- end -}}
+    {{- $candidateWidths = sort $candidateWidths -}}
+    {{- $lastAsset := $resource -}}
+    {{- range $candidateWidths -}}
+        {{- $resized := $resource.Resize (printf "%dx" .) -}}
+        {{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $resized.RelPermalink .) -}}
+        {{- $webp := $resource.Resize (printf "%dx webp" .) -}}
+        {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $webp.RelPermalink .) -}}
+        {{- $lastAsset = $resized -}}
+    {{- end -}}
+    {{- $fallbackSrc = $lastAsset.RelPermalink -}}
+    {{- if not $widthAttr -}}
+        {{- $outWidth = $lastAsset.Width -}}
+    {{- end -}}
+    {{- if not $heightAttr -}}
+        {{- $outHeight = $lastAsset.Height -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $imageInner := partial "inline/render-image-picture" (dict
+    "resource" $resource
+    "fallbackSrc" $fallbackSrc
+    "fallbackSrcset" $fallbackSrcset
+    "webpSrcset" $webpSrcset
+    "class" $class
+    "sizes" $sizes
+    "alt" $alt
+    "loading" $loading
+    "longdesc" $longdesc
+    "describedby" $describedby
+    "outWidth" $outWidth
+    "outHeight" $outHeight
+    "src" $outputSrc
+    ) -}}
+
+{{- if $figureEnabled -}}
+<figure class="{{ $figureClass }}">
+    {{- $imageInner | safeHTML -}}
+    {{- if $figureCaption }}
+    <figcaption>
+        <p>{{ $figureCaption | markdownify }}</p>
+    </figcaption>
+    {{- end -}}
+</figure>
+{{- else -}}
+    {{- $imageInner | safeHTML -}}
+{{- end -}}

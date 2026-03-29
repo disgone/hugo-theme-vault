@@ -98,6 +98,18 @@ Use `figureClass="inset"` when you want figure to float right within article tex
 
 Use `figureClass="inset-left"` for a left-aligned alternative.
 
+### Markdown images
+
+You can also write standard Markdown syntax and let the render hook add the same responsive markup automatically. Enable Goldmark attributes in your site config (see `config.toml`), then add attributes like `class`, `figure`, or `caption` directly after the image:
+
+````markdown
+![Forest canopy](photo.jpg "Caption via Title"){ class="inset" figure="true" figureclass="inset" }
+
+![Fallback text](photo.jpg){ loading="eager" caption="Custom **Markdown** caption" }
+````
+
+Local bundle images inherit lazy loading, responsive `srcset`, and optional `<figure>` wrappers without switching to a shortcode.
+
 ### Above-fold image with eager loading
 
 For images that appear before the user scrolls, lazy loading causes a noticeable delay. Use `eager=true` to force immediate loading.
