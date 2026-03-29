@@ -8,5 +8,9 @@ source = "layouts"
 target = "layouts"
 
 [[module.mounts]]
+source = "layouts/_shortcodes"
+target = "layouts/shortcodes"
+
+[[module.mounts]]
 source = "static"
 target = "static"
