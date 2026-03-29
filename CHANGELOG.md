@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0](https://github.com/disgone/hugo-theme-vault/compare/hugo-theme-vault-v3.0.0...hugo-theme-vault-v3.1.0) (2026-03-29)
+
+
+### Added
+
+* **theme:** add smooth theme transition and remove toggle padding ([#35](https://github.com/disgone/hugo-theme-vault/issues/35)) ([14933a5](https://github.com/disgone/hugo-theme-vault/commit/14933a572b49d1e0b10194e8429bb98a66d5bcf2))
+
 ## [3.0.0](https://github.com/disgone/hugo-theme-vault/compare/hugo-theme-vault-v2.0.0...hugo-theme-vault-v3.0.0) (2026-03-29)
 
 
