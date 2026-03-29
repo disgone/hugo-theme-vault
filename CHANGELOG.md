@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0](https://github.com/disgone/hugo-theme-vault/compare/hugo-theme-vault-v2.0.0...hugo-theme-vault-v3.0.0) (2026-03-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **templates:** The site param tokenSeperator has been renamed to tokenSeparator to correct the spelling. Update your config:
+
+### Fixed
+
+* module shortcode resolution, custom asset hooks, LVHA cascade ([#32](https://github.com/disgone/hugo-theme-vault/issues/32)) ([9a3158a](https://github.com/disgone/hugo-theme-vault/commit/9a3158a8e4750b97096de6fa0f881b82855a423b))
+* **templates:** rename tokenSeperator param to tokenSeparator ([#33](https://github.com/disgone/hugo-theme-vault/issues/33)) ([28a2fda](https://github.com/disgone/hugo-theme-vault/commit/28a2fda136ebf64e5bae211be71625ee6840b8e1))
+
 ## [2.0.0](https://github.com/disgone/hugo-theme-vault/compare/hugo-theme-vault-v1.0.0...hugo-theme-vault-v2.0.0) (2026-03-28)
 
 
