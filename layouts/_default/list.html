@@ -1,5 +1,5 @@
 {{ define "title" }}
-    {{ if eq .Kind "taxonomy" }}Tagged {{ end }}{{ .Title | markdownify | singularize }} {{ .Site.Params.tokenSeperator | markdownify }} {{ .Site.Title }}
+    {{ if eq .Kind "taxonomy" }}Tagged {{ end }}{{ .Title | markdownify | singularize }} {{ .Site.Params.tokenSeparator | markdownify }} {{ .Site.Title }}
 {{ end }}
 
 {{ define "main" }}
@@ -20,7 +20,7 @@
                 <time class="metadata published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format $dateFormat }}</time>
                 <h2 class='title'><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                 {{ with .Description }}
-                    <h3 class='description'>{{ . }}</h3>
+                    <p class='description'>{{ . }}</p>
                 {{ end }}
             </section>
             {{ end }}

@@ -1,5 +1,5 @@
 {{ define "title" }}
-    {{ .Title | markdownify }} {{ .Site.Params.tokenSeperator | markdownify }} {{ .Site.Title }}
+    {{ .Title | markdownify }} {{ .Site.Params.tokenSeparator | markdownify }} {{ .Site.Title }}
 {{ end }}
 
 {{ define "main" }}
@@ -8,15 +8,15 @@
     <header>
         <h1 class='title'>{{ .Title }}</h1>
         {{ with .Description }}
-        <h2 class='description'>{{ . }}</h2>
+        <p class='description'>{{ . }}</p>
         {{ end }}
         <section class='metadata'>
             <time class="published" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format $dateFormat }}</time>
-            {{ .Site.Params.tokenSeperator | markdownify }}
+            {{ .Site.Params.tokenSeparator | markdownify }}
             {{ .WordCount }} Words
-            {{ .Site.Params.tokenSeperator | markdownify }}
+            {{ .Site.Params.tokenSeparator | markdownify }}
             {{ .ReadingTime }} minute read
-            {{ .Site.Params.tokenSeperator | markdownify }}
+            {{ .Site.Params.tokenSeparator | markdownify }}
             <nav class="taxonomy" aria-label="Post tags and categories">
                 {{ if isset .Params "tags" }}
                     {{ .Render "tags" }}
