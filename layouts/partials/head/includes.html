@@ -19,4 +19,14 @@
 
 {{ $css := resources.Get "scss/main.scss" | toCSS | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{- range .Site.Params.custom.css }}
+  {{- with resources.Get . | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{- end }}
+{{- end }}
+{{- range .Site.Params.custom.js }}
+  {{- with resources.Get . | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{- end }}
+{{- end }}
 <script>(function(){const t=localStorage.getItem("theme");const d=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);d&&document.documentElement.classList.add("dark")})()</script>

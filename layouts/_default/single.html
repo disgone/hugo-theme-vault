@@ -1,5 +1,5 @@
 {{ define "title" }}
-    {{ .Title | markdownify }} {{ .Site.Params.tokenSeperator | markdownify }} {{ .Site.Title }}
+    {{ .Title | markdownify }} {{ .Site.Params.tokenSeparator | markdownify }} {{ .Site.Title }}
 {{ end }}
 
 {{ define "main" }}
@@ -7,7 +7,7 @@
     <header>
         <h1>{{ .Title }}</h1>
         {{ with .Description }}
-        <h2 class='description'>{{ . }}</h2>
+        <p class='description'>{{ . }}</p>
         {{ end }}
     </header>
     {{ .Content }}
