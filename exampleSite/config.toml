@@ -6,6 +6,7 @@ theme = "hugo-theme-vault"
 [params]
   description = "A minimalist Hugo theme for blogs and personal sites"
   latestposts = 5
+  tokenSeparator = "|"
 
 # Social links - uncomment to enable
 # [params.social]
