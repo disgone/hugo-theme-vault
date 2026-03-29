@@ -191,13 +191,15 @@ article {
         grid-auto-flow: column;
     }
 
-    .inset {
+    .inset,
+    .vault-image.inset {
         float: right;
         margin: 0 0 1rem 1rem;
         max-width: 50%;
     }
 
-    .inset-left {
+    .inset-left,
+    .vault-image.inset-left {
         float: left;
         margin: 0 1rem 1rem 0;
         max-width: 50%;

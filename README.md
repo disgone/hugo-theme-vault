@@ -197,6 +197,38 @@ Parameters:
 Same parameters as `vault-image`, plus:
 - `figureClass` (optional): CSS class(es) on the `<figure>` element, e.g. `inset` or `inset-left`
 
+### Markdown Images (Render Hook)
+
+Standard Markdown images (`![alt](path "Title")`) automatically gain the same lazy loading and responsive behavior. Local bundle images receive generated `srcset` + WebP variants, and the Title (or a `caption` attribute) becomes a `<figcaption>` when you opt into the figure wrapper. Supported attributes (via Goldmark attribute lists) include:
+
+- `class`: extra classes applied to the `<picture>`/`<img>` element (supports helpers like `inset`)
+- `loading`: override to `eager` for above-the-fold artwork
+- `figure`: `true`/`false` toggle to force or suppress the `<figure>` wrapper
+- `figureclass`: classes on the `<figure>` element
+- `caption`: explicit caption text (Markdown allowed); falls back to the Markdown Title
+
+Place the attribute list on the line immediately following the image:
+
+```markdown
+![Alt text](photo.jpg "Caption via title")
+{ figure="true" class="inset" figureclass="inset" }
+```
+
+Place local assets inside the same content bundle (for example, `content/posts/my-post/forest.jpg`) so Hugo treats them as page resources. Files referenced from `/static` or remote URLs still render correctly but bypass responsive processing.
+
+Add the following to your site config to enable Goldmark attributes and keep standalone images out of paragraph tags:
+
+```toml
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+
+      [markup.goldmark.parser.attribute]
+        block = true
+        inline = true
+```
+
 ## Build Assets
 
 The theme uses Hugo Pipes for automatic CSS processing. No separate build step needed.

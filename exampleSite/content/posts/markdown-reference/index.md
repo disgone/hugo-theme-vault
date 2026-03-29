@@ -76,6 +76,38 @@ Shortcode
 
 ---
 
+## Images
+
+Vault upgrades standard Markdown image syntax with the same responsive pipeline used by the shortcodes. Because this page is a leaf bundle, the images that live beside this file are treated as page resources and gain responsive `srcset`, WebP fallbacks, and intrinsic dimensions automatically.
+
+```markdown
+![Sunrise light washing across a misty evergreen forest](forest-sunrise.jpg "Golden hour in the Cascades — photo by Anders Jildén on Unsplash")
+```
+
+![Sunrise light washing across a misty evergreen forest](forest-sunrise.jpg "Golden hour in the Cascades — photo by Anders Jildén on Unsplash")
+
+Attributes belong on the next line so Goldmark associates them with the standalone image block. This example floats inside the text column via the `inset` helpers while rendering a caption via the `figure` wrapper:
+
+````markdown
+![Mist lifting off a glassy alpine lake at daybreak](forest-lake.jpg "Mirror Lake at dawn — photo by Joshua Earle on Unsplash")
+{ 
+  figure="true"
+  caption="Inset example rendered via Markdown attributes"
+  figureclass="inset"
+  loading="eager"
+}
+````
+
+![Mist lifting off a glassy alpine lake at daybreak](forest-lake.jpg "Mirror Lake at dawn — photo by Joshua Earle on Unsplash")
+{ 
+  figure="true"
+  caption="Inset example rendered via Markdown attributes"
+  figureclass="inset"
+  loading="eager"
+}
+
+---
+
 ## Code
 
 Inline code references like `hugo server`, `params.colorScheme`, and `assets/scss/main.scss` render in a monospace typeface with subtle background treatment.

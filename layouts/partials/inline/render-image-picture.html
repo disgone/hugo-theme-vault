@@ -1,0 +1,48 @@
+{{- $resource := .resource -}}
+{{- $class := .class -}}
+{{- $sizes := .sizes -}}
+{{- $alt := .alt -}}
+{{- $loading := .loading -}}
+{{- $longdesc := .longdesc -}}
+{{- $describedby := .describedby -}}
+{{- $outWidth := .outWidth -}}
+{{- $outHeight := .outHeight -}}
+{{- $fallbackSrc := .fallbackSrc -}}
+{{- $fallbackSrcset := .fallbackSrcset -}}
+{{- $webpSrcset := .webpSrcset -}}
+{{- $originalSrc := .src -}}
+
+{{- if $resource -}}
+<picture class="{{ $class }}">
+    {{- if $alt -}}
+    <noscript>
+        <img src="{{ $originalSrc }}" alt="{{ $alt }}">
+    </noscript>
+    {{- end -}}
+    {{- if gt (len $webpSrcset) 0 -}}
+    <source type="image/webp" srcset="{{ delimit $webpSrcset ", " }}" sizes="{{ $sizes }}">
+    {{- end -}}
+    <img
+        src="{{ $fallbackSrc }}"
+        {{- if gt (len $fallbackSrcset) 0 }} srcset="{{ delimit $fallbackSrcset ", " }}"{{ end -}}
+        sizes="{{ $sizes }}"
+        alt="{{ $alt }}"
+        loading="{{ $loading }}"
+        decoding="async"
+        {{- if $outWidth }} width="{{ $outWidth }}"{{ end -}}
+        {{- if $outHeight }} height="{{ $outHeight }}"{{ end -}}
+        {{- if $longdesc }} longdesc="{{ $longdesc }}"{{ end -}}
+        {{- if $describedby }} aria-describedby="{{ $describedby }}"{{ end -}}>
+</picture>
+{{- else -}}
+<img
+    class="{{ $class }}"
+    src="{{ $fallbackSrc }}"
+    alt="{{ $alt }}"
+    loading="{{ $loading }}"
+    decoding="async"
+    {{- if $outWidth }} width="{{ $outWidth }}"{{ end -}}
+    {{- if $outHeight }} height="{{ $outHeight }}"{{ end -}}
+    {{- if $longdesc }} longdesc="{{ $longdesc }}"{{ end -}}
+    {{- if $describedby }} aria-describedby="{{ $describedby }}"{{ end -}}>
+{{- end -}}
