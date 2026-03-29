@@ -25,16 +25,10 @@
         toggle.addEventListener("change", function() {
             if (this.checked) {
                 document.documentElement.classList.add("dark");
-                try {
-                    localStorage.setItem("theme", "dark");
-                } catch (e) {
-                }
+                try { localStorage.setItem("theme", "dark"); } catch (e) {}
             } else {
                 document.documentElement.classList.remove("dark");
-                try {
-                    localStorage.setItem("theme", "light");
-                } catch (e) {
-                }
+                try { localStorage.setItem("theme", "light"); } catch (e) {}
             }
         });
     })();
